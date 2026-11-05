@@ -1,0 +1,28 @@
+package com.vendorcrm.auth.dto;
+
+import com.vendorcrm.common.Constants;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class LoginResponse {
+
+    private String accessToken;
+
+    @Builder.Default
+    private String tokenType = Constants.TOKEN_TYPE;
+
+    private Long id;
+    private String username;
+    private String email;
+    private String fullName;
+    private List<String> roles;
+}
+
