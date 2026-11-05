@@ -1,0 +1,564 @@
+{
+  "info": {
+    "name": "Vendor CRM REST APIs",
+    "description": "Complete Postman Collection for testing Vendor CRM Backend APIs (Authentication, Vendors, Purchase Orders, Contracts)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register Admin User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"email\": \"admin@vendorcrm.com\",\n  \"password\": \"password123\",\n  \"fullName\": \"System Administrator\",\n  \"phoneNumber\": \"+919876543210\",\n  \"roles\": [\"ROLE_ADMIN\", \"ROLE_MANAGER\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login (Auto-saves Token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    if (json.data && json.data.accessToken) {",
+                  "        pm.collectionVariables.set('token', json.data.accessToken);",
+                  "        console.log('JWT Token successfully set into {{token}} variable!');",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usernameOrEmail\": \"admin\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Get Current User Profile (/me)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "me"]
+            }
+          }
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currentPassword\": \"password123\",\n  \"newPassword\": \"admin12345\",\n  \"confirmPassword\": \"admin12345\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/change-password",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "change-password"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Vendors",
+      "item": [
+        {
+          "name": "Create Vendor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorCode\": \"VEND-001\",\n  \"companyName\": \"Tech Supplies Global Pvt Ltd\",\n  \"contactPerson\": \"Ravi Kumar\",\n  \"email\": \"ravi@techsupplies.com\",\n  \"phone\": \"+919876543211\",\n  \"address\": \"123 Tech Park, Guindy\",\n  \"city\": \"Chennai\",\n  \"state\": \"Tamil Nadu\",\n  \"country\": \"India\",\n  \"postalCode\": \"600032\",\n  \"taxId\": \"GSTIN33AAAAA0000A1Z5\",\n  \"status\": \"ACTIVE\",\n  \"rating\": 4.8,\n  \"paymentTerms\": \"Net 30 Days\",\n  \"notes\": \"Primary hardware and IT equipment vendor\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/vendors",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vendors"]
+            }
+          }
+        },
+        {
+          "name": "Get All Vendors (Paginated)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/vendors?page=0&size=10&sortBy=id&sortDir=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vendors"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "10" },
+                { "key": "sortBy", "value": "id" },
+                { "key": "sortDir", "value": "desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Vendor by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/vendors/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vendors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Vendor by Code",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/vendors/code/VEND-001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vendors", "code", "VEND-001"]
+            }
+          }
+        },
+        {
+          "name": "Search Vendors",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/vendors/search?query=Tech",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vendors", "search"],
+              "query": [
+                { "key": "query", "value": "Tech" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Vendor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorCode\": \"VEND-001\",\n  \"companyName\": \"Tech Supplies Global Pvt Ltd\",\n  \"contactPerson\": \"Ravi Kumar S\",\n  \"email\": \"ravi@techsupplies.com\",\n  \"phone\": \"+919876543211\",\n  \"address\": \"456 DLF IT Park\",\n  \"city\": \"Chennai\",\n  \"state\": \"Tamil Nadu\",\n  \"country\": \"India\",\n  \"postalCode\": \"600089\",\n  \"taxId\": \"GSTIN33AAAAA0000A1Z5\",\n  \"status\": \"ACTIVE\",\n  \"rating\": 4.9,\n  \"paymentTerms\": \"Net 45 Days\",\n  \"notes\": \"Updated address and payment terms\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/vendors/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vendors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Vendor Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"ACTIVE\",\n  \"reason\": \"Approved after annual compliance review\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/vendors/1/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vendors", "1", "status"]
+            }
+          }
+        },
+        {
+          "name": "Delete Vendor",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/vendors/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vendors", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Purchase Orders",
+      "item": [
+        {
+          "name": "Create Purchase Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderNumber\": \"PO-2026-001\",\n  \"vendorId\": 1,\n  \"orderDate\": \"2026-11-05\",\n  \"expectedDeliveryDate\": \"2026-11-20\",\n  \"shippingAddress\": \"Warehouse Block B, Guindy, Chennai - 600032\",\n  \"notes\": \"Urgent shipment for Q4 hardware upgrade\",\n  \"status\": \"PENDING_APPROVAL\",\n  \"items\": [\n    {\n      \"itemDescription\": \"Dell UltraSharp 27-inch 4K Monitor\",\n      \"sku\": \"MON-DEL-4K\",\n      \"quantity\": 5,\n      \"unitPrice\": 35000.00,\n      \"taxRate\": 18.00\n    },\n    {\n      \"itemDescription\": \"Logitech MX Master 3S Wireless Mouse\",\n      \"sku\": \"MOU-LOG-MX3\",\n      \"quantity\": 10,\n      \"unitPrice\": 7500.00,\n      \"taxRate\": 18.00\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/purchase-orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "purchase-orders"]
+            }
+          }
+        },
+        {
+          "name": "Get All Purchase Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/purchase-orders?page=0&size=10&sortBy=id&sortDir=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "purchase-orders"]
+            }
+          }
+        },
+        {
+          "name": "Get PO by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/purchase-orders/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "purchase-orders", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get PO by Order Number",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/purchase-orders/order-number/PO-2026-001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "purchase-orders", "order-number", "PO-2026-001"]
+            }
+          }
+        },
+        {
+          "name": "Get POs by Vendor ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/purchase-orders/vendor/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "purchase-orders", "vendor", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update PO Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"APPROVED\",\n  \"notes\": \"Approved by Head of Procurement\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/purchase-orders/1/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "purchase-orders", "1", "status"]
+            }
+          }
+        },
+        {
+          "name": "Delete Purchase Order",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/purchase-orders/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "purchase-orders", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Contracts",
+      "item": [
+        {
+          "name": "Create Contract",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contractNumber\": \"CNT-2026-001\",\n  \"title\": \"Annual Hardware Supply & Maintenance Agreement\",\n  \"vendorId\": 1,\n  \"startDate\": \"2026-11-01\",\n  \"endDate\": \"2027-10-31\",\n  \"contractValue\": 1500000.00,\n  \"status\": \"ACTIVE\",\n  \"termsAndConditions\": \"Standard SLA with 24-hour turnaround on hardware replacements and on-site support.\",\n  \"autoRenew\": true,\n  \"renewalNoticeDays\": 30\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/contracts",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "contracts"]
+            }
+          }
+        },
+        {
+          "name": "Get All Contracts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/contracts?page=0&size=10&sortBy=id&sortDir=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "contracts"]
+            }
+          }
+        },
+        {
+          "name": "Get Contract by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/contracts/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "contracts", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Contract by Number",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/contracts/contract-number/CNT-2026-001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "contracts", "contract-number", "CNT-2026-001"]
+            }
+          }
+        },
+        {
+          "name": "Renew Contract",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newEndDate\": \"2028-10-31\",\n  \"newContractValue\": 1800000.00,\n  \"notes\": \"Renewed for Year 2 with 20% budget increment\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/contracts/1/renew",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "contracts", "1", "renew"]
+            }
+          }
+        },
+        {
+          "name": "Delete Contract",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/contracts/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "contracts", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
