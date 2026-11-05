@@ -1,0 +1,29 @@
+# Node
+node_modules/
+dist/
+build/
+
+# Java
+target/
+*.class
+
+# Environment files
+.env
+.env.local
+application-local.properties
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+temp/
+tmp/
