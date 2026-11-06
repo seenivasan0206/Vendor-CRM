@@ -36,8 +36,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/auth/register",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "register"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
             }
           }
         },
@@ -74,8 +80,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/auth/login",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "login"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
             }
           }
         },
@@ -91,8 +103,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/auth/me",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "me"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
             }
           }
         },
@@ -116,8 +134,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/auth/change-password",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "auth", "change-password"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "change-password"
+              ]
             }
           }
         }
@@ -146,8 +170,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/vendors",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "vendors"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vendors"
+              ]
             }
           }
         },
@@ -163,13 +192,30 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/vendors?page=0&size=10&sortBy=id&sortDir=desc",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "vendors"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vendors"
+              ],
               "query": [
-                { "key": "page", "value": "0" },
-                { "key": "size", "value": "10" },
-                { "key": "sortBy", "value": "id" },
-                { "key": "sortDir", "value": "desc" }
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sortBy",
+                  "value": "id"
+                },
+                {
+                  "key": "sortDir",
+                  "value": "desc"
+                }
               ]
             }
           }
@@ -186,8 +232,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/vendors/1",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "vendors", "1"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vendors",
+                "1"
+              ]
             }
           }
         },
@@ -203,8 +255,15 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/vendors/code/VEND-001",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "vendors", "code", "VEND-001"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vendors",
+                "code",
+                "VEND-001"
+              ]
             }
           }
         },
@@ -220,10 +279,19 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/vendors/search?query=Tech",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "vendors", "search"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vendors",
+                "search"
+              ],
               "query": [
-                { "key": "query", "value": "Tech" }
+                {
+                  "key": "query",
+                  "value": "Tech"
+                }
               ]
             }
           }
@@ -248,8 +316,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/vendors/1",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "vendors", "1"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vendors",
+                "1"
+              ]
             }
           }
         },
@@ -273,8 +347,15 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/vendors/1/status",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "vendors", "1", "status"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vendors",
+                "1",
+                "status"
+              ]
             }
           }
         },
@@ -290,8 +371,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/vendors/1",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "vendors", "1"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "vendors",
+                "1"
+              ]
             }
           }
         }
@@ -320,8 +407,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/purchase-orders",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "purchase-orders"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "purchase-orders"
+              ]
             }
           }
         },
@@ -337,8 +429,13 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/purchase-orders?page=0&size=10&sortBy=id&sortDir=desc",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "purchase-orders"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "purchase-orders"
+              ]
             }
           }
         },
@@ -354,8 +451,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/purchase-orders/1",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "purchase-orders", "1"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "purchase-orders",
+                "1"
+              ]
             }
           }
         },
@@ -371,8 +474,15 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/purchase-orders/order-number/PO-2026-001",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "purchase-orders", "order-number", "PO-2026-001"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "purchase-orders",
+                "order-number",
+                "PO-2026-001"
+              ]
             }
           }
         },
@@ -388,8 +498,15 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/purchase-orders/vendor/1",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "purchase-orders", "vendor", "1"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "purchase-orders",
+                "vendor",
+                "1"
+              ]
             }
           }
         },
@@ -413,8 +530,15 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/purchase-orders/1/status",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "purchase-orders", "1", "status"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "purchase-orders",
+                "1",
+                "status"
+              ]
             }
           }
         },
@@ -430,8 +554,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/purchase-orders/1",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "purchase-orders", "1"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "purchase-orders",
+                "1"
+              ]
             }
           }
         }
@@ -460,8 +590,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/contracts",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "contracts"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contracts"
+              ]
             }
           }
         },
@@ -477,8 +612,13 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/contracts?page=0&size=10&sortBy=id&sortDir=desc",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "contracts"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contracts"
+              ]
             }
           }
         },
@@ -494,8 +634,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/contracts/1",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "contracts", "1"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contracts",
+                "1"
+              ]
             }
           }
         },
@@ -511,8 +657,15 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/contracts/contract-number/CNT-2026-001",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "contracts", "contract-number", "CNT-2026-001"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contracts",
+                "contract-number",
+                "CNT-2026-001"
+              ]
             }
           }
         },
@@ -536,8 +689,15 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/contracts/1/renew",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "contracts", "1", "renew"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contracts",
+                "1",
+                "renew"
+              ]
             }
           }
         },
@@ -553,8 +713,1890 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/api/contracts/1",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "contracts", "1"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contracts",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Vendor Communication",
+      "item": [
+        {
+          "name": "Create Communication (Success)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": 1,\n  \"subject\": \"Quarterly Performance Review Meeting\",\n  \"message\": \"Discussion regarding quarterly supply chain delivery benchmarks and SLA compliance.\",\n  \"communicationType\": \"MEETING\",\n  \"communicationDate\": \"2026-11-15T10:00:00\",\n  \"communicationStatus\": \"PENDING\",\n  \"remarks\": \"Scheduled with Procurement Manager\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/communications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Communication - Invalid Vendor (Error 404)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": 99999,\n  \"subject\": \"Invalid Vendor Test\",\n  \"message\": \"This should fail because vendor does not exist.\",\n  \"communicationType\": \"EMAIL\",\n  \"communicationDate\": \"2026-11-15T10:00:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/communications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Communication - Missing Required Fields (Error 400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"\",\n  \"message\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/communications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Communications (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/communications?page=0&size=10&sortBy=id&sortDir=desc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sortBy",
+                  "value": "id"
+                },
+                {
+                  "key": "sortDir",
+                  "value": "desc"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Communication by ID (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/communications/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Communication by Missing ID (Error 404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/communications/99999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications",
+                "99999"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Communications by Vendor ID (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/communications/vendor/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications",
+                "vendor",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Vendor Communication History (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/communications/vendor/1/history",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications",
+                "vendor",
+                "1",
+                "history"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search Communications (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/communications/search?query=Review",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "Review"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filter Communications by Type & Status (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/communications/filter?type=MEETING&status=PENDING",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications",
+                "filter"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "MEETING"
+                },
+                {
+                  "key": "status",
+                  "value": "PENDING"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Communication (Success)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": 1,\n  \"subject\": \"Updated: Performance Review Meeting\",\n  \"message\": \"Meeting rescheduled to Conference Hall B.\",\n  \"communicationType\": \"MEETING\",\n  \"communicationDate\": \"2026-11-16T14:00:00\",\n  \"communicationStatus\": \"PENDING\",\n  \"remarks\": \"Rescheduled upon vendor request\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/communications/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Communication Status (Success)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"communicationStatus\": \"COMPLETED\",\n  \"remarks\": \"Meeting concluded successfully with action items recorded.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/communications/1/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications",
+                "1",
+                "status"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Communication (Success)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/communications/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Unauthorized Access Test - Missing Token (Error 401)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/communications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "communications"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Reports & Analytics",
+      "item": [
+        {
+          "name": "Vendor Summary Report (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/vendors/summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "vendors",
+                "summary"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Vendor Status Report - Active (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/vendors/status?status=ACTIVE",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "vendors",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "ACTIVE"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Purchase Order Report with Date Filters (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/purchase-orders/summary?startDate=2026-01-01&endDate=2026-12-31",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "purchase-orders",
+                "summary"
+              ],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2026-12-31"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Purchase Order Status Report (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/purchase-orders/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "purchase-orders",
+                "status"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Contract Summary Report (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/contracts/summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "contracts",
+                "summary"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Contract Expiry Report - Next 30 Days (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/contracts/expiring?days=30",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "contracts",
+                "expiring"
+              ],
+              "query": [
+                {
+                  "key": "days",
+                  "value": "30"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Vendor Performance Summary (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/vendors/performance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "vendors",
+                "performance"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Monthly Purchase Report (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/purchase-orders/monthly?year=2026",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "purchase-orders",
+                "monthly"
+              ],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "2026"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Overall Business Summary (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/business-summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "business-summary"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Export Vendors CSV (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/export/vendors/csv",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "export",
+                "vendors",
+                "csv"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Export Purchase Orders CSV (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/export/purchase-orders/csv",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "export",
+                "purchase-orders",
+                "csv"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Export Contracts CSV (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/export/contracts/csv",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "export",
+                "contracts",
+                "csv"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Unauthorized Reports Access Test (Error 401)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/business-summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reports",
+                "business-summary"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Notifications",
+      "item": [
+        {
+          "name": "Create Notification (Success)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"title\": \"PO Approval Needed\",\n  \"message\": \"Purchase Order PO-2026-001 has been submitted and is awaiting your review.\",\n  \"notificationType\": \"PURCHASE_ORDER\",\n  \"referenceId\": 1,\n  \"referenceType\": \"PURCHASE_ORDER\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Notification - Missing Title/Message (Error 400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"title\": \"\",\n  \"message\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Notification - Invalid User ID (Error 404)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 99999,\n  \"title\": \"Test Alert\",\n  \"message\": \"Test notification message\",\n  \"notificationType\": \"GENERAL\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Notifications - Admin (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get My Notifications (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/my?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "my"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Notifications by User ID (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/user/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "user",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Notification by ID (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Notification by Missing ID (Error 404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/99999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "99999"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Notification (Success)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"PO Approval Needed [URGENT]\",\n  \"message\": \"High priority: Purchase Order PO-2026-001 requires immediate sign-off.\",\n  \"notificationType\": \"PURCHASE_ORDER\",\n  \"isRead\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mark Notification as Read (Success)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/1/read",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "1",
+                "read"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mark Notification as Unread (Success)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/1/unread",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "1",
+                "unread"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mark All My Notifications as Read (Success)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/read-all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "read-all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get My Unread Notification Count (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/unread-count",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "unread-count"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filter Notifications by Type & Status (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/filter?type=PURCHASE_ORDER&isRead=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "filter"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "PURCHASE_ORDER"
+                },
+                {
+                  "key": "isRead",
+                  "value": "false"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Notification (Success)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete All Read Notifications (Success)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications/read",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "notifications",
+                "read"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. Settings & Administration",
+      "item": [
+        {
+          "name": "Get All Application Settings (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/settings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Setting by ID (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Setting by Key (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/key/COMPANY_NAME",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "key",
+                "COMPANY_NAME"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Setting - Admin Only (Success)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"settingKey\": \"MAX_LOGIN_ATTEMPTS\",\n  \"settingValue\": \"5\",\n  \"description\": \"Maximum failed login attempts before locking account\",\n  \"settingCategory\": \"SECURITY\",\n  \"isActive\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/settings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Setting - Duplicate Key (Error 409)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"settingKey\": \"COMPANY_NAME\",\n  \"settingValue\": \"Duplicate Test\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/settings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Setting - Missing Key (Error 400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"settingKey\": \"\",\n  \"settingValue\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/settings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Setting (Success)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"settingKey\": \"COMPANY_NAME\",\n  \"settingValue\": \"Vendor CRM Global Inc.\",\n  \"description\": \"Updated legal corporate title\",\n  \"settingCategory\": \"GENERAL\",\n  \"isActive\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Setting (Success)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Users - Admin View (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/users?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User Details by ID (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/users/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "users",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User by Missing ID (Error 404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/users/99999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "users",
+                "99999"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Roles (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/roles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "roles"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User Roles (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/users/1/roles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "users",
+                "1",
+                "roles"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update User Roles (Success)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roles\": [\n    \"ROLE_ADMIN\",\n    \"ROLE_MANAGER\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/users/1/roles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "users",
+                "1",
+                "roles"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update User Status - Active Toggle (Success)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isActive\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/settings/users/2/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "settings",
+                "users",
+                "2",
+                "status"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "9. Dashboard Overview",
+      "item": [
+        {
+          "name": "Get Overall Dashboard Statistics (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "stats"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Vendor Statistics (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/vendor-stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "vendor-stats"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Purchase Order Statistics (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/purchase-order-stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "purchase-order-stats"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Contract Statistics (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/contract-stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "contract-stats"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Monthly Purchase Order Statistics (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/monthly-po-stats?year=2026",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "monthly-po-stats"
+              ],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "2026"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Recent Vendors (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/recent-vendors?limit=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "recent-vendors"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Recent Purchase Orders (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/recent-purchase-orders?limit=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "recent-purchase-orders"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Recent Contracts (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/recent-contracts?limit=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "recent-contracts"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Pending Purchase Orders (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/pending-purchase-orders?limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "pending-purchase-orders"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Upcoming Contract Expirations (Success)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/upcoming-contract-expirations?days=30&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "upcoming-contract-expirations"
+              ],
+              "query": [
+                {
+                  "key": "days",
+                  "value": "30"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Unauthorized Dashboard Access Test (Error 401)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "stats"
+              ]
             }
           }
         }
