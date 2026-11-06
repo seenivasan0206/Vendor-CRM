@@ -1,5 +1,5 @@
 -- =====================================================
--- Migration V2: Modules 9, 10, 11, 12, 13
+-- Migration V3: Modules 9, 10, 11, 12, 13
 -- Vendor Communication, Notifications, App Settings
 -- =====================================================
 

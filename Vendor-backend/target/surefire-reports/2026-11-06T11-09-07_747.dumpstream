@@ -1,5 +1,0 @@
-# Created at 2026-11-06T11:09:08.034
-Boot Manifest-JAR contains absolute paths in classpath 'D:\Vendor CRM\Vendor-CRM\Vendor-backend\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-'other' has different root
-

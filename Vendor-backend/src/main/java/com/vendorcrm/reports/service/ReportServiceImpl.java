@@ -8,7 +8,6 @@ import com.vendorcrm.reports.dto.*;
 import com.vendorcrm.vendors.entity.Vendor;
 import com.vendorcrm.vendors.repository.VendorRepository;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

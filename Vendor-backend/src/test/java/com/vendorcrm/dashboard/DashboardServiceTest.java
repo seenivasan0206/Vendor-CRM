@@ -1,10 +1,8 @@
 package com.vendorcrm.dashboard;
 
 import com.vendorcrm.contracts.repository.ContractRepository;
-import com.vendorcrm.dashboard.dto.DashboardContractStatsResponse;
 import com.vendorcrm.dashboard.dto.DashboardPOStatsResponse;
 import com.vendorcrm.dashboard.dto.DashboardVendorStatsResponse;
-import com.vendorcrm.dashboard.dto.OverallDashboardStatsResponse;
 import com.vendorcrm.dashboard.service.DashboardServiceImpl;
 import com.vendorcrm.purchaseorder.repository.PurchaseOrderRepository;
 import com.vendorcrm.vendors.repository.VendorRepository;
@@ -17,13 +15,13 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@SuppressWarnings("unchecked")
 class DashboardServiceTest {
 
     @Mock
