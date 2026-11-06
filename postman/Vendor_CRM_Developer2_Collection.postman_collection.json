@@ -1,0 +1,1062 @@
+{
+  "info": {
+    "_postman_id": "vendor-crm-dev2-collection",
+    "name": "Vendor CRM - Developer 2 Modules API Collection",
+    "description": "Comprehensive Postman test collection for Developer 2 modules:\n1. Product & Service Management\n2. Inventory Management\n3. Invoice & Payment Management\n4. Vendor Performance Management\n\nIncludes positive and negative test cases with automatic token extraction and assertions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwt_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "0. Authentication & Setup Prerequisites",
+      "item": [
+        {
+          "name": "0.1 Register Admin User (Initial Setup)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201 Created or 409 Conflict (already registered)\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([201, 409]);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"email\": \"admin@vendorcrm.com\",\n  \"password\": \"admin123\",\n  \"fullName\": \"System Administrator\",\n  \"phoneNumber\": \"+1-555-0199\",\n  \"roles\": [\"ROLE_ADMIN\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "0.2 Login as Admin (Token Generation)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.data) {",
+                  "    var token = jsonData.data.accessToken || jsonData.data.token;",
+                  "    if (token) {",
+                  "        pm.environment.set(\"jwt_token\", token);",
+                  "        console.log(\"Saved JWT Token to environment: \" + token.substring(0, 15) + \"...\");",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usernameOrEmail\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "0.3 Create Sample Vendor (Prerequisite for Modules 1-4)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201 Created or 200/409\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201, 409]);",
+                  "});",
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.data && jsonData.data.id) {",
+                  "    pm.environment.set(\"vendor_id\", jsonData.data.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorCode\": \"VEND-GLOBAL-01\",\n  \"companyName\": \"Global Apex Logistics\",\n  \"contactPerson\": \"Sarah Jenkins\",\n  \"email\": \"sarah@globalapex.com\",\n  \"phone\": \"+1-555-883-2911\",\n  \"address\": \"450 Industrial Parkway\",\n  \"city\": \"Austin\",\n  \"state\": \"TX\",\n  \"country\": \"USA\",\n  \"postalCode\": \"78701\",\n  \"taxId\": \"US-EIN-9928172\",\n  \"paymentTerms\": \"Net 30 Days\",\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/vendors",
+              "host": ["{{base_url}}"],
+              "path": ["api", "vendors"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "1. Product & Service Management",
+      "item": [
+        {
+          "name": "1.1 Create Product (Positive)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201 Created\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "var jsonData = pm.response.json();",
+                  "pm.test(\"Product created with active status\", function() {",
+                  "    pm.expect(jsonData.success).to.be.true;",
+                  "    pm.expect(jsonData.data.sku).to.eql(\"PRD-IOT-101\");",
+                  "    pm.environment.set(\"product_id\", jsonData.data.id);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sku\": \"PRD-IOT-101\",\n  \"name\": \"Industrial IoT Temperature Sensor\",\n  \"description\": \"High-precision IP67 wireless sensor\",\n  \"type\": \"PRODUCT\",\n  \"category\": \"Sensors & IoT\",\n  \"unitPrice\": 189.50,\n  \"unitOfMeasure\": \"UNIT\",\n  \"vendorId\": {{vendor_id}},\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/products",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "1.2 Create Service (Positive)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201 Created\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "var jsonData = pm.response.json();",
+                  "pm.test(\"Service catalog entry created\", function() {",
+                  "    pm.expect(jsonData.data.type).to.eql(\"SERVICE\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sku\": \"SRV-MAINT-01\",\n  \"name\": \"Monthly Predictive Maintenance SLA\",\n  \"description\": \"24/7 telemetry monitoring and sensor calibration\",\n  \"type\": \"SERVICE\",\n  \"category\": \"Professional Services\",\n  \"unitPrice\": 450.00,\n  \"unitOfMeasure\": \"MONTH\",\n  \"vendorId\": {{vendor_id}},\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/products",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "1.3 Get Product By ID (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/products/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products", "{{product_id}}"]
+            }
+          }
+        },
+        {
+          "name": "1.4 Get Product By SKU (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/products/sku/PRD-IOT-101",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products", "sku", "PRD-IOT-101"]
+            }
+          }
+        },
+        {
+          "name": "1.5 Get All Products Paged (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/products?page=0&size=10&sortBy=id&sortDir=asc",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "10" },
+                { "key": "sortBy", "value": "id" },
+                { "key": "sortDir", "value": "asc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "1.6 Search Products (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/products/search?query=Sensor&page=0&size=5",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products", "search"],
+              "query": [
+                { "key": "query", "value": "Sensor" },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "5" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "1.7 Filter Products by Type (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/products/type/PRODUCT",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products", "type", "PRODUCT"]
+            }
+          }
+        },
+        {
+          "name": "1.8 Update Product (Positive)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sku\": \"PRD-IOT-101\",\n  \"name\": \"Industrial IoT Temperature Sensor v2\",\n  \"description\": \"Upgraded IP68 wireless sensor with 5-year battery\",\n  \"type\": \"PRODUCT\",\n  \"category\": \"Sensors & IoT\",\n  \"unitPrice\": 199.00,\n  \"unitOfMeasure\": \"UNIT\",\n  \"vendorId\": {{vendor_id}},\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/products/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products", "{{product_id}}"]
+            }
+          }
+        },
+        {
+          "name": "1.9 Update Product Status (Positive)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"ACTIVE\",\n  \"reason\": \"Verified vendor catalog stock\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/products/{{product_id}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products", "{{product_id}}", "status"]
+            }
+          }
+        },
+        {
+          "name": "1.10 Negative: Duplicate SKU (Expect 409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 409 Conflict\", function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sku\": \"PRD-IOT-101\",\n  \"name\": \"Duplicate Sensor\",\n  \"type\": \"PRODUCT\",\n  \"unitPrice\": 100.00,\n  \"vendorId\": {{vendor_id}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/products",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "1.11 Negative: Missing Required Fields (Expect 400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400 Bad Request\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Missing SKU and Name\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/products",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "1.12 Negative: Get Non-Existent Product (Expect 404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404 Not Found\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/products/99999",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products", "99999"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Inventory Management",
+      "item": [
+        {
+          "name": "2.1 Initialize Inventory (Positive)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201 Created\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"inventory_id\", jsonData.data.id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": {{product_id}},\n  \"quantityOnHand\": 100,\n  \"reservedQuantity\": 10,\n  \"reorderLevel\": 25,\n  \"maxLevel\": 500,\n  \"location\": \"Warehouse 1 - Rack B2 - Shelf 4\",\n  \"batchNumber\": \"BATCH-2026-001\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/inventory",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory"]
+            }
+          }
+        },
+        {
+          "name": "2.2 Get Inventory By ID (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/inventory/{{inventory_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory", "{{inventory_id}}"]
+            }
+          }
+        },
+        {
+          "name": "2.3 Get Inventory By Product ID (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/inventory/product/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory", "product", "{{product_id}}"]
+            }
+          }
+        },
+        {
+          "name": "2.4 Stock In Adjustment (Positive)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"STOCK_IN\",\n  \"quantity\": 50,\n  \"referenceNumber\": \"GRN-2026-8891\",\n  \"notes\": \"Received vendor bulk shipment\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/inventory/{{inventory_id}}/adjust",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory", "{{inventory_id}}", "adjust"]
+            }
+          }
+        },
+        {
+          "name": "2.5 Stock Out Adjustment (Positive)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"STOCK_OUT\",\n  \"quantity\": 20,\n  \"referenceNumber\": \"DISP-2026-102\",\n  \"notes\": \"Dispatched for project deployment\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/inventory/{{inventory_id}}/adjust",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory", "{{inventory_id}}", "adjust"]
+            }
+          }
+        },
+        {
+          "name": "2.6 Physical Count Adjustment (Positive)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"ADJUSTMENT\",\n  \"quantity\": 135,\n  \"referenceNumber\": \"AUDIT-Q1-2026\",\n  \"notes\": \"Cycle count reconciliation\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/inventory/{{inventory_id}}/adjust",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory", "{{inventory_id}}", "adjust"]
+            }
+          }
+        },
+        {
+          "name": "2.7 Get Low Stock Items (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/inventory/low-stock",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory", "low-stock"]
+            }
+          }
+        },
+        {
+          "name": "2.8 Get Inventory Item Transactions (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/inventory/{{inventory_id}}/transactions",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory", "{{inventory_id}}", "transactions"]
+            }
+          }
+        },
+        {
+          "name": "2.9 Negative: Duplicate Inventory For Product (Expect 409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 409 Conflict\", function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": {{product_id}},\n  \"quantityOnHand\": 50\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/inventory",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory"]
+            }
+          }
+        },
+        {
+          "name": "2.10 Negative: Stock Out Exceeding Available (Expect 400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400 Bad Request\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"STOCK_OUT\",\n  \"quantity\": 99999,\n  \"referenceNumber\": \"ERR-ORDER-1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/inventory/{{inventory_id}}/adjust",
+              "host": ["{{base_url}}"],
+              "path": ["api", "inventory", "{{inventory_id}}", "adjust"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Invoice & Payment Management",
+      "item": [
+        {
+          "name": "3.1 Create Invoice with Items (Positive)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201 Created\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"invoice_id\", jsonData.data.id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoiceNumber\": \"INV-2026-0001\",\n  \"vendorId\": {{vendor_id}},\n  \"invoiceDate\": \"2026-11-01\",\n  \"dueDate\": \"2026-12-01\",\n  \"paymentTerms\": \"Net 30 Days\",\n  \"notes\": \"Billed for sensor hardware procurement\",\n  \"status\": \"DRAFT\",\n  \"items\": [\n    {\n      \"productId\": {{product_id}},\n      \"description\": \"Industrial IoT Temperature Sensor v2\",\n      \"quantity\": 10,\n      \"unitPrice\": 199.00,\n      \"taxRate\": 18.00\n    },\n    {\n      \"description\": \"Shipping and Handling\",\n      \"quantity\": 1,\n      \"unitPrice\": 50.00,\n      \"taxRate\": 0.00\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/invoices",
+              "host": ["{{base_url}}"],
+              "path": ["api", "invoices"]
+            }
+          }
+        },
+        {
+          "name": "3.2 Get Invoice By ID (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/invoices/{{invoice_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "invoices", "{{invoice_id}}"]
+            }
+          }
+        },
+        {
+          "name": "3.3 Update Invoice Status to APPROVED (Positive)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"APPROVED\",\n  \"reason\": \"Goods receipt validated by warehouse supervisor\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/invoices/{{invoice_id}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "invoices", "{{invoice_id}}", "status"]
+            }
+          }
+        },
+        {
+          "name": "3.4 Record Partial Payment (Positive)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201 Created\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"payment_id\", jsonData.data.id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentReference\": \"PAY-2026-0001\",\n  \"invoiceId\": {{invoice_id}},\n  \"amount\": 1000.00,\n  \"paymentDate\": \"2026-11-05\",\n  \"paymentMethod\": \"BANK_TRANSFER\",\n  \"transactionReference\": \"NEFT-UTR-982173123\",\n  \"notes\": \"Initial milestone payment 1000\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/payments",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payments"]
+            }
+          }
+        },
+        {
+          "name": "3.5 Get Payments for Invoice (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/payments/invoice/{{invoice_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payments", "invoice", "{{invoice_id}}"]
+            }
+          }
+        },
+        {
+          "name": "3.6 Negative: Duplicate Invoice Number (Expect 409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 409 Conflict\", function () {",
+                  "    pm.response.to.have.status(409);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoiceNumber\": \"INV-2026-0001\",\n  \"vendorId\": {{vendor_id}},\n  \"invoiceDate\": \"2026-11-01\",\n  \"dueDate\": \"2026-12-01\",\n  \"items\": [\n    {\n      \"description\": \"Item\",\n      \"quantity\": 1,\n      \"unitPrice\": 10.0\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/invoices",
+              "host": ["{{base_url}}"],
+              "path": ["api", "invoices"]
+            }
+          }
+        },
+        {
+          "name": "3.7 Negative: Payment Exceeding Balance (Expect 400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400 Bad Request\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentReference\": \"PAY-EXCEED-01\",\n  \"invoiceId\": {{invoice_id}},\n  \"amount\": 500000.00,\n  \"paymentDate\": \"2026-11-05\",\n  \"paymentMethod\": \"BANK_TRANSFER\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/payments",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payments"]
+            }
+          }
+        },
+        {
+          "name": "3.8 Negative: Delete Invoice with Recorded Payments (Expect 400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400 Bad Request\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/invoices/{{invoice_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "invoices", "{{invoice_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Vendor Performance Management",
+      "item": [
+        {
+          "name": "4.1 Record Performance Review (Positive)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201 Created\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "var jsonData = pm.response.json();",
+                  "pm.expect(jsonData.data.overallScore).to.eql(4.6);",
+                  "pm.environment.set(\"review_id\", jsonData.data.id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": {{vendor_id}},\n  \"reviewDate\": \"2026-11-05\",\n  \"reviewPeriod\": \"Q3 2026\",\n  \"qualityScore\": 4.8,\n  \"deliveryScore\": 4.5,\n  \"pricingScore\": 4.2,\n  \"communicationScore\": 4.7,\n  \"complianceScore\": 4.8,\n  \"comments\": \"Consistently delivers high-grade IoT sensors with zero defect return rate.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/vendor-performance",
+              "host": ["{{base_url}}"],
+              "path": ["api", "vendor-performance"]
+            }
+          }
+        },
+        {
+          "name": "4.2 Get Review By ID (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/vendor-performance/{{review_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "vendor-performance", "{{review_id}}"]
+            }
+          }
+        },
+        {
+          "name": "4.3 Get Reviews By Vendor (Positive)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/vendor-performance/vendor/{{vendor_id}}?page=0&size=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "vendor-performance", "vendor", "{{vendor_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "4.4 Get Vendor Performance KPI Summary (Positive)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 OK\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "var jsonData = pm.response.json();",
+                  "pm.expect(jsonData.data.totalReviews).to.be.at.least(1);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/vendor-performance/vendor/{{vendor_id}}/summary",
+              "host": ["{{base_url}}"],
+              "path": ["api", "vendor-performance", "vendor", "{{vendor_id}}", "summary"]
+            }
+          }
+        },
+        {
+          "name": "4.5 Synchronize Vendor Rating (Positive)",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{base_url}}/api/vendor-performance/vendor/{{vendor_id}}/sync-rating",
+              "host": ["{{base_url}}"],
+              "path": ["api", "vendor-performance", "vendor", "{{vendor_id}}", "sync-rating"]
+            }
+          }
+        },
+        {
+          "name": "4.6 Negative: Score Exceeding 5.0 (Expect 400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400 Bad Request\", function () {",
+                  "    pm.response.to.have.status(400);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": {{vendor_id}},\n  \"reviewDate\": \"2026-11-05\",\n  \"reviewPeriod\": \"Q3 2026\",\n  \"qualityScore\": 6.5,\n  \"deliveryScore\": 4.0,\n  \"pricingScore\": 4.0,\n  \"communicationScore\": 4.0,\n  \"complianceScore\": 4.0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/vendor-performance",
+              "host": ["{{base_url}}"],
+              "path": ["api", "vendor-performance"]
+            }
+          }
+        },
+        {
+          "name": "4.7 Negative: Review for Non-Existent Vendor (Expect 404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404 Not Found\", function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendorId\": 99999,\n  \"reviewDate\": \"2026-11-05\",\n  \"reviewPeriod\": \"Q3 2026\",\n  \"qualityScore\": 4.0,\n  \"deliveryScore\": 4.0,\n  \"pricingScore\": 4.0,\n  \"communicationScore\": 4.0,\n  \"complianceScore\": 4.0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/vendor-performance",
+              "host": ["{{base_url}}"],
+              "path": ["api", "vendor-performance"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Security & Authorization Negative Tests",
+      "item": [
+        {
+          "name": "5.1 Unauthenticated Request Without Token (Expect 401)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401 Unauthorized\", function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/products",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
