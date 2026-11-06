@@ -1,5 +1,5 @@
-com/vendorcrm/dashboard/DashboardServiceTest.class
-com/vendorcrm/communication/CommunicationServiceTest.class
-com/vendorcrm/reports/ReportServiceTest.class
-com/vendorcrm/notifications/NotificationServiceTest.class
-com/vendorcrm/settings/SettingsServiceTest.class
+com\vendorcrm\reports\ReportServiceTest.class
+com\vendorcrm\communication\CommunicationServiceTest.class
+com\vendorcrm\dashboard\DashboardServiceTest.class
+com\vendorcrm\notifications\NotificationServiceTest.class
+com\vendorcrm\settings\SettingsServiceTest.class
