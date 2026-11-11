@@ -1,0 +1,87 @@
+/* Sidebar Container */
+.crm-sidebar {
+  width: 250px;
+  min-width: 250px;
+  height: 100vh;
+  background-color: #0f172a; /* Deep Slate / Dark Navy */
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #1e293b;
+  overflow-y: auto;
+}
+
+/* Brand Title */
+.crm-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 24px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #38bdf8; /* Sky Blue */
+  border-bottom: 1px solid #1e293b;
+}
+
+.brand-icon {
+  font-size: 1.3rem;
+}
+
+/* Navigation Scroll Area */
+.crm-nav {
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Section Heading */
+.nav-group-title {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin-bottom: 8px;
+  padding-left: 12px;
+}
+
+.nav-group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Nav Button */
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #94a3b8;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: left;
+}
+
+.nav-btn:hover {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+.nav-btn.active {
+  background-color: #0284c7; /* Primary Blue */
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 1.05rem;
+}
+
