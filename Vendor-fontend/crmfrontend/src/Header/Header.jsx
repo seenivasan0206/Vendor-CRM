@@ -1,4 +1,3 @@
-import React from 'react';
 import '../Styles/Header.css';
 
 const pageTitles = {
@@ -16,8 +15,16 @@ const pageTitles = {
   settings: 'System Settings & Administration',
 };
 
-function Header({ activeTab }) {
+function Header({ activeTab, user, onLogout }) {
   const currentTitle = pageTitles[activeTab] || 'Dashboard Overview';
+  const displayName = user?.fullName || user?.email || 'Admin User';
+  const displayRole = user?.activeRole ? user.activeRole.replace('_', ' ') : 'Administrator';
+  const initials = displayName
+    .split(/\s+/)
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
 
   return (
     <header className="crm-header">
@@ -35,11 +42,15 @@ function Header({ activeTab }) {
         </div>
 
         {/* User Profile Pill */}
-        <div className="header-user-profile">
-          <div className="user-avatar">AD</div>
+        <div
+          className="header-user-profile"
+          onClick={onLogout}
+          title={onLogout ? 'Click to sign out' : 'User Profile'}
+        >
+          <div className="user-avatar">{initials}</div>
           <div className="user-info">
-            <span className="user-name">Admin User</span>
-            <span className="user-role">Administrator</span>
+            <span className="user-name">{displayName}</span>
+            <span className="user-role">{displayRole}</span>
           </div>
         </div>
       </div>
