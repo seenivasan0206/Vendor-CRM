@@ -10,43 +10,24 @@ import Vendorperformance from './Component/Vendorperformance';
 function App() {
   const [activeTab, setActiveTab] = useState('purchaseorders');
 
-  const renderActiveScreen = () => {
-    switch (activeTab) {
-      case 'purchaseorders':
-        return <Purchaseorder />;
-      case 'inventory':
-        return <Inventory />;
-      case 'payments':
-        return <Payment />;
-      case 'performance':
-        return <Vendorperformance />;
-      default:
-        return (
-          <div className="workspace-placeholder-card">
-            <h2>
-              Active Screen: <span className="screen-highlight">{activeTab}</span>
-            </h2>
-            <p>This module is ready to be built next.</p>
-          </div>
-        );
-    }
-  };
-
   return (
     <div className="crm-app-container">
-      {/* 1. Left Fixed Sidebar */}
+      {/* 1. Full Sidebar with all items preserved */}
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* 2. Right Side: Header + Workspace */}
+      {/* 2. Header */}
       <div className="crm-main-layout">
         <Header
           activeTab={activeTab}
           onNotificationsClick={() => setActiveTab('notifications')}
         />
 
-        {/* 3. Main Workspace Area */}
+        {/* 3. Main Workspace Area: Shows only your 4 modules, nothing for other tabs */}
         <main className="crm-workspace">
-          {renderActiveScreen()}
+          {activeTab === 'purchaseorders' && <Purchaseorder />}
+          {activeTab === 'inventory' && <Inventory />}
+          {activeTab === 'payments' && <Payment />}
+          {activeTab === 'performance' && <Vendorperformance />}
         </main>
       </div>
     </div>
