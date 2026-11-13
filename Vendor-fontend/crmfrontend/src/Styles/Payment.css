@@ -1,0 +1,290 @@
+.pay-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pay-header {
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.pay-header h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.pay-header p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* KPI Cards */
+.pay-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pay-stat-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pay-stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.pay-stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.pay-stat-success {
+  color: #059669;
+}
+
+.pay-stat-warning {
+  color: #d97706;
+}
+
+/* Table */
+.pay-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.pay-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.pay-table th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pay-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.pay-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pay-inv-num {
+  font-weight: 700;
+  color: #0284c7;
+}
+
+.pay-vendor-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.pay-due-alert {
+  font-weight: 700;
+  color: #d97706;
+}
+
+.pay-due-settled {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* Badges */
+.pay-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pay-badge-paid {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.pay-badge-partially_paid {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.pay-badge-approved {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Record Button */
+.pay-btn-record {
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pay-btn-record:hover {
+  background: #0369a1;
+}
+
+.pay-cleared-text {
+  color: #059669;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Modal */
+.pay-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.pay-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.pay-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.pay-modal-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.pay-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.pay-modal-meta {
+  padding: 12px 20px;
+  background: #f8fafc;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.9rem;
+}
+
+.pay-modal-balance-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.pay-modal-balance-row strong {
+  color: #d97706;
+}
+
+.pay-form {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pay-form-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.pay-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pay-form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.pay-form-group input,
+.pay-form-group select {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.pay-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.pay-btn-secondary {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pay-btn-primary {
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}

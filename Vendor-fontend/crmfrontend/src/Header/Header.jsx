@@ -16,7 +16,7 @@ const pageTitles = {
   settings: 'System Settings & Administration',
 };
 
-function Header({ activeTab }) {
+function Header({ activeTab, onNotificationsClick }) {
   const currentTitle = pageTitles[activeTab] || 'Dashboard Overview';
 
   return (
@@ -29,10 +29,15 @@ function Header({ activeTab }) {
       {/* Right Side: Alerts & User Profile */}
       <div className="header-right">
         {/* Notification Bell */}
-        <div className="header-action-btn" title="Notifications">
+        <button
+          type="button"
+          className="header-action-btn"
+          title="Notifications"
+          onClick={onNotificationsClick}
+        >
           <span className="bell-icon">🔔</span>
           <span className="notification-badge">3</span>
-        </div>
+        </button>
 
         {/* User Profile Pill */}
         <div className="header-user-profile">
