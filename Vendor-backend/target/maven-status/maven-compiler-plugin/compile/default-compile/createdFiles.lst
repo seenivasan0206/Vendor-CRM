@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-com\vendorcrm\inventory\service\InventoryServiceImpl$1.class
-=======
 com\vendorcrm\security\JwtTokenProvider.class
 com\vendorcrm\invoices\dto\InvoiceResponse$InvoiceResponseBuilder.class
 com\vendorcrm\reports\dto\PurchaseOrderStatusReportResponse$PurchaseOrderStatusReportResponseBuilder.class
@@ -248,4 +245,3 @@ com\vendorcrm\dashboard\dto\DashboardContractStatsResponse.class
 com\vendorcrm\config\SecurityConfig.class
 com\vendorcrm\contracts\dto\ContractResponse$ContractResponseBuilder.class
 com\vendorcrm\dashboard\dto\DashboardPOStatsResponse$DashboardPOStatsResponseBuilder.class
->>>>>>> 3fdab8156e31569b5abb25ad8b4a3e34927facfe

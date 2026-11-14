@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 C:\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\dashboard\DashboardServiceTest.java
 C:\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\reports\ReportServiceTest.java
 C:\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\notifications\NotificationServiceTest.java
 C:\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\communication\CommunicationServiceTest.java
 C:\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\settings\SettingsServiceTest.java
-=======
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\notifications\NotificationServiceTest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\dashboard\DashboardServiceTest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\settings\SettingsServiceTest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\communication\CommunicationServiceTest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\test\java\com\vendorcrm\reports\ReportServiceTest.java
->>>>>>> 3fdab8156e31569b5abb25ad8b4a3e34927facfe

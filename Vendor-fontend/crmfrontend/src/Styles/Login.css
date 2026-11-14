@@ -1,101 +1,108 @@
 /* Zenve Zippy - Login Page Premium Enterprise Styles */
 
 :root {
-  --bg-navy: #020B1A;
-  --bg-card: rgba(7, 23, 43, 0.78);
-  --cyan-primary: #00D4E5;
-  --blue-secondary: #1265FF;
-  --purple-accent: #7B2CFF;
-  --orange-accent: #FF9500;
+    --bg-navy: #020B1A;
+    --bg-card: rgba(7, 23, 43, 0.78);
+    --cyan-primary: #00D4E5;
+    --blue-secondary: #1265FF;
+    --purple-accent: #7B2CFF;
+    --orange-accent: #FF9500;
 }
 
+
 /* Single-Screen Responsive Viewport Fit */
+
 .login-viewport {
-  min-height: 100vh;
-  min-height: 100dvh;
-  background-color: #020B1A;
-  color: #f8fafc;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: #020B1A;
+    color: #f8fafc;
 }
 
 @media (min-width: 1024px) and (min-height: 600px) {
-  .login-viewport {
-    height: 100vh;
-    height: 100dvh;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
+    .login-viewport {
+        height: 100vh;
+        height: 100dvh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }
+
 
 /* Glassmorphism Card (#07172B) */
+
 .glass-card {
-  background: rgba(7, 23, 43, 0.78);
-  backdrop-filter: blur(24px) saturate(185%);
-  -webkit-backdrop-filter: blur(24px) saturate(185%);
-  border: 1px solid rgba(0, 212, 229, 0.25);
-  border-radius: 24px;
-  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85),
-              0 0 35px -4px rgba(0, 212, 229, 0.16),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: rgba(7, 23, 43, 0.78);
+    backdrop-filter: blur(24px) saturate(185%);
+    -webkit-backdrop-filter: blur(24px) saturate(185%);
+    border: 1px solid rgba(0, 212, 229, 0.25);
+    border-radius: 24px;
+    box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85), 0 0 35px -4px rgba(0, 212, 229, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+
 /* Frosted Input Field */
+
 .glass-input {
-  background: rgba(2, 11, 26, 0.68);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 212, 229, 0.18);
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    background: rgba(2, 11, 26, 0.68);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 212, 229, 0.18);
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-input:focus {
-  border-color: #00D4E5;
-  box-shadow: 0 0 0 3px rgba(0, 212, 229, 0.18),
-              0 0 22px rgba(0, 212, 229, 0.26);
-  background: rgba(7, 23, 43, 0.88);
+    border-color: #00D4E5;
+    box-shadow: 0 0 0 3px rgba(0, 212, 229, 0.18), 0 0 22px rgba(0, 212, 229, 0.26);
+    background: rgba(7, 23, 43, 0.88);
 }
 
+
 /* Neon Cyan Glow Shadows */
+
 .neon-cyan-glow {
-  box-shadow: 0 0 24px rgba(0, 212, 229, 0.35),
-              0 0 55px rgba(18, 101, 255, 0.18);
+    box-shadow: 0 0 24px rgba(0, 212, 229, 0.35), 0 0 55px rgba(18, 101, 255, 0.18);
 }
 
 .neon-cyan-glow-hover:hover {
-  box-shadow: 0 0 32px rgba(0, 212, 229, 0.55),
-              0 0 70px rgba(18, 101, 255, 0.3);
+    box-shadow: 0 0 32px rgba(0, 212, 229, 0.55), 0 0 70px rgba(18, 101, 255, 0.3);
 }
 
+
 /* Animated Gradient Shift */
+
 @keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradientShift 8s ease infinite;
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
 }
 
+
 /* Custom Dark Navy Scrollbar */
+
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #020B1A;
+    background: #020B1A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 212, 229, 0.28);
-  border-radius: 9999px;
+    background: rgba(0, 212, 229, 0.28);
+    border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 212, 229, 0.5);
+    background: rgba(0, 212, 229, 0.5);
 }
-
