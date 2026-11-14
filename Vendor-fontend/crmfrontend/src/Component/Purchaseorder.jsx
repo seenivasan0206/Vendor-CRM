@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/Purchaseorder.css';
 
-const API_BASE_URL = 'http://localhost:8080/api/purchase-orders';
+const API_BASE_URL = '/api/purchase-orders';
 
 function Purchaseorder() {
   const [orders, setOrders] = useState([]);

@@ -11,6 +11,8 @@
         <relativePath/>
     </parent>
 
+    
+
     <groupId>com.vendorcrm</groupId>
     <artifactId>vendor-crm-backend</artifactId>
     <version>1.0.0</version>

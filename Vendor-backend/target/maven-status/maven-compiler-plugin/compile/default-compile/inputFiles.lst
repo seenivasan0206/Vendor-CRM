@@ -1,151 +1,151 @@
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\config\CorsConfig.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\entity\AppSetting.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\entity\User.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\DashboardVendorStatsResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\dto\NotificationRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\service\DashboardServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\common\Constants.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\repository\InventoryTransactionRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\entity\Vendor.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\dto\StockAdjustmentRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\service\InventoryService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\DashboardMonthlyStatsResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\service\AuthServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\repository\InventoryRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\AppSettingRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\repository\UserRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\entity\ProductType.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\entity\PurchaseOrder.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\UserStatusUpdateRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\service\ProductServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\repository\VendorPerformanceRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\PurchaseOrderReportResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\dto\RegisterRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\repository\RoleRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\dto\ContractResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\VendorSummaryReportResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\service\VendorService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\InvoiceRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\OverallDashboardStatsResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\dto\ContractRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\entity\InvoiceItem.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\dto\LoginRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\entity\Communication.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\service\CommunicationServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\service\VendorPerformanceService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\dto\ProductRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\entity\Notification.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\repository\PurchaseOrderRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\repository\ContractRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\entity\Invoice.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\VendorPerformanceReportResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\common\BaseEntity.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\entity\InventoryTransaction.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\InvoiceResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\PaymentResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\repository\ProductRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\config\SecurityConfig.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\controller\ContractController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\service\NotificationService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\controller\ReportController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\dto\VendorResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\entity\PurchaseOrderItem.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\exception\GlobalExceptionHandler.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\service\ProductService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\JwtTokenProvider.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\service\InvoiceServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\controller\InvoiceController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\service\VendorPerformanceServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\dto\InventoryTransactionResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\service\ReportServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\InvoiceStatusRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\JwtAuthenticationFilter.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\InvoiceItemRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\dto\CommunicationRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\BusinessSummaryReportResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\dto\ContractRenewalRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\service\VendorServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\CustomUserDetails.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\controller\SettingsController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\entity\Contract.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\repository\CommunicationRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\repository\VendorRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\dto\CommunicationStatusRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\exception\BadRequestException.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\dto\VendorPerformanceResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\dto\ProductStatusRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\VendorStatusReportResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\UserRoleUpdateRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\service\ReportService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\service\SettingsServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\service\PaymentServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\dto\ProductResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\controller\AuthController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\entity\Payment.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\repository\PaymentRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\service\DashboardService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\entity\Inventory.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\dto\PerformanceSummaryResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\PaymentRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\VendorCrmApplication.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\controller\CommunicationController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\dto\VendorStatusRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\exception\DuplicateResourceException.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\service\CommunicationService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\controller\PaymentController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\controller\VendorController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\controller\NotificationController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\controller\InventoryController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\RecentContractItem.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\entity\Role.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\service\InventoryServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\service\ContractService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\exception\ResourceNotFoundException.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\ContractSummaryReportResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\UserAdminResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\DashboardContractStatsResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\controller\ProductController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\entity\TransactionType.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\repository\InvoiceRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\service\InvoiceService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\dto\PurchaseOrderRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\common\ApiResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\ContractExpiryReportResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\repository\NotificationRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\service\PurchaseOrderServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\dto\LoginResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\dto\NotificationResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\DashboardPOStatsResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\controller\VendorPerformanceController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\service\PurchaseOrderService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\MonthlyPurchaseReportResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\CustomUserDetailsService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\dto\InventoryResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\controller\PurchaseOrderController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\dto\VendorPerformanceRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\service\SettingsService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\dto\InventoryRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\config\PasswordEncoderConfig.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\dto\NotificationUpdateRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\controller\DashboardController.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\JwtAuthenticationEntryPoint.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\service\NotificationServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\repository\InvoiceItemRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\entity\Product.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\dto\ChangePasswordRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\dto\PurchaseOrderItemRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\RoleResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\repository\PurchaseOrderItemRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\service\PaymentService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\repository\AppSettingRepository.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\AppSettingResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\dto\VendorRequest.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\RecentVendorItem.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\dto\PurchaseOrderResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\service\ContractServiceImpl.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\service\AuthService.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\dto\CommunicationResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\entity\VendorPerformance.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\RecentPOItem.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\PurchaseOrderStatusReportResponse.java
-D:\Vendor CRM\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\dto\PurchaseOrderStatusRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\exception\DuplicateResourceException.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\VendorCrmApplication.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\entity\TransactionType.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\service\SettingsService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\service\AuthServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\service\NotificationServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\controller\AuthController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\controller\ReportController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\service\ContractService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\DashboardVendorStatsResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\service\InventoryService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\dto\InventoryResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\PurchaseOrderStatusReportResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\controller\SettingsController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\service\SettingsServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\config\SecurityConfig.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\controller\ProductController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\controller\NotificationController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\service\ProductService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\common\ApiResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\entity\InventoryTransaction.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\repository\AppSettingRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\entity\PurchaseOrder.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\repository\ProductRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\DashboardPOStatsResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\exception\ResourceNotFoundException.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\controller\CommunicationController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\repository\PaymentRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\entity\Role.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\UserAdminResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\PaymentRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\dto\PurchaseOrderResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\MonthlyPurchaseReportResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\entity\Invoice.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\controller\PurchaseOrderController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\service\VendorServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\config\CorsConfig.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\dto\PurchaseOrderItemRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\dto\PurchaseOrderStatusRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\controller\ContractController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\ContractSummaryReportResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\dto\LoginResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\InvoiceStatusRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\repository\PurchaseOrderItemRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\dto\RegisterRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\service\ReportServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\dto\ContractRenewalRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\service\PaymentService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\VendorPerformanceReportResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\dto\ChangePasswordRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\VendorSummaryReportResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\CustomUserDetailsService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\repository\CommunicationRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\dto\InventoryRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\entity\Notification.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\DashboardContractStatsResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\common\BaseEntity.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\AppSettingResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\OverallDashboardStatsResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\service\PurchaseOrderServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\ContractExpiryReportResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\repository\InventoryRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\entity\Payment.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\config\PasswordEncoderConfig.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\repository\PurchaseOrderRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\dto\CommunicationRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\RecentContractItem.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\repository\InvoiceItemRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\service\VendorPerformanceService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\dto\ProductStatusRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\RecentVendorItem.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\exception\GlobalExceptionHandler.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\repository\VendorRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\PurchaseOrderReportResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\repository\ContractRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\entity\User.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\service\AuthService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\dto\CommunicationStatusRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\service\ContractServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\InvoiceRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\dto\ProductResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\repository\NotificationRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\controller\VendorPerformanceController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\entity\ProductType.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\RoleResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\repository\InventoryTransactionRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\common\Constants.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\service\DashboardService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\service\VendorPerformanceServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\dto\ProductRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\dto\VendorPerformanceResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\JwtTokenProvider.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\dto\VendorPerformanceRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\service\InvoiceServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\dto\ContractResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\dto\VendorRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\entity\InvoiceItem.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\VendorStatusReportResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\dto\PerformanceSummaryResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\controller\VendorController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\dto\NotificationUpdateRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\dto\ContractRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\dto\NotificationResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\service\ProductServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\JwtAuthenticationFilter.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\repository\RoleRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\repository\UserRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\dto\CommunicationResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\dto\NotificationRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\controller\DashboardController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\products\entity\Product.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\CustomUserDetails.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\dto\VendorResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\entity\PurchaseOrderItem.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\UserStatusUpdateRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\service\VendorService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\service\CommunicationService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\dto\InventoryTransactionResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\entity\Inventory.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\UserRoleUpdateRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\DashboardMonthlyStatsResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\InvoiceResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\service\InventoryServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\dto\BusinessSummaryReportResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\service\PaymentServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\entity\Communication.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\security\JwtAuthenticationEntryPoint.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\dto\RecentPOItem.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\service\InvoiceService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\PaymentResponse.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\entity\VendorPerformance.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\auth\dto\LoginRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\performance\repository\VendorPerformanceRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\entity\Vendor.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\dto\StockAdjustmentRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\dto\PurchaseOrderRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\communication\service\CommunicationServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\repository\InvoiceRepository.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\dto\AppSettingRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\inventory\controller\InventoryController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\notifications\service\NotificationService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\dashboard\service\DashboardServiceImpl.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\settings\entity\AppSetting.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\purchaseorder\service\PurchaseOrderService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\contracts\entity\Contract.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\reports\service\ReportService.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\controller\InvoiceController.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\vendors\dto\VendorStatusRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\exception\BadRequestException.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\dto\InvoiceItemRequest.java
+C:\Users\karth\Desktop\vendorcrm\Vendor-CRM\Vendor-backend\src\main\java\com\vendorcrm\invoices\controller\PaymentController.java
