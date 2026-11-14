@@ -1,3 +1,4 @@
+import React from 'react';
 import '../Styles/Header.css';
 
 const pageTitles = {
@@ -15,16 +16,8 @@ const pageTitles = {
   settings: 'System Settings & Administration',
 };
 
-function Header({ activeTab, user, onLogout }) {
+function Header({ activeTab, onNotificationsClick }) {
   const currentTitle = pageTitles[activeTab] || 'Dashboard Overview';
-  const displayName = user?.fullName || user?.email || 'Admin User';
-  const displayRole = user?.activeRole ? user.activeRole.replace('_', ' ') : 'Administrator';
-  const initials = displayName
-    .split(/\s+/)
-    .map((part) => part[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
 
   return (
     <header className="crm-header">
@@ -36,21 +29,22 @@ function Header({ activeTab, user, onLogout }) {
       {/* Right Side: Alerts & User Profile */}
       <div className="header-right">
         {/* Notification Bell */}
-        <div className="header-action-btn" title="Notifications">
+        <button
+          type="button"
+          className="header-action-btn"
+          title="Notifications"
+          onClick={onNotificationsClick}
+        >
           <span className="bell-icon">🔔</span>
           <span className="notification-badge">3</span>
-        </div>
+        </button>
 
         {/* User Profile Pill */}
-        <div
-          className="header-user-profile"
-          onClick={onLogout}
-          title={onLogout ? 'Click to sign out' : 'User Profile'}
-        >
-          <div className="user-avatar">{initials}</div>
+        <div className="header-user-profile">
+          <div className="user-avatar">AD</div>
           <div className="user-info">
-            <span className="user-name">{displayName}</span>
-            <span className="user-role">{displayRole}</span>
+            <span className="user-name">Admin User</span>
+            <span className="user-role">Administrator</span>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import '../Styles/Sidebar.css';
 
 const menuSections = [
@@ -41,26 +42,45 @@ const menuSections = [
 ];
 
 function Sidebar({ activeTab, setActiveTab }) {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
-    <aside className="crm-sidebar">
+    <aside className={`crm-sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="crm-brand">
-        <span className="brand-icon">⚡</span>
-        <span className="brand-title">VendorCRM</span>
+        <div className="crm-brand-left">
+          <span className="brand-icon">⚡</span>
+          {!isCollapsed && <span className="brand-title">VendorCRM</span>}
+        </div>
+        <button
+          type="button"
+          className="sidebar-toggle-btn"
+          onClick={() => setIsCollapsed((prev) => !prev)}
+          title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+        >
+          {isCollapsed ? '»' : '«'}
+        </button>
       </div>
 
       <nav className="crm-nav">
         {menuSections.map((section, idx) => (
           <div key={idx} className="nav-group">
-            <span className="nav-group-title">{section.category}</span>
+            {!isCollapsed && (
+              <span className="nav-group-title">{section.category}</span>
+            )}
             <div className="nav-group-items">
               {section.items.map((item) => (
                 <button
                   key={item.id}
+                  type="button"
                   onClick={() => setActiveTab(item.id)}
+                  title={isCollapsed ? item.label : undefined}
                   className={`nav-btn ${activeTab === item.id ? 'active' : ''}`}
                 >
                   <span className="nav-icon">{item.icon}</span>
-                  <span className="nav-label">{item.label}</span>
+                  {!isCollapsed && (
+                    <span className="nav-label">{item.label}</span>
+                  )}
                 </button>
               ))}
             </div>

@@ -12,9 +12,9 @@
     </parent>
 
     <groupId>com.vendorcrm</groupId>
-    <artifactId>vendor_crm_db</artifactId>
+    <artifactId>vendor-crm-backend</artifactId>
     <version>1.0.0</version>
-    <name>vendor_crm_db</name>
+    <name>vendor-crm-backend</name>
     <description>Vendor CRM Backend REST API with Spring Boot and JWT Security</description>
 
     <properties>
