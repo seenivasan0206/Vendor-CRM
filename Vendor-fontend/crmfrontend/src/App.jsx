@@ -10,6 +10,8 @@ import Payment from './Component/Payment';
 import Vendorperformance from './Component/Vendorperformance';
 import Vendorcommunication from './Component/Vendorcommunication';
 import Reports from './Component/Reports';
+import Notification from './Component/Notification';
+import Settings from './Component/Settings';
 
 function App() {
   const [activeTab, setActiveTab] = useState('purchaseorders');
@@ -28,6 +30,15 @@ function App() {
     return <Login onLoginSuccess={handleLoginSuccess} />;
   }
 
+  const isModuleActive = [
+    'purchaseorders',
+    'inventory',
+    'payments',
+    'performance',
+    'notifications',
+    'settings',
+  ].includes(activeTab);
+
   return (
     <div className="crm-app-container">
       {/* 1. Full Sidebar with all items preserved */}
@@ -35,9 +46,15 @@ function App() {
 
       {/* 2. Header */}
       <div className="crm-main-layout">
-        <Header activeTab={activeTab} user={currentUser} onLogout={handleLogout} />
+        <Header
+          activeTab={activeTab}
+          user={currentUser}
+          onLogout={handleLogout}
+          onNotificationsClick={() => setActiveTab('notifications')}
+          onSettingsClick={() => setActiveTab('settings')}
+        />
 
-        {/* 3. Main Workspace Area: Shows only your 4 modules, nothing for other tabs */}
+        {/* 3. Main Workspace Area */}
         <main className="crm-workspace">
           {activeTab === 'purchaseorders' && <Purchaseorder />}
           {activeTab === 'inventory' && <Inventory />}
@@ -54,6 +71,20 @@ function App() {
               Header and Sidebar setup complete! Select any menu item from the sidebar to switch views.
             </p>
           </div>
+          {activeTab === 'notifications' && <Notification />}
+          {activeTab === 'settings' && <Settings />}
+
+          {!isModuleActive && (
+            <div className="workspace-placeholder-card">
+              <h2>
+                Current Active Screen:{' '}
+                <span className="screen-highlight">{activeTab.toUpperCase()}</span>
+              </h2>
+              <p>
+                Header and Sidebar setup complete! Select any menu item from the sidebar to switch views.
+              </p>
+            </div>
+          )}
         </main>
       </div>
     </div>
