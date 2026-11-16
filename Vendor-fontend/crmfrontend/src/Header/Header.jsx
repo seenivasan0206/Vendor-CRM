@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import '../Styles/Header.css';
 
 const pageTitles = {
@@ -18,6 +18,7 @@ const pageTitles = {
 
 function Header({ activeTab, user, onLogout, onNotificationsClick, onSettingsClick }) {
   const currentTitle = pageTitles[activeTab] || 'Dashboard Overview';
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
   const displayName = user?.fullName || user?.username || 'Admin User';
   const displayRole = user?.activeRole ? user.activeRole.replace('_', ' ') : 'Administrator';
@@ -61,19 +62,53 @@ function Header({ activeTab, user, onLogout, onNotificationsClick, onSettingsCli
           </div>
         </div>
 
-        {/* Logout Button */}
+        {/* Sign Out Button */}
         {onLogout && (
           <button
             type="button"
-            className="header-action-btn"
+            className="header-signout-btn"
+            onClick={() => setShowLogoutConfirm(true)}
             title="Sign out of Vendor CRM"
-            onClick={onLogout}
-            style={{ fontSize: '1rem', marginLeft: '4px' }}
           >
-            🚪
+            <span className="signout-icon">⏻</span>
+            <span className="signout-label">Sign Out</span>
           </button>
         )}
       </div>
+
+      {/* Sign Out Confirmation Modal */}
+      {showLogoutConfirm && (
+        <div className="logout-modal-overlay">
+          <div className="logout-modal" role="dialog" aria-modal="true" aria-labelledby="logout-title">
+            <div className="logout-modal-icon">🚪</div>
+            <h3 id="logout-title" className="logout-modal-title">
+              Do you want to sign out?
+            </h3>
+            <p className="logout-modal-text">
+              You will be signed out of Vendor CRM and returned to the login screen.
+            </p>
+            <div className="logout-modal-actions">
+              <button
+                type="button"
+                className="logout-btn-cancel"
+                onClick={() => setShowLogoutConfirm(false)}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="logout-btn-confirm"
+                onClick={() => {
+                  setShowLogoutConfirm(false);
+                  onLogout();
+                }}
+              >
+                Yes, Sign Out
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

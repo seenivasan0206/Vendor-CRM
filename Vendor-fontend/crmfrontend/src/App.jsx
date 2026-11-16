@@ -35,6 +35,8 @@ function App() {
     'inventory',
     'payments',
     'performance',
+    'communication',
+    'reports',
     'notifications',
     'settings',
   ].includes(activeTab);
@@ -62,26 +64,15 @@ function App() {
           {activeTab === 'performance' && <Vendorperformance />}
           {activeTab === 'communication' && <Vendorcommunication />}
           {activeTab === 'reports' && <Reports />}
-          <div className="workspace-placeholder-card">
-            <h2>
-              Current Active Screen:{' '}
-              <span className="screen-highlight">{activeTab.toUpperCase()}</span>
-            </h2>
-            <p>
-              Header and Sidebar setup complete! Select any menu item from the sidebar to switch views.
-            </p>
-          </div>
           {activeTab === 'notifications' && <Notification />}
           {activeTab === 'settings' && <Settings />}
 
           {!isModuleActive && (
             <div className="workspace-placeholder-card">
-              <h2>
-                Current Active Screen:{' '}
-                <span className="screen-highlight">{activeTab.toUpperCase()}</span>
-              </h2>
+              <h2>Coming Soon</h2>
               <p>
-                Header and Sidebar setup complete! Select any menu item from the sidebar to switch views.
+                The {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} module is not available yet.
+                Please select another menu item from the sidebar.
               </p>
             </div>
           )}
