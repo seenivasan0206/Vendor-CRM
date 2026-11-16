@@ -8,6 +8,8 @@ import Purchaseorder from './Component/Purchaseorder';
 import Inventory from './Component/Inventory';
 import Payment from './Component/Payment';
 import Vendorperformance from './Component/Vendorperformance';
+import Vendorcommunication from './Component/Vendorcommunication';
+import Reports from './Component/Reports';
 
 function App() {
   const [activeTab, setActiveTab] = useState('purchaseorders');
@@ -41,6 +43,8 @@ function App() {
           {activeTab === 'inventory' && <Inventory />}
           {activeTab === 'payments' && <Payment />}
           {activeTab === 'performance' && <Vendorperformance />}
+          {activeTab === 'communication' && <Vendorcommunication />}
+          {activeTab === 'reports' && <Reports />}
           <div className="workspace-placeholder-card">
             <h2>
               Current Active Screen:{' '}
