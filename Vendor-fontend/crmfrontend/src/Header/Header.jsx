@@ -62,16 +62,16 @@ function Header({ activeTab, user, onLogout, onNotificationsClick, onSettingsCli
           </div>
         </div>
 
-        {/* Sign Out Button */}
+        {/* Logout Button */}
         {onLogout && (
           <button
             type="button"
             className="header-signout-btn"
             onClick={() => setShowLogoutConfirm(true)}
-            title="Sign out of Vendor CRM"
+            title="Logout of Vendor CRM"
           >
             <span className="signout-icon">⏻</span>
-            <span className="signout-label">Sign Out</span>
+            <span className="signout-label">Logout</span>
           </button>
         )}
       </div>
