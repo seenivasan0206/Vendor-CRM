@@ -16,8 +16,17 @@ const pageTitles = {
   settings: 'System Settings & Administration',
 };
 
-function Header({ activeTab, onNotificationsClick }) {
+function Header({ activeTab, user, onLogout, onNotificationsClick, onSettingsClick }) {
   const currentTitle = pageTitles[activeTab] || 'Dashboard Overview';
+
+  const displayName = user?.fullName || user?.username || 'Admin User';
+  const displayRole = user?.activeRole ? user.activeRole.replace('_', ' ') : 'Administrator';
+  const initials = displayName
+    .split(' ')
+    .map((w) => w[0])
+    .join('')
+    .substring(0, 2)
+    .toUpperCase() || 'AD';
 
   return (
     <header className="crm-header">
@@ -32,7 +41,7 @@ function Header({ activeTab, onNotificationsClick }) {
         <button
           type="button"
           className="header-action-btn"
-          title="Notifications"
+          title="View Notifications"
           onClick={onNotificationsClick}
         >
           <span className="bell-icon">🔔</span>
@@ -40,13 +49,30 @@ function Header({ activeTab, onNotificationsClick }) {
         </button>
 
         {/* User Profile Pill */}
-        <div className="header-user-profile">
-          <div className="user-avatar">AD</div>
+        <div
+          className="header-user-profile"
+          onClick={onSettingsClick}
+          title="Click to open Settings"
+        >
+          <div className="user-avatar">{initials}</div>
           <div className="user-info">
-            <span className="user-name">Admin User</span>
-            <span className="user-role">Administrator</span>
+            <span className="user-name">{displayName}</span>
+            <span className="user-role">{displayRole}</span>
           </div>
         </div>
+
+        {/* Logout Button */}
+        {onLogout && (
+          <button
+            type="button"
+            className="header-action-btn"
+            title="Sign out of Vendor CRM"
+            onClick={onLogout}
+            style={{ fontSize: '1rem', marginLeft: '4px' }}
+          >
+            🚪
+          </button>
+        )}
       </div>
     </header>
   );
