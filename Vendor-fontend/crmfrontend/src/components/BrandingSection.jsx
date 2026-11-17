@@ -1,64 +1,100 @@
-import { motion } from 'framer-motion';
+import { Users2, Clock3, ShieldCheck } from 'lucide-react';
 import ZenveLogo from './ZenveLogo';
-import FeatureHighlights from './FeatureHighlights';
-import PetsHeroCard from './PetsHeroCard';
+
+const features = [
+  {
+    id: 'vendors',
+    title: 'Vendor Lifecycle Management',
+    desc: 'Automated vendor vetting, risk scoring, and compliance repository.',
+    icon: Users2,
+    color: '#00D4E5',
+    tag: '3,200+ Vendors',
+  },
+  {
+    id: 'pos',
+    title: 'Purchase Order Tracking',
+    desc: 'Real-time multi-tier approvals, delivery dispatch alerts, and live sync.',
+    icon: Clock3,
+    color: '#1265FF',
+    tag: 'Automated Sync',
+  },
+  {
+    id: 'vault',
+    title: 'Smart Contracts & Vault',
+    desc: 'End-to-end encrypted contract repository with expiry and renewal alerts.',
+    icon: ShieldCheck,
+    color: '#FF9500',
+    tag: '256-Bit Vault',
+  },
+];
 
 export default function BrandingSection() {
   return (
-    <div className="flex flex-col justify-center h-full py-1 relative z-10">
-      {/* Desktop Logo & Welcome Header (Hidden on Mobile since Mobile displays compact header above Login Card) */}
-      <div className="hidden lg:block">
-        {/* 1. Zenve Zippy Logo at Top Left */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-3 xl:mb-4"
-        >
-          <ZenveLogo size="md" />
-        </motion.div>
-
-        {/* 2. Welcome Headline & Tagline */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-1.5 mb-4 xl:mb-5"
-        >
-          <h1 className="text-3xl xl:text-[40px] font-black tracking-tight text-white leading-[1.1]">
-            Welcome to{' '}
-            <span className="text-white">Zenve Zippy </span>
-            <br />
-            <span
-              className="inline-block bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(0,212,229,0.4)]"
-              style={{
-                backgroundImage: 'linear-gradient(90deg, #00D4E5 0%, #38bdf8 60%, #1265FF 100%)',
-              }}
-            >
-              Vendor CRM
-            </span>
-          </h1>
-
-          <p className="text-sm xl:text-base font-medium text-slate-300 leading-snug max-w-lg">
-            Smarter Vendor Management.{' '}
-            <span className="text-[#00D4E5] font-semibold">Stronger Business Growth.</span>
-          </p>
-
-          {/* Subtle Cyan Accent Bar */}
-          <div className="pt-1.5">
-            <div className="h-[3px] w-16 rounded-full bg-gradient-to-r from-[#00D4E5] to-[#1265FF] shadow-[0_0_12px_rgba(0,212,229,0.65)]" />
-          </div>
-        </motion.div>
+    <div className="login-branding-col">
+      {/* 1. Brand Logo */}
+      <div>
+        <ZenveLogo size="lg" />
       </div>
 
-      {/* 3 & 4. Feature Highlights (Left) + Golden Retriever & Cat Picture (In Between Features and Login Card) */}
-      <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-4 xl:gap-6 w-full">
-        <div className="w-full md:w-[48%] xl:w-[47%]">
-          <FeatureHighlights />
-        </div>
+      {/* 2. Headline & Subtitle */}
+      <div className="login-brand-header">
+        <h1 className="login-hero-title">
+          Welcome to <span className="login-gradient-text">Zenve Zippy</span>
+          <br />
+          Enterprise Vendor CRM
+        </h1>
+        <p className="login-hero-subtitle">
+          Smarter Vendor Management. Stronger Business Growth. Streamline procurement, contracts, and warehouse operations in one unified workspace.
+        </p>
+        <div className="login-accent-line" />
+      </div>
 
-        <div className="w-full md:w-[52%] xl:w-[53%] flex justify-center md:justify-start">
-          <PetsHeroCard />
+      {/* 3. Feature Cards */}
+      <div className="login-features-list">
+        {features.map((f) => {
+          const Icon = f.icon;
+          return (
+            <div key={f.id} className="login-feature-card">
+              <div className="login-feature-icon-box">
+                <Icon style={{ width: '20px', height: '20px', color: f.color }} />
+              </div>
+              <div className="login-feature-content" style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
+                  <h4>{f.title}</h4>
+                  <span
+                    style={{
+                      fontSize: '0.7rem',
+                      fontWeight: '700',
+                      padding: '2px 8px',
+                      borderRadius: '12px',
+                      background: 'rgba(2, 11, 26, 0.8)',
+                      border: '1px solid rgba(0, 212, 229, 0.25)',
+                      color: '#00D4E5',
+                    }}
+                  >
+                    {f.tag}
+                  </span>
+                </div>
+                <p>{f.desc}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 4. Trust & Platform Metrics */}
+      <div className="login-metrics-row">
+        <div className="login-metric-item">
+          <span className="login-metric-val">3,200+</span>
+          <span className="login-metric-label">Active Vendors</span>
+        </div>
+        <div className="login-metric-item">
+          <span className="login-metric-val">99.98%</span>
+          <span className="login-metric-label">System Uptime</span>
+        </div>
+        <div className="login-metric-item">
+          <span className="login-metric-val">256-Bit</span>
+          <span className="login-metric-label">Bank Security</span>
         </div>
       </div>
     </div>

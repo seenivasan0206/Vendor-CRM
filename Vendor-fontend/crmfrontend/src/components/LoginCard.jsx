@@ -22,8 +22,8 @@ export default function LoginCard({ onLoginSuccess }) {
   const remembered = authService.getRememberedCredentials();
 
   const [selectedRole, setSelectedRole] = useState(remembered.role || 'ADMIN');
-  const [email, setEmail] = useState(remembered.email || '');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(remembered.email || 'admin@zenvezippy.com');
+  const [password, setPassword] = useState(remembered.email ? '' : 'password123');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(Boolean(remembered.email));
   const [isLoading, setIsLoading] = useState(false);
@@ -38,26 +38,42 @@ export default function LoginCard({ onLoginSuccess }) {
   const handleRoleChange = (roleId) => {
     setSelectedRole(roleId);
     setServerError('');
+    const targetRole = ROLES.find((r) => r.id === roleId);
+    if (targetRole) {
+      const isDefaultEmail = !email || ROLES.some((r) => r.defaultEmail === email);
+      if (isDefaultEmail) {
+        setEmail(targetRole.defaultEmail);
+      }
+    }
+  };
+
+  const fillDemoAccount = (roleId) => {
+    const targetRole = ROLES.find((r) => r.id === roleId) || ROLES[0];
+    setSelectedRole(targetRole.id);
+    setEmail(targetRole.defaultEmail);
+    setPassword('password123');
+    setFieldErrors({ email: '', password: '' });
+    setServerError('');
   };
 
   const validateForm = () => {
     const errors = { email: '', password: '' };
     let isValid = true;
 
-    const trimmedEmail = email.trim();
-    if (!trimmedEmail) {
-      errors.email = 'Email address is required.';
+    const trimmed = email.trim();
+    if (!trimmed) {
+      errors.email = 'Username or Email is required.';
       isValid = false;
-    } else if (!EMAIL_REGEX.test(trimmedEmail)) {
-      errors.email = 'Please enter a valid email address (e.g., name@company.com).';
+    } else if (trimmed.length < 3) {
+      errors.email = 'Username or Email must be at least 3 characters.';
       isValid = false;
     }
 
     if (!password) {
       errors.password = 'Password is required.';
       isValid = false;
-    } else if (password.length < 6) {
-      errors.password = 'Password must be at least 6 characters.';
+    } else if (password.length < 4) {
+      errors.password = 'Password must be at least 4 characters.';
       isValid = false;
     }
 
@@ -172,24 +188,57 @@ export default function LoginCard({ onLoginSuccess }) {
           </AnimatePresence>
 
           {/* Role Selection Buttons */}
-          <div className="mb-2.5">
+          <div className="mb-2">
             <RoleSelector
               selectedRole={selectedRole}
               onSelectRole={handleRoleChange}
             />
           </div>
 
+          {/* Quick Demo Credentials Info & Auto-fill */}
+          <div className="mb-2.5 px-2.5 py-1.5 rounded-[12px] bg-slate-900/60 border border-[#00D4E5]/25 flex flex-wrap items-center justify-between gap-1.5 text-[11px]">
+            <span className="text-slate-400">
+              Demo Pwd: <code className="text-[#00D4E5] font-semibold bg-[#00D4E5]/10 px-1 py-0.5 rounded">password123</code>
+            </span>
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => fillDemoAccount('ADMIN')}
+                className="px-1.5 py-0.5 rounded bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 font-medium cursor-pointer transition-colors"
+                title="Fill Admin demo credentials"
+              >
+                Admin
+              </button>
+              <button
+                type="button"
+                onClick={() => fillDemoAccount('PROCUREMENT_MANAGER')}
+                className="px-1.5 py-0.5 rounded bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 font-medium cursor-pointer transition-colors"
+                title="Fill Procurement Manager demo credentials"
+              >
+                Manager
+              </button>
+              <button
+                type="button"
+                onClick={() => fillDemoAccount('PURCHASE_OFFICER')}
+                className="px-1.5 py-0.5 rounded bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-medium cursor-pointer transition-colors"
+                title="Fill Purchase Officer demo credentials"
+              >
+                Officer
+              </button>
+            </div>
+          </div>
+
           {/* Login Form */}
           <form onSubmit={handleSubmit} noValidate className="space-y-2">
-            {/* Email Address Field */}
+            {/* Username / Email Address Field */}
             <div className="space-y-1 text-left">
               <label
                 htmlFor="login-email"
                 className="text-xs font-semibold text-slate-300 tracking-wide flex items-center justify-between"
               >
-                <span>Email Address</span>
+                <span>Username or Email</span>
                 <span className="text-[10px] text-slate-400 font-normal">
-                  e.g. {activeRoleObj.defaultEmail}
+                  e.g. admin or {activeRoleObj.defaultEmail}
                 </span>
               </label>
 
@@ -207,8 +256,8 @@ export default function LoginCard({ onLoginSuccess }) {
                 </div>
                 <input
                   id="login-email"
-                  type="email"
-                  autoComplete="email"
+                  type="text"
+                  autoComplete="username"
                   value={email}
                   onFocus={() => setFocusedField('email')}
                   onBlur={() => setFocusedField(null)}
@@ -217,7 +266,7 @@ export default function LoginCard({ onLoginSuccess }) {
                     if (fieldErrors.email) setFieldErrors((prev) => ({ ...prev, email: '' }));
                     if (serverError) setServerError('');
                   }}
-                  placeholder={activeRoleObj.defaultEmail}
+                  placeholder={`admin or ${activeRoleObj.defaultEmail}`}
                   aria-invalid={Boolean(fieldErrors.email)}
                   className={`w-full pl-10 pr-4 py-2 rounded-[14px] glass-input text-white placeholder-slate-500 text-sm focus:outline-none font-medium ${
                     fieldErrors.email ? 'border-red-400/70 focus:border-red-400' : ''

@@ -430,3 +430,69 @@
   box-shadow: 0 0 22px rgba(239, 68, 68, 0.55);
   transform: translateY(-1px);
 }
+
+
+/* Inventory Toolbar */
+.inv-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inv-search-input {
+  flex: 1;
+  max-width: 320px;
+  padding: 9px 14px;
+  background: #020B1A;
+  border: 1px solid rgba(0, 212, 229, 0.22);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #f8fafc;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.inv-search-input:focus,
+.inv-filter-select:focus {
+  border-color: #00D4E5;
+  box-shadow: 0 0 0 2px rgba(0, 212, 229, 0.2);
+}
+
+.inv-filter-select {
+  padding: 9px 14px;
+  background: #020B1A;
+  border: 1px solid rgba(0, 212, 229, 0.22);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #f8fafc;
+  cursor: pointer;
+  outline: none;
+}
+
+.inv-filter-select option {
+  background: #07172B;
+  color: #f8fafc;
+}
+
+/* Connection Badge */
+.inv-connection-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.inv-connection-badge.live {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.inv-connection-badge.demo {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
