@@ -1,12 +1,12 @@
-/* Full Viewport App Wrapper */
+/* Full Viewport App Wrapper - Deep Dark Theme */
 .crm-app-container {
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
+  background-color: #0b0f19;
+  color: #f8fafc;
 }
 
 /* Right Side Layout */
@@ -16,6 +16,7 @@
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+  background-color: #0b0f19;
 }
 
 /* Scrollable Workspace Area */
@@ -23,32 +24,49 @@
   flex: 1;
   padding: 24px;
   overflow-y: auto;
-  background-color: #f8fafc;
+  background-color: #0b0f19;
 }
 
-/* Workspace Card */
+/* Sleek Dark Scrollbar */
+.crm-workspace::-webkit-scrollbar {
+  width: 8px;
+}
+
+.crm-workspace::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+
+.crm-workspace::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+.crm-workspace::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Workspace Placeholder Card for Dark Theme */
 .workspace-placeholder-card {
-  background-color: #ffffff;
+  background-color: #1e293b;
   padding: 28px;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .workspace-placeholder-card h2 {
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 8px;
-  color: #0f172a;
+  color: #f8fafc;
 }
 
 .screen-highlight {
-  color: #0284c7;
+  color: #38bdf8;
 }
 
 .workspace-placeholder-card p {
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.95rem;
   margin: 0;
 }
-
