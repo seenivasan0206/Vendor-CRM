@@ -1,32 +1,46 @@
-/* Header Container - Vibrant Royal Blue Theme */
+/* Header Container - Deep Midnight Navy Theme (Matching Login) */
 .crm-header {
   height: 64px;
   min-height: 64px;
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); /* Vibrant Sky / Royal Blue Gradient */
+  background: rgba(7, 23, 43, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: #ffffff;
-  border-bottom: 2px solid #075985;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
-  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08);
+  position: relative;
+}
+
+.crm-header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, #00D4E5 30%, #1265FF 70%, transparent 100%);
+  pointer-events: none;
 }
 
 /* Left Title */
 .header-title {
   font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff; /* Bright Pure White */
+  font-weight: 800;
+  color: #ffffff;
   margin: 0;
-  letter-spacing: 0.02em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 /* Right Side Wrapper */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 /* Notification Bell with Badge */
@@ -34,38 +48,41 @@
   position: relative;
   cursor: pointer;
   padding: 8px;
-  border: none;
-  border-radius: 50%;
+  border: 1px solid rgba(0, 212, 229, 0.25);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.18); /* Translucent White */
+  background-color: rgba(2, 11, 26, 0.75);
   transition: all 0.2s ease;
 }
 
 .header-action-btn:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 212, 229, 0.15);
+  border-color: #00D4E5;
+  box-shadow: 0 0 14px rgba(0, 212, 229, 0.35);
 }
 
 .bell-icon {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 
 .notification-badge {
   position: absolute;
-  top: -2px;
-  right: -2px;
-  background-color: #ef4444; /* Bright Red */
+  top: -4px;
+  right: -4px;
+  background-color: #ef4444;
   color: #ffffff;
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 800;
   min-width: 18px;
   height: 18px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #0284c7;
+  border: 2px solid #07172B;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
 }
 
 /* User Profile Pill */
@@ -74,29 +91,31 @@
   align-items: center;
   gap: 12px;
   padding: 6px 14px;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.2); /* Deep translucent contrast */
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  background-color: rgba(2, 11, 26, 0.75);
+  border: 1px solid rgba(0, 212, 229, 0.25);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .header-user-profile:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-color: #ffffff;
+  background-color: rgba(0, 212, 229, 0.12);
+  border-color: #00D4E5;
+  box-shadow: 0 0 14px rgba(0, 212, 229, 0.25);
 }
 
 .user-avatar {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  color: #0284c7; /* Blue Text on White Avatar */
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00D4E5 0%, #1265FF 100%);
+  color: #020B1A;
   font-weight: 800;
   font-size: 0.85rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 212, 229, 0.4);
 }
 
 .user-info {
@@ -106,13 +125,14 @@
 
 .user-name {
   font-size: 0.88rem;
-  font-weight: 600;
-  color: #ffffff; /* Pure White */
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .user-role {
   font-size: 0.72rem;
-  color: #e0f2fe; /* Light Ice Blue */
+  color: #00D4E5;
+  font-weight: 500;
 }
 
 /* ---------- Logout Button ---------- */
@@ -120,26 +140,28 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  height: 32px;
-  padding: 0 12px;
-  border-radius: 6px;
-  border: 1px solid #475569;
-  background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
-  color: #e2e8f0;
-  font-size: 0.8rem;
-  font-weight: 600;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  font-size: 0.82rem;
+  font-weight: 700;
   letter-spacing: 0.01em;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
 }
 
 .header-signout-btn:hover {
-  background: linear-gradient(135deg, #475569 0%, #334155 100%);
+  background: rgba(239, 68, 68, 0.25);
   color: #ffffff;
-  border-color: #64748b;
+  border-color: #ef4444;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.4);
+  transform: translateY(-1px);
 }
 
 .header-signout-btn:active {
@@ -147,75 +169,60 @@
 }
 
 .signout-icon {
-  font-size: 0.85rem;
-  line-height: 1;
-}
-
-.signout-label {
-  line-height: 1;
+  font-size: 0.9rem;
 }
 
 /* ---------- Sign Out Confirmation Modal ---------- */
 .logout-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(2, 6, 23, 0.72);
+  background: rgba(2, 11, 26, 0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2000;
   padding: 16px;
-  backdrop-filter: blur(2px);
   animation: logoutFadeIn 0.18s ease;
 }
 
 @keyframes logoutFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .logout-modal {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 14px;
+  background: #07172B;
+  border: 1px solid rgba(0, 212, 229, 0.3);
+  border-radius: 20px;
   width: 100%;
-  max-width: 400px;
-  padding: 28px 26px 22px;
+  max-width: 420px;
+  padding: 30px 28px 24px;
   text-align: center;
-  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 212, 229, 0.15);
   animation: logoutScaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes logoutScaleIn {
-  from {
-    transform: scale(0.94);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { transform: scale(0.94); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .logout-modal-icon {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   line-height: 1;
   margin-bottom: 14px;
 }
 
 .logout-modal-title {
   margin: 0 0 8px 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #f8fafc;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
 }
 
 .logout-modal-text {
-  margin: 0 0 22px 0;
+  margin: 0 0 24px 0;
   font-size: 0.92rem;
   line-height: 1.5;
   color: #94a3b8;
@@ -229,32 +236,34 @@
 
 .logout-btn-cancel,
 .logout-btn-confirm {
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 10px 22px;
+  border-radius: 10px;
   font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease;
+  transition: all 0.2s ease;
   font-family: inherit;
 }
 
 .logout-btn-cancel {
-  background: #334155;
+  background: #020B1A;
   color: #e2e8f0;
-  border: 1px solid #475569;
+  border: 1px solid rgba(0, 212, 229, 0.2);
 }
 
 .logout-btn-cancel:hover {
-  background: #475569;
+  background: #0f172a;
+  border-color: #00D4E5;
 }
 
 .logout-btn-confirm {
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: #ffffff;
-  border: 1px solid #fca5a5;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+  border: 1px solid #f87171;
+  box-shadow: 0 0 16px rgba(220, 38, 38, 0.4);
 }
 
 .logout-btn-confirm:hover {
   background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 0 24px rgba(220, 38, 38, 0.6);
 }

@@ -388,7 +388,7 @@ export default function Dashboard({ setActiveTab }) {
             <span className="kpi-title">Active Suppliers</span>
             <div className="kpi-icon-pill pill-blue">🏢</div>
           </div>
-          <div className="kpi-value">{stats.vendorStats.totalVendors}</div>
+          <div className="kpi-value kpi-val-blue">{stats.vendorStats.totalVendors}</div>
           <div className="kpi-footer">
             <div className="kpi-sub-badges">
               <span className="kpi-tag tag-success">{stats.vendorStats.activeVendors} Active</span>
@@ -405,7 +405,7 @@ export default function Dashboard({ setActiveTab }) {
             <span className="kpi-title">Total PO Spend</span>
             <div className="kpi-icon-pill pill-green">💰</div>
           </div>
-          <div className="kpi-value">{formatAbbreviatedCurrency(stats.purchaseOrderStats.totalOrderValue)}</div>
+          <div className="kpi-value kpi-val-green">{formatAbbreviatedCurrency(stats.purchaseOrderStats.totalOrderValue)}</div>
           <div className="kpi-footer">
             <div className="kpi-sub-badges">
               <span className="kpi-tag tag-neutral">{stats.purchaseOrderStats.totalOrders} Orders</span>
@@ -422,7 +422,7 @@ export default function Dashboard({ setActiveTab }) {
             <span className="kpi-title">Contract Portfolio</span>
             <div className="kpi-icon-pill pill-purple">📜</div>
           </div>
-          <div className="kpi-value">{stats.contractStats.activeContracts} Active</div>
+          <div className="kpi-value kpi-val-purple">{stats.contractStats.activeContracts} Active</div>
           <div className="kpi-footer">
             <div className="kpi-sub-badges">
               <span className="kpi-tag tag-neutral">{formatAbbreviatedCurrency(stats.contractStats.activeContractValue)} Val</span>
@@ -438,7 +438,7 @@ export default function Dashboard({ setActiveTab }) {
             <span className="kpi-title">Pending Approvals</span>
             <div className="kpi-icon-pill pill-amber">⚡</div>
           </div>
-          <div className="kpi-value">{stats.purchaseOrderStats.pendingOrders + stats.vendorStats.pendingApprovalVendors}</div>
+          <div className="kpi-value kpi-val-amber">{stats.purchaseOrderStats.pendingOrders + stats.vendorStats.pendingApprovalVendors}</div>
           <div className="kpi-footer">
             <div className="kpi-sub-badges">
               <span className="kpi-tag tag-warning">{stats.purchaseOrderStats.pendingOrders} Purchase Orders</span>
@@ -503,12 +503,12 @@ export default function Dashboard({ setActiveTab }) {
             >
               <defs>
                 <linearGradient id="barGradientBlue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.4" />
+                  <stop offset="0%" stopColor="#00D4E5" stopOpacity="0.95" />
+                  <stop offset="100%" stopColor="#1265FF" stopOpacity="0.4" />
                 </linearGradient>
                 <linearGradient id="barGradientGreen" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#10b981" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="#6ee7b7" stopOpacity="0.4" />
+                  <stop offset="0%" stopColor="#00F0A8" stopOpacity="0.95" />
+                  <stop offset="100%" stopColor="#10b981" stopOpacity="0.4" />
                 </linearGradient>
               </defs>
 

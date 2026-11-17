@@ -34,10 +34,10 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #07172B 0%, #020B1A 100%);
   padding: 22px 26px;
   border-radius: 14px;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
@@ -133,13 +133,13 @@
 }
 
 .vendor-btn-secondary {
-  background-color: #0f172a;
+  background-color: #020B1A;
   color: #e2e8f0;
   border: 1px solid #475569;
 }
 
 .vendor-btn-secondary:hover {
-  background-color: #1e293b;
+  background-color: #07172B;
   border-color: #38bdf8;
   color: #ffffff;
 }
@@ -157,14 +157,14 @@
 }
 
 .vendor-btn-refresh {
-  background-color: #0f172a;
+  background-color: #020B1A;
   color: #94a3b8;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   padding: 9px 14px;
 }
 
 .vendor-btn-refresh:hover {
-  background-color: #1e293b;
+  background-color: #07172B;
   color: #f8fafc;
   border-color: #475569;
 }
@@ -189,10 +189,10 @@
 }
 
 .vendor-kpi-card {
-  background: #1e293b;
+  background: #07172B;
   border-radius: 14px;
   padding: 22px 24px;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
@@ -252,12 +252,39 @@
 .pill-amber { background-color: rgba(245, 158, 11, 0.22); color: #fbbf24; }
 .pill-purple { background-color: rgba(168, 85, 247, 0.22); color: #c084fc; }
 
+.vendor-kpi-card .kpi-value,
 .kpi-value {
-  font-size: 1.95rem;
+  font-size: 2.1rem;
   font-weight: 800;
   color: #f8fafc;
   margin: 0 0 8px 0;
   letter-spacing: -0.02em;
+  display: block;
+  line-height: 1.2;
+}
+
+.vendor-kpi-card:nth-child(1) .kpi-value,
+.vendor-kpi-card .kpi-val-blue {
+  color: #38bdf8 !important;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+}
+
+.vendor-kpi-card:nth-child(2) .kpi-value,
+.vendor-kpi-card .kpi-val-green {
+  color: #34d399 !important;
+  text-shadow: 0 0 16px rgba(52, 211, 153, 0.4);
+}
+
+.vendor-kpi-card:nth-child(3) .kpi-value,
+.vendor-kpi-card .kpi-val-amber {
+  color: #fbbf24 !important;
+  text-shadow: 0 0 16px rgba(251, 191, 36, 0.4);
+}
+
+.vendor-kpi-card:nth-child(4) .kpi-value,
+.vendor-kpi-card .kpi-val-purple {
+  color: #c084fc !important;
+  text-shadow: 0 0 16px rgba(192, 132, 252, 0.4);
 }
 
 .kpi-footer {
@@ -266,7 +293,7 @@
   justify-content: space-between;
   font-size: 0.82rem;
   color: #94a3b8;
-  border-top: 1px solid #334155;
+  border-top: 1px solid rgba(0, 212, 229, 0.22);
   padding-top: 14px;
   margin-top: 10px;
 }
@@ -284,15 +311,15 @@
 .tag-success { background-color: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
 .tag-warning { background-color: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
 .tag-danger { background-color: rgba(239, 68, 68, 0.18); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-.tag-neutral { background-color: #0f172a; color: #94a3b8; border: 1px solid #334155; }
+.tag-neutral { background-color: #020B1A; color: #94a3b8; border: 1px solid rgba(0, 212, 229, 0.22); }
 
 /* ==========================================================================
    3. FILTER CONTROLS & SEARCH BAR
    ========================================================================== */
 .vendor-filter-card {
-  background: #1e293b;
+  background: #07172B;
   border-radius: 14px;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   padding: 18px 22px;
   display: flex;
   justify-content: space-between;
@@ -324,7 +351,7 @@
 }
 
 .vendor-tab-btn:hover {
-  background-color: #0f172a;
+  background-color: #020B1A;
   color: #f8fafc;
 }
 
@@ -338,10 +365,10 @@
   font-size: 0.72rem;
   padding: 2px 7px;
   border-radius: 9999px;
-  background-color: #0f172a;
+  background-color: #020B1A;
   color: #94a3b8;
   font-weight: 700;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
 }
 
 .vendor-tab-btn.active .vendor-tab-count {
@@ -361,8 +388,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #0f172a;
-  border: 1px solid #334155;
+  background-color: #020B1A;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   padding: 8px 14px;
   border-radius: 8px;
   min-width: 240px;
@@ -383,10 +410,10 @@
 
 .view-toggle-group {
   display: flex;
-  background-color: #0f172a;
+  background-color: #020B1A;
   padding: 3px;
   border-radius: 8px;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
 }
 
 .view-toggle-btn {
@@ -419,9 +446,9 @@
 }
 
 .vendor-item-card {
-  background: #1e293b;
+  background: #07172B;
   border-radius: 14px;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   padding: 22px;
   display: flex;
@@ -485,10 +512,10 @@
   gap: 8px;
   font-size: 0.86rem;
   color: #cbd5e1;
-  background-color: #0f172a;
+  background-color: #020B1A;
   padding: 12px 14px;
   border-radius: 8px;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
 }
 
 .contact-row {
@@ -512,10 +539,10 @@
 }
 
 .vendor-terms-pill {
-  background-color: #0f172a;
+  background-color: #020B1A;
   padding: 3px 8px;
   border-radius: 6px;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   font-size: 0.78rem;
   color: #cbd5e1;
 }
@@ -525,12 +552,12 @@
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  border-top: 1px solid #334155;
+  border-top: 1px solid rgba(0, 212, 229, 0.22);
   padding-top: 14px;
 }
 
 .action-btn-sm {
-  background-color: #0f172a;
+  background-color: #020B1A;
   border: 1px solid #475569;
   color: #e2e8f0;
   padding: 6px 12px;
@@ -548,7 +575,7 @@
 }
 
 .action-btn-delete {
-  background-color: #0f172a;
+  background-color: #020B1A;
   border: 1px solid rgba(239, 68, 68, 0.4);
   color: #f87171;
 }
@@ -563,9 +590,9 @@
    5. VENDOR TABLE / LIST VIEW
    ========================================================================== */
 .vendor-table-card {
-  background: #1e293b;
+  background: #07172B;
   border-radius: 14px;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   overflow: hidden;
 }
@@ -583,11 +610,11 @@
 }
 
 .vendor-table th {
-  background-color: #0f172a;
+  background-color: #020B1A;
   color: #94a3b8;
   font-weight: 600;
   padding: 14px 20px;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
   white-space: nowrap;
   font-size: 0.78rem;
   text-transform: uppercase;
@@ -642,9 +669,9 @@
 }
 
 .status-badge.inactive {
-  background-color: #0f172a;
+  background-color: #020B1A;
   color: #94a3b8;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 212, 229, 0.22);
 }
 
 .status-badge.blocked {
@@ -685,7 +712,7 @@
 }
 
 .vendor-modal-box {
-  background: #1e293b;
+  background: #07172B;
   width: 100%;
   max-width: 640px;
   border-radius: 14px;
@@ -699,8 +726,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 24px;
-  background: #0f172a;
-  border-bottom: 1px solid #334155;
+  background: #020B1A;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
 }
 
 .vendor-modal-header h3 {
@@ -725,7 +752,7 @@
 }
 
 .vendor-modal-close:hover {
-  background-color: #334155;
+  background-color: rgba(0, 212, 229, 0.22);
   color: #ffffff;
 }
 
@@ -734,7 +761,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background: #1e293b;
+  background: #07172B;
   max-height: 75vh;
   overflow-y: auto;
 }
@@ -768,8 +795,8 @@
 .vendor-form-group textarea {
   padding: 9px 12px;
   border-radius: 8px;
-  border: 1px solid #334155;
-  background-color: #0f172a;
+  border: 1px solid rgba(0, 212, 229, 0.22);
+  background-color: #020B1A;
   font-size: 0.9rem;
   color: #f8fafc;
   outline: none;
@@ -791,8 +818,8 @@
 
 .vendor-modal-footer {
   padding: 16px 24px;
-  background: #0f172a;
-  border-top: 1px solid #334155;
+  background: #020B1A;
+  border-top: 1px solid rgba(0, 212, 229, 0.22);
   display: flex;
   justify-content: flex-end;
   gap: 10px;
@@ -803,7 +830,7 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
   font-size: 0.9rem;
 }
 
@@ -829,7 +856,7 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background-color: #0f172a;
+  background-color: #020B1A;
   color: #ffffff;
   padding: 12px 20px;
   border-radius: 10px;

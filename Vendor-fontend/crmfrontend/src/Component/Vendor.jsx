@@ -486,7 +486,7 @@ export default function Vendor() {
             <span className="kpi-title">Total Registered</span>
             <div className="kpi-icon-pill pill-blue">🏢</div>
           </div>
-          <div className="kpi-value">{stats.total}</div>
+          <div className="kpi-value kpi-val-blue">{stats.total}</div>
           <div className="kpi-footer">
             <span className="kpi-tag tag-neutral">Active Ecosystem</span>
             <span style={{ color: '#38bdf8', fontWeight: 600 }}>All Categories</span>
@@ -499,7 +499,7 @@ export default function Vendor() {
             <span className="kpi-title">Active & Verified</span>
             <div className="kpi-icon-pill pill-green">✓</div>
           </div>
-          <div className="kpi-value">{stats.active}</div>
+          <div className="kpi-value kpi-val-green">{stats.active}</div>
           <div className="kpi-footer">
             <span className="kpi-tag tag-success">SLA Compliant</span>
             <span>{Math.round((stats.active / (stats.total || 1)) * 100)}% of Directory</span>
@@ -512,7 +512,7 @@ export default function Vendor() {
             <span className="kpi-title">Pending Onboarding</span>
             <div className="kpi-icon-pill pill-amber">⚡</div>
           </div>
-          <div className="kpi-value">{stats.pending}</div>
+          <div className="kpi-value kpi-val-amber">{stats.pending}</div>
           <div className="kpi-footer">
             <span className="kpi-tag tag-warning">Action Needed</span>
             <span style={{ color: '#fbbf24' }}>Requires Review</span>
@@ -525,7 +525,7 @@ export default function Vendor() {
             <span className="kpi-title">Avg Supplier Rating</span>
             <div className="kpi-icon-pill pill-purple">★</div>
           </div>
-          <div className="kpi-value">★ {stats.avgRating}</div>
+          <div className="kpi-value kpi-val-purple">★ {stats.avgRating}</div>
           <div className="kpi-footer">
             <span className="kpi-tag tag-neutral">Out of 5.0</span>
             <span style={{ color: '#c084fc' }}>High Reliability</span>

@@ -2,9 +2,23 @@ import { useState } from 'react';
 import './App.css';
 import Sidebar from './Header/Sidebar';
 import Header from './Header/Header';
+import Login from './Auth/Login';
+import { authService } from './services/authService';
+import Dashboard from './Component/Dashboard';
+import Vendor from './Component/Vendor';
+import Contractmanage from './Component/Contractmanage';
+import ProductService from './Component/ProductService';
+import Purchaseorder from './Component/Purchaseorder';
+import Inventory from './Component/Inventory';
+import Payment from './Component/Payment';
+import Vendorperformance from './Component/Vendorperformance';
+import Vendorcommunication from './Component/Vendorcommunication';
+import Reports from './Component/Reports';
+import Notification from './Component/Notification';
+import Settings from './Component/Settings';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('purchaseorders');
+  const [activeTab, setActiveTab] = useState('dashboard');
   const [currentUser, setCurrentUser] = useState(() => authService.getCurrentUser());
 
   const handleLoginSuccess = (user) => {
@@ -21,6 +35,10 @@ function App() {
   }
 
   const isModuleActive = [
+    'dashboard',
+    'vendors',
+    'contracts',
+    'products',
     'purchaseorders',
     'inventory',
     'payments',
@@ -48,10 +66,28 @@ function App() {
 
         {/* 3. Main Workspace Area */}
         <main className="crm-workspace">
-          <div className="workspace-placeholder-card">
-            <h2>Current Active Screen: <span className="screen-highlight">{activeTab.toUpperCase()}</span></h2>
-            <p>Header and Sidebar setup complete! Select any menu item from the sidebar to switch views.</p>
-          </div>
+          {activeTab === 'dashboard' && <Dashboard setActiveTab={setActiveTab} />}
+          {activeTab === 'vendors' && <Vendor setActiveTab={setActiveTab} />}
+          {activeTab === 'contracts' && <Contractmanage />}
+          {activeTab === 'products' && <ProductService />}
+          {activeTab === 'purchaseorders' && <Purchaseorder />}
+          {activeTab === 'inventory' && <Inventory />}
+          {activeTab === 'payments' && <Payment />}
+          {activeTab === 'performance' && <Vendorperformance />}
+          {activeTab === 'communication' && <Vendorcommunication />}
+          {activeTab === 'reports' && <Reports />}
+          {activeTab === 'notifications' && <Notification />}
+          {activeTab === 'settings' && <Settings />}
+
+          {!isModuleActive && (
+            <div className="workspace-placeholder-card">
+              <h2>Coming Soon</h2>
+              <p>
+                The {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} module is not available yet.
+                Please select another menu item from the sidebar.
+              </p>
+            </div>
+          )}
         </main>
       </div>
     </div>

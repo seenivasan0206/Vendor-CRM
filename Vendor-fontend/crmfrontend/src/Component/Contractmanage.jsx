@@ -544,7 +544,7 @@ export default function Contractmanage() {
             <span className="kpi-title">Active Contracts</span>
             <div className="kpi-icon-pill pill-blue">📜</div>
           </div>
-          <div className="kpi-value">{stats.active}</div>
+          <div className="kpi-value kpi-val-blue">{stats.active}</div>
           <div className="kpi-footer">
             <span className="kpi-tag tag-success">{Math.round((stats.active / (stats.total || 1)) * 100)}% Active</span>
             <span style={{ color: '#38bdf8', fontWeight: 600 }}>{stats.total} Total Portfolio</span>
@@ -557,7 +557,7 @@ export default function Contractmanage() {
             <span className="kpi-title">Total Portfolio Value</span>
             <div className="kpi-icon-pill pill-purple">💎</div>
           </div>
-          <div className="kpi-value">{formatAbbreviatedCurrency(stats.totalValue)}</div>
+          <div className="kpi-value kpi-val-purple">{formatAbbreviatedCurrency(stats.totalValue)}</div>
           <div className="kpi-footer">
             <span className="kpi-tag tag-neutral">{formatAbbreviatedCurrency(stats.activeValue)} Active</span>
             <span style={{ color: '#c084fc' }}>Commercial Valuation</span>
@@ -570,7 +570,7 @@ export default function Contractmanage() {
             <span className="kpi-title">Expiring Soon (30 Days)</span>
             <div className="kpi-icon-pill pill-amber">⏳</div>
           </div>
-          <div className="kpi-value">{stats.expiringSoon}</div>
+          <div className="kpi-value kpi-val-amber">{stats.expiringSoon}</div>
           <div className="kpi-footer">
             <span className="kpi-tag tag-warning">Attention Needed</span>
             <span style={{ color: '#fbbf24' }}>Upcoming Renewals</span>
@@ -583,7 +583,7 @@ export default function Contractmanage() {
             <span className="kpi-title">Draft & Review</span>
             <div className="kpi-icon-pill pill-green">✍️</div>
           </div>
-          <div className="kpi-value">{stats.draft}</div>
+          <div className="kpi-value kpi-val-green">{stats.draft}</div>
           <div className="kpi-footer">
             <span className="kpi-tag tag-neutral">{stats.expired} Expired</span>
             <span style={{ color: '#34d399' }}>Pipeline Agreements</span>

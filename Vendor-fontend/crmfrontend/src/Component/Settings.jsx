@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../Styles/Settings.css';
 import { authService } from '../services/authService';
 
@@ -149,7 +149,7 @@ function Settings() {
               isActive: true,
             }),
           });
-        } catch (err) {
+        } catch {
           console.warn('Sync setting failed for', item.settingKey);
         }
       }
@@ -207,7 +207,7 @@ function Settings() {
         body: JSON.stringify({ isActive: !currentStatus }),
       });
       showToast(`User status changed to ${!currentStatus ? 'Active' : 'Suspended'}`);
-    } catch (err) {
+    } catch {
       showToast(`User status updated to ${!currentStatus ? 'Active' : 'Suspended'} (local sync)`);
     }
   };

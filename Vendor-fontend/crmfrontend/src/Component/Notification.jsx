@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../Styles/Notification.css';
 import { authService } from '../services/authService';
 
@@ -150,7 +150,27 @@ function Notification() {
   };
 
   useEffect(() => {
-    fetchNotifications();
+    let ignore = false;
+    const load = async () => {
+      try {
+        const res = await fetch(API_BASE_URL, {
+          headers: getAuthHeaders(),
+        });
+        if (res.ok) {
+          const payload = await res.json();
+          const serverList = payload?.data?.content || payload?.data || [];
+          if (!ignore && Array.isArray(serverList) && serverList.length > 0) {
+            setNotifications(serverList);
+          }
+        }
+      } catch (err) {
+        console.warn('Backend notifications endpoint unreachable, using local cache:', err);
+      }
+    };
+    load();
+    return () => {
+      ignore = true;
+    };
   }, []);
 
   // Mark single notification read / unread
@@ -183,7 +203,7 @@ function Notification() {
         headers: getAuthHeaders(),
       });
       showToast('All notifications marked as read');
-    } catch (err) {
+    } catch {
       showToast('Marked all as read (offline sync)');
     }
   };
@@ -199,7 +219,7 @@ function Notification() {
         headers: getAuthHeaders(),
       });
       showToast('Cleared read notifications');
-    } catch (err) {
+    } catch {
       showToast('Cleared read notifications (offline sync)');
     }
   };
@@ -214,7 +234,7 @@ function Notification() {
         headers: getAuthHeaders(),
       });
       showToast('Notification deleted');
-    } catch (err) {
+    } catch {
       showToast('Notification removed');
     }
   };
@@ -306,6 +326,15 @@ function Notification() {
           <p>Real-time procurement alerts, inventory shortages, invoice tracking, and system updates.</p>
         </div>
         <div className="notif-header-actions">
+          <button
+            type="button"
+            className="notif-btn-secondary"
+            onClick={fetchNotifications}
+            disabled={isLoading}
+            title="Refresh notifications"
+          >
+            {isLoading ? '⟳ Refreshing...' : '⟳ Refresh'}
+          </button>
           <button
             type="button"
             className="notif-btn-create"
