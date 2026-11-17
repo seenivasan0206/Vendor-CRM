@@ -7,19 +7,19 @@
 :root {
   color-scheme: dark;
 
-  --dk-bg: #0b1120;
-  --dk-bg-alt: #0f172a;
-  --dk-surface: #1e293b;
-  --dk-surface-2: #172033;
-  --dk-surface-3: #243147;
-  --dk-border: #334155;
-  --dk-border-soft: #2b3a52;
+  --dk-bg: #020B1A;
+  --dk-bg-alt: #020B1A;
+  --dk-surface: #07172B;
+  --dk-surface-2: #051329;
+  --dk-surface-3: #0a1f38;
+  --dk-border: rgba(0, 212, 229, 0.22);
+  --dk-border-soft: rgba(0, 212, 229, 0.12);
   --dk-text: #e2e8f0;
-  --dk-text-strong: #f8fafc;
+  --dk-text-strong: #ffffff;
   --dk-text-muted: #94a3b8;
   --dk-text-dim: #64748b;
-  --dk-accent: #38bdf8;
-  --dk-accent-strong: #0ea5e9;
+  --dk-accent: #00D4E5;
+  --dk-accent-strong: #1265FF;
 }
 
 body {
@@ -89,55 +89,59 @@ body {
 }
 
 .nav-btn.active {
-  background-color: var(--dk-accent-strong);
-  color: #ffffff;
+  background: linear-gradient(90deg, rgba(0, 212, 229, 0.15) 0%, rgba(18, 101, 255, 0.15) 100%);
+  border: 1px solid rgba(0, 212, 229, 0.35);
+  color: #00D4E5;
+  box-shadow: 0 0 14px rgba(0, 212, 229, 0.2);
 }
 
 /* ---------- Header ---------- */
 .crm-header {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border-bottom: 2px solid var(--dk-border);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+  background: rgba(7, 23, 43, 0.95);
+  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 .header-title {
-  color: var(--dk-text-strong);
-  text-shadow: none;
-}
-
-.header-action-btn {
-  background-color: rgba(148, 163, 184, 0.16);
-}
-
-.header-action-btn:hover {
-  background-color: rgba(148, 163, 184, 0.28);
-}
-
-.notification-badge {
-  border: 2px solid var(--dk-bg-alt);
-}
-
-.header-user-profile {
-  background-color: rgba(0, 0, 0, 0.28);
-  border: 1px solid var(--dk-border);
-}
-
-.header-user-profile:hover {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-color: var(--dk-accent);
-}
-
-.user-avatar {
-  background-color: var(--dk-accent-strong);
   color: #ffffff;
 }
 
+.header-action-btn {
+  background-color: rgba(2, 11, 26, 0.75);
+  border: 1px solid rgba(0, 212, 229, 0.25);
+}
+
+.header-action-btn:hover {
+  background-color: rgba(0, 212, 229, 0.15);
+  border-color: #00D4E5;
+  box-shadow: 0 0 12px rgba(0, 212, 229, 0.3);
+}
+
+.notification-badge {
+  border: 2px solid #07172B;
+}
+
+.header-user-profile {
+  background-color: rgba(2, 11, 26, 0.75);
+  border: 1px solid rgba(0, 212, 229, 0.25);
+}
+
+.header-user-profile:hover {
+  background-color: rgba(0, 212, 229, 0.12);
+  border-color: #00D4E5;
+}
+
+.user-avatar {
+  background: linear-gradient(135deg, #00D4E5 0%, #1265FF 100%);
+  color: #020B1A;
+}
+
 .user-name {
-  color: var(--dk-text-strong);
+  color: #ffffff;
 }
 
 .user-role {
-  color: var(--dk-text-muted);
+  color: #00D4E5;
 }
 
 /* ---------- Dashboard containers ---------- */
@@ -146,10 +150,13 @@ body {
 .pay-container,
 .perf-container,
 .comm-container,
-.rep-container {
-  background-color: var(--dk-surface);
-  border: 1px solid var(--dk-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+.rep-container,
+.notification-page-container,
+.settings-page-container {
+  background-color: var(--dk-surface) !important;
+  border: 1px solid var(--dk-border) !important;
+  color: var(--dk-text-strong) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08) !important;
 }
 
 /* ---------- Dashboard headers ---------- */
@@ -910,9 +917,9 @@ body {
    Notifications & Alerts — dark theme
    ========================================================================== */
 .notification-page-container {
-  background: var(--dk-surface);
-  border: 1px solid var(--dk-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  background: var(--dk-surface) !important;
+  border: 1px solid var(--dk-border) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08) !important;
 }
 
 .notif-header {
@@ -967,7 +974,7 @@ body {
   color: var(--dk-text-muted);
 }
 
-.kpi-value {
+.notif-kpi-card .kpi-value {
   color: var(--dk-text-strong);
 }
 
@@ -1181,9 +1188,9 @@ body {
    Settings & Administration — dark theme
    ========================================================================== */
 .settings-page-container {
-  background: var(--dk-surface);
-  border: 1px solid var(--dk-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  background: var(--dk-surface) !important;
+  border: 1px solid var(--dk-border) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08) !important;
 }
 
 .settings-header {

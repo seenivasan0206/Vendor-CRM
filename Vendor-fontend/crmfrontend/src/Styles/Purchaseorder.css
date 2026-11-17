@@ -1,155 +1,186 @@
+/* ==========================================================================
+   Purchase Orders Dashboard - Deep Dark Theme (#020B1A / #07172B)
+   Matches Login Page & Main Dashboard Theme
+   ========================================================================== */
+
 .po-container {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  background: #07172B;
+  border: 1px solid rgba(0, 212, 229, 0.22);
+  border-radius: 14px;
   padding: 24px;
+  color: #f8fafc;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08);
 }
 
 .po-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.15);
 }
 
 .po-header h2 {
   margin: 0 0 4px 0;
-  font-size: 1.35rem;
-  color: #0f172a;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -0.01em;
 }
 
 .po-header p {
   margin: 0;
-  color: #64748b;
-  font-size: 0.9rem;
-}
-
-.po-btn-primary {
-  background: #0284c7;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 16px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.po-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 0.9rem;
-}
-
-.po-table th {
-  background: #f8fafc;
-  color: #475569;
-  padding: 12px;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.po-table td {
-  padding: 12px;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.po-order-num {
-  font-weight: 700;
-  color: #0284c7;
-}
-
-.po-empty {
-  text-align: center;
-  color: #64748b;
-  padding: 28px;
-}
-
-/* Modal */
-.po-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.po-modal {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 24px;
-  width: 100%;
-  max-width: 520px;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.po-modal h3 {
-  margin: 0 0 16px 0;
-  color: #0f172a;
-}
-
-.po-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.po-form input {
-  padding: 10px 12px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
+  color: #94a3b8;
   font-size: 0.92rem;
 }
 
-.po-modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 8px;
+.po-btn-primary {
+  background: linear-gradient(135deg, #00D4E5 0%, #1265FF 100%);
+  color: #020B1A;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(0, 212, 229, 0.35);
+  transition: all 0.25s ease;
 }
 
-.po-btn-secondary {
-  background: #f1f5f9;
-  color: #334155;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 10px 16px;
-  font-weight: 600;
-  cursor: pointer;
+.po-btn-primary:hover {
+  box-shadow: 0 0 24px rgba(0, 212, 229, 0.55), 0 0 40px rgba(18, 101, 255, 0.25);
+  transform: translateY(-1px);
 }
 
 /* Toolbar: Search & Filter */
 .po-toolbar {
   display: flex;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .po-search-input {
   flex: 1;
   max-width: 320px;
-  padding: 8px 12px;
-  border: 1px solid #cbd5e1;
+  padding: 9px 14px;
+  background: #020B1A;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   border-radius: 8px;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
+  color: #f8fafc;
   outline: none;
+  transition: all 0.2s ease;
+}
+
+.po-search-input::placeholder {
+  color: #64748b;
 }
 
 .po-search-input:focus,
 .po-filter-select:focus {
-  border-color: #0284c7;
+  border-color: #00D4E5;
+  box-shadow: 0 0 0 2px rgba(0, 212, 229, 0.2), 0 0 14px rgba(0, 212, 229, 0.18);
 }
 
 .po-filter-select {
-  padding: 8px 12px;
-  border: 1px solid #cbd5e1;
+  padding: 9px 14px;
+  background: #020B1A;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   border-radius: 8px;
-  font-size: 0.88rem;
-  background: #ffffff;
+  font-size: 0.9rem;
+  color: #f8fafc;
   cursor: pointer;
   outline: none;
+}
+
+.po-filter-select option {
+  background: #07172B;
+  color: #f8fafc;
+}
+
+.po-btn-refresh {
+  background: #051329;
+  color: #00D4E5;
+  border: 1px solid rgba(0, 212, 229, 0.25);
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.po-btn-refresh:hover:not(:disabled) {
+  background: rgba(0, 212, 229, 0.12);
+  border-color: #00D4E5;
+  box-shadow: 0 0 12px rgba(0, 212, 229, 0.2);
+}
+
+.po-btn-refresh:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.po-api-alert {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+}
+
+/* Table */
+.po-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+  background: #051329;
+  border: 1px solid rgba(0, 212, 229, 0.22);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.po-table th {
+  background: #020B1A;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
+}
+
+.po-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.1);
+  color: #cbd5e1;
+}
+
+.po-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.po-table tbody tr:hover {
+  background: rgba(0, 212, 229, 0.04);
+}
+
+.po-order-num {
+  font-weight: 700;
+  color: #00D4E5;
+}
+
+.po-empty {
+  text-align: center;
+  color: #64748b;
+  padding: 36px 16px;
+  font-size: 0.95rem;
 }
 
 .po-actions {
@@ -159,65 +190,106 @@
 }
 
 .po-status-select {
-  padding: 6px 8px;
-  border: 1px solid #cbd5e1;
+  padding: 6px 10px;
+  background: #020B1A;
+  color: #e2e8f0;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   border-radius: 6px;
   font-size: 0.82rem;
-  background: #ffffff;
+  cursor: pointer;
+  outline: none;
+}
+
+.po-status-select option {
+  background: #07172B;
+  color: #f8fafc;
 }
 
 .po-btn-delete {
-  background: transparent;
-  color: #dc2626;
-  border: 1px solid #fecaca;
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
   border-radius: 6px;
-  padding: 6px 10px;
+  padding: 6px 12px;
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .po-btn-delete:hover {
-  background: #fee2e2;
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #f87171;
 }
 
-.po-btn-refresh {
-  background: #f1f5f9;
-  color: #334155;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 8px 14px;
+/* Modal */
+.po-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 11, 26, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.po-modal {
+  background: #07172B;
+  border: 1px solid rgba(0, 212, 229, 0.3);
+  border-radius: 14px;
+  padding: 26px;
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85), 0 0 35px -4px rgba(0, 212, 229, 0.2);
+  color: #f8fafc;
+}
+
+.po-modal h3 {
+  margin: 0 0 18px 0;
+  color: #f8fafc;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.po-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.po-form label {
   font-size: 0.85rem;
   font-weight: 600;
-  cursor: pointer;
+  color: #94a3b8;
+  margin-bottom: 4px;
 }
 
-.po-btn-refresh:hover:not(:disabled) {
-  background: #e2e8f0;
-}
-
-.po-btn-refresh:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.po-api-alert {
-  background: #fffbeb;
-  border: 1px solid #fde68a;
-  color: #92400e;
+.po-form input {
+  padding: 10px 14px;
+  background: #020B1A;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 0.85rem;
-  margin-bottom: 14px;
+  font-size: 0.92rem;
+  color: #f8fafc;
+  outline: none;
 }
 
-/* Dynamic Line Items in Modal */
+.po-form input:focus {
+  border-color: #00D4E5;
+  box-shadow: 0 0 0 2px rgba(0, 212, 229, 0.2);
+}
+
 .po-items-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border-top: 1px solid #f1f5f9;
-  padding-top: 12px;
+  gap: 12px;
+  border-top: 1px solid rgba(0, 212, 229, 0.15);
+  padding-top: 16px;
+  margin-top: 4px;
 }
 
 .po-items-header {
@@ -229,22 +301,25 @@
 .po-items-header h4 {
   margin: 0;
   font-size: 0.95rem;
-  color: #0f172a;
+  color: #f8fafc;
+  font-weight: 600;
 }
 
 .po-btn-add-item {
-  background: transparent;
-  color: #0284c7;
-  border: 1px dashed #0284c7;
+  background: rgba(0, 212, 229, 0.12);
+  color: #00D4E5;
+  border: 1px dashed rgba(0, 212, 229, 0.45);
   border-radius: 6px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .po-btn-add-item:hover {
-  background: #f0f9ff;
+  background: rgba(0, 212, 229, 0.22);
+  border-color: #00D4E5;
 }
 
 .po-item-row {
@@ -258,41 +333,69 @@
 }
 
 .po-item-qty {
-  width: 70px;
+  width: 75px;
 }
 
 .po-item-price {
-  width: 110px;
+  width: 120px;
 }
 
 .po-btn-remove-item {
-  background: #fee2e2;
-  color: #dc2626;
-  border: none;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
   border-radius: 6px;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.po-btn-remove-item:hover {
+  background: rgba(239, 68, 68, 0.3);
 }
 
 .po-calculated-total {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 12px;
-  background: #f8fafc;
+  padding: 12px 14px;
+  background: #020B1A;
+  border: 1px solid rgba(0, 212, 229, 0.18);
   border-radius: 8px;
   font-size: 0.95rem;
-  color: #334155;
+  color: #94a3b8;
 }
 
 .po-calculated-total strong {
-  color: #059669;
-  font-size: 1.1rem;
+  color: #34d399;
+  font-size: 1.15rem;
 }
 
+.po-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.po-btn-secondary {
+  background: #051329;
+  color: #cbd5e1;
+  border: 1px solid rgba(0, 212, 229, 0.22);
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.po-btn-secondary:hover {
+  background: rgba(0, 212, 229, 0.1);
+  color: #f8fafc;
+}

@@ -4,6 +4,10 @@ import Sidebar from './Header/Sidebar';
 import Header from './Header/Header';
 import Login from './Auth/Login';
 import { authService } from './services/authService';
+import Dashboard from './Component/Dashboard';
+import Vendor from './Component/Vendor';
+import Contractmanage from './Component/Contractmanage';
+import ProductService from './Component/ProductService';
 import Purchaseorder from './Component/Purchaseorder';
 import Inventory from './Component/Inventory';
 import Payment from './Component/Payment';
@@ -14,7 +18,7 @@ import Notification from './Component/Notification';
 import Settings from './Component/Settings';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('purchaseorders');
+  const [activeTab, setActiveTab] = useState('dashboard');
   const [currentUser, setCurrentUser] = useState(() => authService.getCurrentUser());
 
   const handleLoginSuccess = (user) => {
@@ -31,6 +35,10 @@ function App() {
   }
 
   const isModuleActive = [
+    'dashboard',
+    'vendors',
+    'contracts',
+    'products',
     'purchaseorders',
     'inventory',
     'payments',
@@ -58,6 +66,10 @@ function App() {
 
         {/* 3. Main Workspace Area */}
         <main className="crm-workspace">
+          {activeTab === 'dashboard' && <Dashboard setActiveTab={setActiveTab} />}
+          {activeTab === 'vendors' && <Vendor setActiveTab={setActiveTab} />}
+          {activeTab === 'contracts' && <Contractmanage />}
+          {activeTab === 'products' && <ProductService />}
           {activeTab === 'purchaseorders' && <Purchaseorder />}
           {activeTab === 'inventory' && <Inventory />}
           {activeTab === 'payments' && <Payment />}

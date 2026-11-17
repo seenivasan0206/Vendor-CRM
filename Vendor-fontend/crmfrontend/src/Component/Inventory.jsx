@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../Styles/Inventory.css';
 
 const API_BASE_URL = 'http://localhost:8080/api/inventory';
@@ -90,7 +90,27 @@ function Inventory() {
   };
 
   useEffect(() => {
-    fetchInventory();
+    let ignore = false;
+    const load = async () => {
+      try {
+        const res = await fetch(API_BASE_URL);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const list = data?.data?.content || data?.data || [];
+        if (!ignore && list.length > 0) {
+          setInventoryList(list);
+        }
+      } catch (err) {
+        console.warn('Backend API offline, using local inventory state:', err.message);
+        if (!ignore) {
+          setApiAlert('Backend API offline (http://localhost:8080). Displaying local data.');
+        }
+      }
+    };
+    load();
+    return () => {
+      ignore = true;
+    };
   }, []);
 
   const openAdjustModal = (item, type) => {

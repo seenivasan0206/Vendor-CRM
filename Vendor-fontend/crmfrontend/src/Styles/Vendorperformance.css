@@ -1,60 +1,76 @@
+/* ==========================================================================
+   Vendor Performance Dashboard - Deep Dark Theme (#020B1A / #07172B)
+   Matches Login Page & Main Dashboard Theme
+   ========================================================================== */
+
 .perf-container {
-  background-color: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  background-color: #07172B;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  color: #f8fafc;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08);
 }
 
 .perf-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.15);
   padding-bottom: 20px;
   margin-bottom: 24px;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .perf-header h2 {
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #f8fafc;
   margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
 }
 
 .perf-header p {
-  color: #64748b;
-  font-size: 0.9rem;
+  color: #94a3b8;
+  font-size: 0.92rem;
   margin: 0;
 }
 
 .perf-btn-primary {
-  background: #0284c7;
-  color: #ffffff;
+  background: linear-gradient(135deg, #00D4E5 0%, #1265FF 100%);
+  color: #020B1A;
   border: none;
   border-radius: 8px;
   padding: 10px 18px;
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s ease;
+  box-shadow: 0 0 16px rgba(0, 212, 229, 0.35);
+  transition: all 0.25s ease;
   white-space: nowrap;
 }
 
 .perf-btn-primary:hover {
-  background: #0369a1;
+  box-shadow: 0 0 24px rgba(0, 212, 229, 0.55), 0 0 40px rgba(18, 101, 255, 0.25);
+  transform: translateY(-1px);
 }
 
 .perf-btn-secondary {
-  background: #f1f5f9;
-  color: #334155;
-  border: 1px solid #cbd5e1;
+  background: #051329;
+  color: #cbd5e1;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   border-radius: 8px;
   padding: 10px 16px;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.perf-btn-secondary:hover {
+  background: rgba(0, 212, 229, 0.1);
+  color: #f8fafc;
 }
 
 /* KPI Summary Cards */
@@ -66,67 +82,77 @@
 }
 
 .perf-stat-card {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 16px 18px;
+  background-color: #051329;
+  border: 1px solid rgba(0, 212, 229, 0.22);
+  border-radius: 12px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+}
+
+.perf-stat-card:hover {
+  border-color: rgba(0, 212, 229, 0.45);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 212, 229, 0.15);
 }
 
 .perf-stat-label {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: #64748b;
+  color: #94a3b8;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .perf-stat-value {
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #f8fafc;
 }
 
 .perf-stat-info {
-  color: #0284c7;
+  color: #38bdf8 !important;
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.4) !important;
 }
 
 .perf-stat-success {
-  color: #059669;
+  color: #34d399 !important;
+  text-shadow: 0 0 14px rgba(52, 211, 153, 0.4) !important;
 }
 
 /* Table */
 .perf-table-wrapper {
   overflow-x: auto;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  border: 1px solid rgba(0, 212, 229, 0.22);
+  border-radius: 12px;
+  background: #051329;
 }
 
 .perf-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .perf-table thead th {
-  background-color: #f8fafc;
-  color: #475569;
+  background-color: #020B1A;
+  color: #94a3b8;
   font-weight: 600;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: 12px 14px;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
   white-space: nowrap;
 }
 
 .perf-table tbody td {
-  padding: 14px;
-  border-bottom: 1px solid #f1f5f9;
-  color: #334155;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.1);
+  color: #cbd5e1;
   vertical-align: middle;
 }
 
@@ -135,33 +161,35 @@
 }
 
 .perf-table tbody tr:hover {
-  background-color: #f8fafc;
+  background-color: rgba(0, 212, 229, 0.04);
 }
 
 .perf-vendor-name {
   font-weight: 600;
-  color: #0f172a;
+  color: #f8fafc;
 }
 
 .perf-vendor-code {
-  font-size: 0.78rem;
-  color: #64748b;
+  font-size: 0.8rem;
+  color: #00D4E5;
+  font-family: monospace;
 }
 
 .perf-overall-score {
   font-size: 0.95rem;
-  color: #0f172a;
+  color: #f8fafc;
 }
 
 .perf-overall-score strong {
-  color: #0284c7;
-  font-size: 1.1rem;
+  color: #00D4E5;
+  font-size: 1.15rem;
+  text-shadow: 0 0 10px rgba(0, 212, 229, 0.3);
 }
 
 /* Badges */
 .perf-badge {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -169,30 +197,36 @@
 }
 
 .perf-badge-top {
-  background-color: #dcfce7;
-  color: #15803d;
+  background-color: rgba(16, 185, 129, 0.18);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
 }
 
 .perf-badge-good {
-  background-color: #e0f2fe;
-  color: #0369a1;
+  background-color: rgba(56, 189, 248, 0.18);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
 }
 
 .perf-badge-avg {
-  background-color: #fef3c7;
-  color: #b45309;
+  background-color: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
 }
 
 .perf-badge-poor {
-  background-color: #fee2e2;
-  color: #b91c1c;
+  background-color: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
 }
 
 /* Modal */
 .perf-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.5);
+  background: rgba(2, 11, 26, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -201,27 +235,30 @@
 }
 
 .perf-modal {
-  background: #ffffff;
-  border-radius: 12px;
+  background: #07172B;
+  border: 1px solid rgba(0, 212, 229, 0.3);
+  border-radius: 14px;
   width: 100%;
-  max-width: 580px;
+  max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85), 0 0 35px -4px rgba(0, 212, 229, 0.2);
+  color: #f8fafc;
 }
 
 .perf-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 22px;
-  border-bottom: 1px solid #f1f5f9;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(0, 212, 229, 0.15);
 }
 
 .perf-modal-header h3 {
   margin: 0;
-  font-size: 1.15rem;
-  color: #0f172a;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f8fafc;
 }
 
 .perf-modal-close {
@@ -229,21 +266,26 @@
   border: none;
   font-size: 1.5rem;
   line-height: 1;
-  color: #64748b;
+  color: #94a3b8;
   cursor: pointer;
+  transition: color 0.15s;
+}
+
+.perf-modal-close:hover {
+  color: #f8fafc;
 }
 
 .perf-form {
-  padding: 18px 22px;
+  padding: 20px 24px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .perf-form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
+  gap: 14px;
 }
 
 .perf-form-group {
@@ -255,16 +297,18 @@
 .perf-form-group label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #334155;
+  color: #94a3b8;
 }
 
 .perf-form-group input,
 .perf-form-group select,
 .perf-form-group textarea {
-  padding: 9px 12px;
-  border: 1px solid #cbd5e1;
+  padding: 10px 14px;
+  background: #020B1A;
+  border: 1px solid rgba(0, 212, 229, 0.22);
   border-radius: 8px;
   font-size: 0.92rem;
+  color: #f8fafc;
   outline: none;
   font-family: inherit;
 }
@@ -272,29 +316,31 @@
 .perf-form-group input:focus,
 .perf-form-group select:focus,
 .perf-form-group textarea:focus {
-  border-color: #0284c7;
+  border-color: #00D4E5;
+  box-shadow: 0 0 0 2px rgba(0, 212, 229, 0.2);
 }
 
 .perf-scores-box {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 14px;
+  background: #020B1A;
+  border: 1px solid rgba(0, 212, 229, 0.18);
+  border-radius: 10px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .perf-scores-box h4 {
   margin: 0;
-  font-size: 0.9rem;
-  color: #0f172a;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #00D4E5;
 }
 
 .perf-score-inputs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 10px;
+  gap: 12px;
 }
 
 .perf-score-item {
@@ -306,16 +352,17 @@
 .perf-score-item label {
   font-size: 0.78rem;
   font-weight: 600;
-  color: #475569;
+  color: #94a3b8;
 }
 
 .perf-score-item input[type='range'] {
+  accent-color: #00D4E5;
   cursor: pointer;
 }
 
 .perf-modal-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 12px;
   margin-top: 8px;
 }

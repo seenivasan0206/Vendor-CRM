@@ -1,12 +1,12 @@
-/* Full Viewport App Wrapper */
+/* Full Viewport App Wrapper - Deep Midnight Navy Dark Theme (Matching Login) */
 .crm-app-container {
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
+  background-color: #020B1A;
+  color: #f8fafc;
 }
 
 /* Right Side Layout */
@@ -16,6 +16,7 @@
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+  background-color: #020B1A;
 }
 
 /* Scrollable Workspace Area */
@@ -23,32 +24,51 @@
   flex: 1;
   padding: 24px;
   overflow-y: auto;
-  background-color: #f8fafc;
+  background-color: #020B1A;
 }
 
-/* Workspace Card */
+/* Sleek Dark Scrollbar */
+.crm-workspace::-webkit-scrollbar {
+  width: 7px;
+}
+
+.crm-workspace::-webkit-scrollbar-track {
+  background: #020B1A;
+}
+
+.crm-workspace::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+.crm-workspace::-webkit-scrollbar-thumb:hover {
+  background: #00D4E5;
+  box-shadow: 0 0 10px rgba(0, 212, 229, 0.4);
+}
+
+/* Workspace Placeholder Card for Dark Theme */
 .workspace-placeholder-card {
-  background-color: #ffffff;
-  padding: 28px;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: #07172B;
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 212, 229, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 212, 229, 0.08);
 }
 
 .workspace-placeholder-card h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.35rem;
+  font-weight: 800;
   margin-bottom: 8px;
-  color: #0f172a;
+  color: #ffffff;
 }
 
 .screen-highlight {
-  color: #0284c7;
+  color: #00D4E5;
+  text-shadow: 0 0 12px rgba(0, 212, 229, 0.4);
 }
 
 .workspace-placeholder-card p {
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.95rem;
   margin: 0;
 }
-

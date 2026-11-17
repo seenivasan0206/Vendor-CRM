@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../Styles/Purchaseorder.css';
 
 const API_BASE_URL = 'http://localhost:8080/api/purchase-orders';
@@ -28,7 +28,6 @@ function Purchaseorder() {
         throw new Error(`Server returned ${response.status}`);
       }
       const result = await response.json();
-      // Spring Boot returns ApiResponse with data as Page<PurchaseOrderResponse>
       const orderList = result?.data?.content || result?.data || [];
       setOrders(orderList);
     } catch (err) {
@@ -40,7 +39,29 @@ function Purchaseorder() {
   };
 
   useEffect(() => {
-    fetchOrders();
+    let ignore = false;
+    const load = async () => {
+      try {
+        const response = await fetch(API_BASE_URL);
+        if (!response.ok) {
+          throw new Error(`Server returned ${response.status}`);
+        }
+        const result = await response.json();
+        const orderList = result?.data?.content || result?.data || [];
+        if (!ignore && orderList.length > 0) {
+          setOrders(orderList);
+        }
+      } catch (err) {
+        console.warn('Backend API offline or unreachable, using local state:', err.message);
+        if (!ignore) {
+          setApiError('Backend API offline (http://localhost:8080). Displaying local data.');
+        }
+      }
+    };
+    load();
+    return () => {
+      ignore = true;
+    };
   }, []);
 
   const handleChange = (e) => {
@@ -73,8 +94,9 @@ function Purchaseorder() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const maxId = orders.reduce((max, po) => Math.max(max, Number(po.id) || 0), 0);
     const newOrder = {
-      id: Date.now(),
+      id: maxId + 1,
       orderNumber: formData.orderNumber,
       vendorCompanyName: formData.vendorCompanyName,
       orderDate: formData.orderDate,

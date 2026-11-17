@@ -94,43 +94,206 @@ async function fetchJson(url) {
 
 /* ---------- Lightweight SVG visualizations ---------- */
 
-function BarChart({ data, valueKey, labelKey, color = '#0284c7', height = 180 }) {
-  const max = Math.max(...data.map((d) => Number(d[valueKey]) || 0), 1);
-  const columnWidth = 100 / data.length;
-  const barWidth = columnWidth * 0.6;
+function BarChart({ data, labelKey = 'monthName' }) {
+  const [hoveredIdx, setHoveredIdx] = useState(null);
+  const [activeMetric, setActiveMetric] = useState('orders'); // 'orders' | 'spend'
+
+  const maxOrders = useMemo(() => {
+    const vals = data.map((d) => Number(d.orderCount) || 0);
+    const m = Math.max(...vals, 10);
+    return Math.ceil(m / 5) * 5;
+  }, [data]);
+
+  const maxSpend = useMemo(() => {
+    const vals = data.map((d) => Number(d.totalValue) || 0);
+    const m = Math.max(...vals, 1000);
+    return Math.ceil(m / 50000) * 50000;
+  }, [data]);
+
+  const currentMax = activeMetric === 'spend' ? maxSpend : maxOrders;
+
   return (
-    <div className="rep-chart">
-      <svg
-        className="rep-chart-svg"
-        viewBox={`0 0 100 ${height}`}
-        preserveAspectRatio="none"
-        role="img"
-        aria-label="Monthly purchase order trend"
+    <div
+      style={{
+        marginTop: '16px',
+        background: '#07172B',
+        border: '1px solid rgba(0, 212, 229, 0.25)',
+        borderRadius: '16px',
+        padding: '20px 24px',
+        boxShadow: '0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 212, 229, 0.08)'
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '16px',
+          flexWrap: 'wrap',
+          gap: '12px'
+        }}
       >
-        {data.map((d, i) => {
-          const val = Number(d[valueKey]) || 0;
-          const h = (val / max) * (height - 4);
-          const x = i * columnWidth + (columnWidth - barWidth) / 2;
-          return (
-            <rect
-              key={d[labelKey] || i}
-              x={x}
-              y={height - h}
-              width={barWidth}
-              height={h}
-              rx={1.5}
-              fill={color}
-              opacity={0.85}
-            />
-          );
-        })}
-      </svg>
-      <div className="rep-chart-labels">
-        {data.map((d, i) => (
-          <span key={d[labelKey] || i} className="rep-chart-label">
-            {d[labelKey]}
+        <div>
+          <h4 style={{ margin: 0, color: '#f8fafc', fontSize: '1.05rem', fontWeight: 800, letterSpacing: '-0.01em' }}>
+            Monthly Procurement Trend Analytics
+          </h4>
+          <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+            Visual breakdown of order spend and volume
           </span>
-        ))}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            background: '#020B1A',
+            padding: '3px',
+            borderRadius: '8px',
+            border: '1px solid rgba(0, 212, 229, 0.2)'
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setActiveMetric('orders')}
+            style={{
+              padding: '5px 14px',
+              borderRadius: '6px',
+              border: 'none',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              background: activeMetric === 'orders' ? 'linear-gradient(90deg, #00D4E5 0%, #1265FF 100%)' : 'transparent',
+              color: activeMetric === 'orders' ? '#ffffff' : '#94a3b8',
+              boxShadow: activeMetric === 'orders' ? '0 0 10px rgba(0, 212, 229, 0.4)' : 'none',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Orders (Qty)
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveMetric('spend')}
+            style={{
+              padding: '5px 14px',
+              borderRadius: '6px',
+              border: 'none',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              background: activeMetric === 'spend' ? 'linear-gradient(90deg, #00D4E5 0%, #1265FF 100%)' : 'transparent',
+              color: activeMetric === 'spend' ? '#ffffff' : '#94a3b8',
+              boxShadow: activeMetric === 'spend' ? '0 0 10px rgba(0, 212, 229, 0.4)' : 'none',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Spend ($)
+          </button>
+        </div>
+      </div>
+
+      <div style={{ position: 'relative', width: '100%', marginTop: '12px' }}>
+        {hoveredIdx !== null && data[hoveredIdx] && (
+          <div
+            style={{
+              position: 'absolute',
+              top: '10px',
+              right: '20px',
+              background: '#020B1A',
+              color: '#ffffff',
+              padding: '10px 16px',
+              borderRadius: '12px',
+              fontSize: '0.82rem',
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(0, 212, 229, 0.25)',
+              border: '1px solid #00D4E5',
+              pointerEvents: 'none',
+              zIndex: 10,
+              animation: 'fadeIn 0.15s ease'
+            }}
+          >
+            <div style={{ fontWeight: 800, color: '#00D4E5', marginBottom: '2px', fontSize: '0.88rem' }}>
+              {data[hoveredIdx].monthName}
+            </div>
+            <div>Orders: <strong>{data[hoveredIdx].orderCount || 0}</strong></div>
+            <div>Spend: <strong>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(data[hoveredIdx].totalValue || 0)}</strong></div>
+          </div>
+        )}
+
+        <svg
+          className="dash-svg-chart"
+          viewBox="0 0 720 220"
+          preserveAspectRatio="none"
+          style={{ width: '100%', height: '220px', overflow: 'visible' }}
+        >
+          <defs>
+            <linearGradient id="repBarGradCyan" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#00D4E5" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#1265FF" stopOpacity="0.4" />
+            </linearGradient>
+            <linearGradient id="repBarGradGreen" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#00F0A8" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#10b981" stopOpacity="0.4" />
+            </linearGradient>
+          </defs>
+
+          {/* Horizontal grid lines */}
+          {[0, 0.25, 0.5, 0.75, 1].map((ratio, idx) => {
+            const y = 180 - ratio * 150;
+            const label =
+              activeMetric === 'spend'
+                ? `$${Math.round((maxSpend * ratio) / 1000)}k`
+                : Math.round(maxOrders * ratio);
+            return (
+              <g key={idx}>
+                <line x1="45" y1={y} x2="705" y2={y} stroke="rgba(0, 212, 229, 0.15)" strokeDasharray="4 4" />
+                <text x="38" y={y + 4} textAnchor="end" fill="#94a3b8" fontSize="11px" fontWeight="500">
+                  {label}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Monthly Bars */}
+          {data.map((d, idx) => {
+            const barWidth = 32;
+            const colWidth = (700 - 55) / data.length;
+            const x = 55 + idx * colWidth + (colWidth - barWidth) / 2;
+            const val = activeMetric === 'spend' ? Number(d.totalValue) || 0 : Number(d.orderCount) || 0;
+            const barHeight = currentMax > 0 ? Math.max(4, (val / currentMax) * 150) : 4;
+            const y = 180 - barHeight;
+            const isHovered = hoveredIdx === idx;
+
+            return (
+              <g
+                key={idx}
+                onMouseEnter={() => setHoveredIdx(idx)}
+                onMouseLeave={() => setHoveredIdx(null)}
+                style={{ cursor: 'pointer' }}
+              >
+                <rect x={55 + idx * colWidth} y="15" width={colWidth} height="185" fill="transparent" />
+                <rect
+                  x={x}
+                  y={y}
+                  width={barWidth}
+                  height={barHeight}
+                  rx="4"
+                  ry="4"
+                  fill={activeMetric === 'spend' ? 'url(#repBarGradGreen)' : 'url(#repBarGradCyan)'}
+                  opacity={hoveredIdx !== null && !isHovered ? 0.45 : 1}
+                  filter={isHovered ? 'drop-shadow(0 0 10px rgba(0, 212, 229, 0.8))' : 'none'}
+                  style={{ transition: 'all 0.2s ease' }}
+                />
+                <text
+                  x={x + barWidth / 2}
+                  y="200"
+                  textAnchor="middle"
+                  fill={isHovered ? '#00D4E5' : '#94a3b8'}
+                  fontSize="11px"
+                  fontWeight={isHovered ? 700 : 500}
+                >
+                  {d[labelKey]}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
       </div>
     </div>
   );
@@ -412,7 +575,7 @@ function Reports() {
             Orders & value per month
           </span>
         </div>
-        <BarChart data={monthly} valueKey="orderCount" labelKey="monthName" color="#0284c7" height={200} />
+        <BarChart data={monthly} labelKey="monthName" />
         <div className="rep-trend-foot">
           {monthly.map((m) => (
             <div key={m.monthName} className="rep-trend-cell">
