@@ -1,15 +1,15 @@
 /* ==========================================================================
    Vendor Communication Dashboard - Deep Dark Theme (#020B1A / #07172B)
-   Matches Login Page & Main Dashboard Theme
+   Matches Main CRM Dashboard & 2-Color Electric Indigo Palette
    ========================================================================== */
 
 .comm-container {
   background-color: #07172B;
   border-radius: 14px;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   padding: 24px;
-  color: #f8fafc;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08);
+  color: #E2E8F0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 /* 1. Page Header */
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 212, 229, 0.15);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
   padding-bottom: 20px;
   margin-bottom: 24px;
   gap: 16px;
@@ -27,7 +27,7 @@
 .comm-header h2 {
   font-size: 1.45rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: #E2E8F0;
   margin: 0 0 4px 0;
   letter-spacing: -0.01em;
 }
@@ -39,21 +39,23 @@
 }
 
 .comm-btn-primary {
-  background: linear-gradient(135deg, #00D4E5 0%, #1265FF 100%);
-  color: #020B1A;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(129, 140, 248, 0.3);
   border-radius: 8px;
   padding: 10px 18px;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 0 16px rgba(0, 212, 229, 0.35);
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .comm-btn-primary:hover:not(:disabled) {
-  box-shadow: 0 0 24px rgba(0, 212, 229, 0.55), 0 0 40px rgba(18, 101, 255, 0.25);
+  background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
   transform: translateY(-1px);
 }
 
@@ -65,7 +67,7 @@
 .comm-btn-secondary {
   background: #051329;
   color: #cbd5e1;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 8px;
   padding: 10px 16px;
   font-size: 0.9rem;
@@ -75,21 +77,22 @@
 }
 
 .comm-btn-secondary:hover:not(:disabled) {
-  background: rgba(0, 212, 229, 0.1);
-  color: #f8fafc;
+  background: rgba(99, 102, 241, 0.1);
+  color: #E2E8F0;
 }
 
-/* 2. KPI Summary Cards */
+/* 2. KPI Summary Cards (Uniform with Vendor/Contract/Product/Inventory) */
 .comm-stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
-.comm-stat-card {
-  background-color: #051329;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+.kpi-card {
+  position: relative;
+  background: #051329;
+  border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 12px;
   padding: 18px 20px;
   display: flex;
@@ -97,44 +100,65 @@
   gap: 6px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   transition: all 0.25s ease;
+  overflow: hidden;
 }
 
-.comm-stat-card:hover {
-  border-color: rgba(0, 212, 229, 0.45);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 212, 229, 0.15);
+.kpi-card:hover {
+  border-color: rgba(99, 102, 241, 0.45);
+  transform: translateY(-2px);
 }
 
-.comm-stat-label {
+.kpi-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6366F1 0%, #4F46E5 100%);
+}
+
+.kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.kpi-title {
   font-size: 0.8rem;
   font-weight: 600;
   color: #94a3b8;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
-.comm-stat-value {
-  font-size: 1.6rem;
+.kpi-icon-pill {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #6366F1;
+}
+
+.kpi-value {
+  font-size: 1.7rem;
   font-weight: 800;
-  color: #38bdf8;
-  text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+  color: #E2E8F0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
-.comm-stat-warn {
-  color: #fbbf24 !important;
-  text-shadow: 0 0 12px rgba(251, 191, 36, 0.4) !important;
+.kpi-subtext {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 500;
 }
 
-.comm-stat-success {
-  color: #34d399 !important;
-  text-shadow: 0 0 12px rgba(52, 211, 153, 0.4) !important;
-}
-
-.comm-stat-danger {
-  color: #f87171 !important;
-  text-shadow: 0 0 12px rgba(248, 113, 113, 0.4) !important;
-}
-
-/* 3. Communication Type Breakdown */
+/* 3. Communication Type Breakdown Chips */
 .comm-types-row {
   display: flex;
   flex-wrap: wrap;
@@ -150,19 +174,21 @@
   border-radius: 9999px;
   font-size: 0.85rem;
   font-weight: 600;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   background: #051329;
   color: #cbd5e1;
   transition: all 0.2s ease;
 }
 
 .comm-type-chip:hover {
-  border-color: #00D4E5;
-  background: rgba(0, 212, 229, 0.08);
+  border-color: #6366F1;
+  background: rgba(99, 102, 241, 0.1);
+  color: #E2E8F0;
 }
 
 .comm-type-icon {
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
   line-height: 1;
 }
 
@@ -172,30 +198,10 @@
   padding: 2px 8px;
   font-size: 0.78rem;
   font-weight: 700;
-  color: #00D4E5;
-  border: 1px solid rgba(0, 212, 229, 0.25);
+  color: #6366F1;
+  border: 1px solid rgba(99, 102, 241, 0.25);
   min-width: 24px;
   text-align: center;
-}
-
-.comm-type-email {
-  border-color: rgba(56, 189, 248, 0.35);
-  background: rgba(56, 189, 248, 0.1);
-}
-
-.comm-type-phone {
-  border-color: rgba(52, 211, 153, 0.35);
-  background: rgba(52, 211, 153, 0.1);
-}
-
-.comm-type-meeting {
-  border-color: rgba(251, 191, 36, 0.35);
-  background: rgba(251, 191, 36, 0.1);
-}
-
-.comm-type-message {
-  border-color: rgba(192, 132, 252, 0.35);
-  background: rgba(192, 132, 252, 0.1);
 }
 
 /* 4. Toolbar: Search & Filters */
@@ -209,14 +215,14 @@
 
 .comm-search-input {
   flex: 1;
-  min-width: 200px;
-  max-width: 360px;
+  min-width: 220px;
+  max-width: 380px;
   padding: 9px 14px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 8px;
   font-size: 0.9rem;
-  color: #f8fafc;
+  color: #E2E8F0;
   outline: none;
   font-family: inherit;
 }
@@ -227,17 +233,17 @@
 
 .comm-search-input:focus,
 .comm-filter-select:focus {
-  border-color: #00D4E5;
-  box-shadow: 0 0 0 2px rgba(0, 212, 229, 0.2);
+  border-color: #6366F1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
 .comm-filter-select {
   padding: 9px 14px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 8px;
   font-size: 0.9rem;
-  color: #f8fafc;
+  color: #E2E8F0;
   cursor: pointer;
   outline: none;
   font-family: inherit;
@@ -245,13 +251,16 @@
 
 .comm-filter-select option {
   background: #07172B;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .comm-btn-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: #051329;
-  color: #00D4E5;
-  border: 1px solid rgba(0, 212, 229, 0.25);
+  color: #6366F1;
+  border: 1px solid rgba(99, 102, 241, 0.25);
   border-radius: 8px;
   padding: 9px 16px;
   font-size: 0.88rem;
@@ -262,14 +271,22 @@
 }
 
 .comm-btn-refresh:hover:not(:disabled) {
-  background: rgba(0, 212, 229, 0.12);
-  border-color: #00D4E5;
-  box-shadow: 0 0 12px rgba(0, 212, 229, 0.2);
+  background: rgba(99, 102, 241, 0.12);
+  border-color: #6366F1;
 }
 
 .comm-btn-refresh:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.comm-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .comm-api-alert {
@@ -285,10 +302,10 @@
 /* 5. Communications List */
 .comm-empty {
   text-align: center;
-  color: #64748b;
+  color: #94a3b8;
   padding: 44px 20px;
   font-size: 0.95rem;
-  border: 1px dashed rgba(0, 212, 229, 0.25);
+  border: 1px dashed rgba(99, 102, 241, 0.25);
   border-radius: 12px;
   background: #051329;
 }
@@ -302,7 +319,7 @@
 .comm-card {
   display: flex;
   gap: 16px;
-  border: 1px solid rgba(0, 212, 229, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 12px;
   padding: 18px 20px;
   background: #051329;
@@ -311,8 +328,8 @@
 }
 
 .comm-card:hover {
-  border-color: rgba(0, 212, 229, 0.45);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 212, 229, 0.15);
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
   transform: translateY(-1px);
 }
 
@@ -322,15 +339,14 @@
 }
 
 .comm-type-icon-lg {
-  font-size: 1.6rem;
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.25);
   flex-shrink: 0;
 }
 
@@ -351,7 +367,7 @@
   margin: 0;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: #E2E8F0;
   word-break: break-word;
 }
 
@@ -401,12 +417,12 @@
 }
 
 .comm-meta-strong {
-  color: #e2e8f0;
+  color: #E2E8F0;
   font-weight: 600;
 }
 
 .comm-meta-code {
-  color: #00D4E5;
+  color: #6366F1;
   font-size: 0.8rem;
   font-family: monospace;
 }
@@ -424,7 +440,7 @@
   margin: 0;
   padding: 10px 14px;
   background: #020B1A;
-  border-left: 3px solid #00D4E5;
+  border-left: 3px solid #6366F1;
   border-radius: 6px;
   color: #94a3b8;
   font-size: 0.86rem;
@@ -434,7 +450,7 @@
 }
 
 .comm-remarks-label {
-  color: #00D4E5;
+  color: #6366F1;
   font-weight: 700;
 }
 
@@ -444,14 +460,14 @@
   flex-direction: column;
   gap: 8px;
   align-items: stretch;
-  min-width: 104px;
+  min-width: 108px;
 }
 
 .comm-status-select {
   padding: 6px 10px;
   background: #020B1A;
-  color: #f8fafc;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  color: #E2E8F0;
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 6px;
   font-size: 0.8rem;
   cursor: pointer;
@@ -461,13 +477,17 @@
 
 .comm-status-select option {
   background: #07172B;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .comm-btn-edit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   background: #020B1A;
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #818CF8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 6px;
   padding: 6px 12px;
   font-size: 0.8rem;
@@ -477,11 +497,16 @@
 }
 
 .comm-btn-edit:hover {
-  background: rgba(56, 189, 248, 0.15);
-  border-color: #38bdf8;
+  background: rgba(99, 102, 241, 0.15);
+  border-color: #6366F1;
+  color: #E2E8F0;
 }
 
 .comm-btn-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   background: rgba(239, 68, 68, 0.12);
   color: #f87171;
   border: 1px solid rgba(239, 68, 68, 0.35);
@@ -514,14 +539,14 @@
 
 .comm-modal {
   background: #07172B;
-  border: 1px solid rgba(0, 212, 229, 0.3);
+  border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 14px;
   width: 100%;
   max-width: 640px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85), 0 0 35px -4px rgba(0, 212, 229, 0.2);
-  color: #f8fafc;
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85);
+  color: #E2E8F0;
 }
 
 .comm-modal-header {
@@ -529,14 +554,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 24px;
-  border-bottom: 1px solid rgba(0, 212, 229, 0.15);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
 }
 
 .comm-modal-header h3 {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .comm-modal-close {
@@ -550,7 +575,7 @@
 }
 
 .comm-modal-close:hover {
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .comm-form {
@@ -583,10 +608,10 @@
 .comm-form-group textarea {
   padding: 10px 14px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 8px;
   font-size: 0.92rem;
-  color: #f8fafc;
+  color: #E2E8F0;
   outline: none;
   font-family: inherit;
 }
@@ -594,8 +619,8 @@
 .comm-form-group input:focus,
 .comm-form-group select:focus,
 .comm-form-group textarea:focus {
-  border-color: #00D4E5;
-  box-shadow: 0 0 0 2px rgba(0, 212, 229, 0.2);
+  border-color: #6366F1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
 .comm-form-group textarea {

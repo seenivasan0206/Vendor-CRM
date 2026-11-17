@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Star, Plus, X } from 'lucide-react';
 import '../Styles/Vendorperformance.css';
 
 const SAMPLE_REVIEWS = [
@@ -47,10 +48,10 @@ const SAMPLE_REVIEWS = [
 ];
 
 function getRatingBadge(score) {
-  if (score >= 4.5) return { label: 'Top Tier ★★★★★', className: 'perf-badge-top' };
-  if (score >= 4.0) return { label: 'Good ★★★★', className: 'perf-badge-good' };
-  if (score >= 3.0) return { label: 'Average ★★★', className: 'perf-badge-avg' };
-  return { label: 'Needs Improvement ★', className: 'perf-badge-poor' };
+  if (score >= 4.5) return { label: 'Top Tier (5.0)', className: 'perf-badge-top' };
+  if (score >= 4.0) return { label: 'Good (4.0)', className: 'perf-badge-good' };
+  if (score >= 3.0) return { label: 'Average (3.0)', className: 'perf-badge-avg' };
+  return { label: 'Needs Improvement', className: 'perf-badge-poor' };
 }
 
 function Vendorperformance() {
@@ -138,8 +139,10 @@ function Vendorperformance() {
           type="button"
           className="perf-btn-primary"
           onClick={handleOpenModal}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
         >
-          + Record Review
+          <Plus size={15} />
+          <span>Record Review</span>
         </button>
       </div>
 
@@ -194,8 +197,9 @@ function Vendorperformance() {
                     <strong>{r.overallScore.toFixed(1)}</strong> / 5.0
                   </td>
                   <td>
-                    <span className={`perf-badge ${badge.className}`}>
-                      {badge.label}
+                    <span className={`perf-badge ${badge.className}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      <Star size={11} fill="currentColor" />
+                      <span>{badge.label}</span>
                     </span>
                   </td>
                 </tr>
@@ -215,8 +219,9 @@ function Vendorperformance() {
                 type="button"
                 className="perf-modal-close"
                 onClick={() => setIsModalOpen(false)}
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                ×
+                <X size={16} />
               </button>
             </div>
 

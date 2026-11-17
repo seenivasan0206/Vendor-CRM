@@ -59,16 +59,16 @@ export default function ForgotPasswordModal({ isOpen, onClose, defaultEmail = ''
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            className="relative w-full max-w-md rounded-[22px] bg-[#07172B]/95 border border-[#00D4E5]/30 p-6 sm:p-8 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_30px_rgba(0,212,229,0.2)] z-10 overflow-hidden"
+            className="relative w-full max-w-md rounded-[22px] bg-[#07172B]/95 border border-[#6366F1]/30 p-6 sm:p-8 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_30px_rgba(99, 102, 241,0.2)] z-10 overflow-hidden"
           >
             {/* Top Cyan/Blue Glow Accent */}
             <div
               className="absolute top-0 left-0 right-0 h-1"
               style={{
-                background: 'linear-gradient(90deg, #00D4E5 0%, #1265FF 60%, #7B2CFF 100%)',
+                background: 'linear-gradient(90deg, #6366F1 0%, #1265FF 60%, #7B2CFF 100%)',
               }}
             />
-            <div className="absolute -top-24 -left-24 w-48 h-48 bg-[#00D4E5]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-24 -left-24 w-48 h-48 bg-[#6366F1]/15 rounded-full blur-3xl pointer-events-none" />
 
             {/* Close Button */}
             <button
@@ -82,7 +82,7 @@ export default function ForgotPasswordModal({ isOpen, onClose, defaultEmail = ''
 
             {!isSubmitted ? (
               <div>
-                <div className="w-12 h-12 rounded-[14px] bg-[#00D4E5]/10 border border-[#00D4E5]/30 flex items-center justify-center text-[#00D4E5] mb-4 shadow-[0_0_16px_rgba(0,212,229,0.25)]">
+                <div className="w-12 h-12 rounded-[14px] bg-[#6366F1]/10 border border-[#6366F1]/30 flex items-center justify-center text-[#6366F1] mb-4 shadow-[0_0_16px_rgba(99, 102, 241,0.25)]">
                   <KeyRound className="w-6 h-6" />
                 </div>
 
@@ -133,9 +133,9 @@ export default function ForgotPasswordModal({ isOpen, onClose, defaultEmail = ''
                       disabled={isLoading}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex-1 py-2.5 rounded-[14px] text-white text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(0,212,229,0.4)] hover:shadow-[0_0_28px_rgba(0,212,229,0.65)] transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-70"
+                      className="flex-1 py-2.5 rounded-[14px] text-white text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(99, 102, 241,0.4)] hover:shadow-[0_0_28px_rgba(99, 102, 241,0.65)] transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-70"
                       style={{
-                        background: 'linear-gradient(90deg, #00D4E5 0%, #1265FF 100%)',
+                        background: 'linear-gradient(90deg, #6366F1 0%, #1265FF 100%)',
                       }}
                     >
                       {isLoading ? (
@@ -161,14 +161,14 @@ export default function ForgotPasswordModal({ isOpen, onClose, defaultEmail = ''
                 <p className="text-xs sm:text-sm text-slate-300 mt-2">
                   {statusMessage}
                 </p>
-                <p className="text-sm font-semibold text-[#00D4E5] mt-2 bg-[#020B1A]/70 py-1.5 px-3 rounded-lg border border-[#00D4E5]/25 inline-block">
+                <p className="text-sm font-semibold text-[#6366F1] mt-2 bg-[#020B1A]/70 py-1.5 px-3 rounded-lg border border-[#6366F1]/25 inline-block">
                   {email}
                 </p>
                 <div className="mt-6">
                   <button
                     type="button"
                     onClick={handleClose}
-                    className="w-full py-2.5 rounded-[14px] bg-[#020B1A] hover:bg-slate-800 text-white text-sm font-semibold border border-[#00D4E5]/25 transition-colors cursor-pointer"
+                    className="w-full py-2.5 rounded-[14px] bg-[#020B1A] hover:bg-slate-800 text-white text-sm font-semibold border border-[#6366F1]/25 transition-colors cursor-pointer"
                   >
                     Back to Login
                   </button>

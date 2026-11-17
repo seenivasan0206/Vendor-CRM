@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { RefreshCw, Package, Warehouse, AlertTriangle, X } from 'lucide-react';
 import '../Styles/Inventory.css';
 import { authService } from '../services/authService';
 
@@ -242,8 +243,9 @@ function Inventory() {
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <h2>Inventory Management</h2>
-            <span className={`inv-connection-badge ${isLiveBackend ? 'live' : 'demo'}`}>
-              {isLiveBackend ? '● Live Backend' : '● Demo State'}
+            <span className={`inv-connection-badge ${isLiveBackend ? 'live' : 'demo'}`} style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'currentColor', marginRight: '6px' }} />
+              <span>{isLiveBackend ? 'Live Backend' : 'Demo State'}</span>
             </span>
           </div>
           <p>Track warehouse stock levels, batch locations, and automated reorder alerts.</p>
@@ -253,8 +255,10 @@ function Inventory() {
           className="inv-btn-refresh"
           onClick={() => fetchInventory(true)}
           disabled={isLoading}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
         >
-          {isLoading ? '⟳ Refreshing...' : '⟳ Refresh'}
+          <RefreshCw size={14} className={isLoading ? 'spinning' : ''} />
+          <span>{isLoading ? 'Refreshing...' : 'Refresh'}</span>
         </button>
       </div>
 
@@ -263,15 +267,24 @@ function Inventory() {
       {/* 2. Summary KPI Cards */}
       <div className="inv-stats-grid">
         <div className="inv-stat-card">
-          <span className="inv-stat-label">Total Products</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span className="inv-stat-label">Total Products</span>
+            <Package size={18} color="#6366F1" />
+          </div>
           <strong className="inv-stat-value">{totalItems}</strong>
         </div>
         <div className="inv-stat-card">
-          <span className="inv-stat-label">Total Units on Hand</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span className="inv-stat-label">Total Units on Hand</span>
+            <Warehouse size={18} color="#38bdf8" />
+          </div>
           <strong className="inv-stat-value inv-stat-info">{totalStockQty}</strong>
         </div>
         <div className="inv-stat-card">
-          <span className="inv-stat-label">Low / Out of Stock Alerts</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span className="inv-stat-label">Low / Out of Stock Alerts</span>
+            <AlertTriangle size={18} color="#ef4444" />
+          </div>
           <strong className="inv-stat-value inv-stat-danger">{lowStockCount}</strong>
         </div>
       </div>
@@ -302,7 +315,8 @@ function Inventory() {
         <table className="inv-table">
           <thead>
             <tr>
-              <th>Product & SKU</th>
+              <th>SKU</th>
+              <th>Product Name</th>
               <th>Location</th>
               <th>Batch #</th>
               <th>On Hand</th>
@@ -315,7 +329,7 @@ function Inventory() {
           <tbody>
             {filteredList.length === 0 ? (
               <tr>
-                <td colSpan="8" style={{ textAlign: 'center', padding: '32px', color: '#64748b' }}>
+                <td colSpan="9" style={{ textAlign: 'center', padding: '32px', color: '#64748b' }}>
                   No inventory products found matching your filter.
                 </td>
               </tr>
@@ -325,10 +339,8 @@ function Inventory() {
                 const onHand = Number(item.quantityOnHand) || 0;
                 return (
                   <tr key={item.id}>
-                    <td>
-                      <div className="inv-prod-name">{item.productName || 'Product #' + item.id}</div>
-                      <div className="inv-prod-sku">{item.sku || item.productSku || 'SKU-N/A'}</div>
-                    </td>
+                    <td className="inv-sku-cell">{item.sku || item.productSku || 'SKU-N/A'}</td>
+                    <td className="inv-name-cell">{item.productName || 'Product #' + item.id}</td>
                     <td className="inv-location">{item.location || 'General Storage'}</td>
                     <td>{item.batchNumber || '-'}</td>
                     <td className="inv-qty-strong">{onHand}</td>
@@ -380,8 +392,9 @@ function Inventory() {
                 type="button"
                 className="inv-modal-close"
                 onClick={closeAdjustModal}
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                ×
+                <X size={16} />
               </button>
             </div>
 

@@ -6,10 +6,10 @@
 .rep-container {
   background-color: #07172B;
   border-radius: 14px;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   padding: 24px;
-  color: #f8fafc;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08);
+  color: #E2E8F0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 /* 1. Page Header */
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 212, 229, 0.15);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
   padding-bottom: 20px;
   margin-bottom: 24px;
   gap: 16px;
@@ -27,7 +27,7 @@
 .rep-header h2 {
   font-size: 1.45rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: #E2E8F0;
   margin: 0 0 4px 0;
   letter-spacing: -0.01em;
 }
@@ -46,11 +46,11 @@
 
 .rep-year-select {
   padding: 9px 14px;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 8px;
   font-size: 0.88rem;
   background: #020B1A;
-  color: #f8fafc;
+  color: #E2E8F0;
   cursor: pointer;
   outline: none;
   font-family: inherit;
@@ -58,13 +58,13 @@
 
 .rep-year-select option {
   background: #07172B;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .rep-btn-refresh {
   background: #051329;
-  color: #00D4E5;
-  border: 1px solid rgba(0, 212, 229, 0.25);
+  color: #6366F1;
+  border: 1px solid rgba(99, 102, 241, 0.25);
   border-radius: 8px;
   padding: 9px 16px;
   font-size: 0.88rem;
@@ -74,9 +74,8 @@
 }
 
 .rep-btn-refresh:hover:not(:disabled) {
-  background: rgba(0, 212, 229, 0.12);
-  border-color: #00D4E5;
-  box-shadow: 0 0 12px rgba(0, 212, 229, 0.2);
+  background: rgba(99, 102, 241, 0.12);
+  border-color: #6366F1;
 }
 
 .rep-btn-refresh:disabled {
@@ -104,7 +103,7 @@
 
 .rep-stat-card {
   background-color: #051329;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 12px;
   padding: 18px 20px;
   display: flex;
@@ -115,8 +114,8 @@
 }
 
 .rep-stat-card:hover {
-  border-color: rgba(0, 212, 229, 0.45);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 212, 229, 0.15);
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .rep-stat-label {
@@ -130,7 +129,7 @@
 .rep-stat-value {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .rep-stat-sub {
@@ -140,28 +139,24 @@
 
 .rep-stat-info {
   color: #38bdf8 !important;
-  text-shadow: 0 0 14px rgba(56, 189, 248, 0.4) !important;
 }
 
 .rep-stat-success {
   color: #34d399 !important;
-  text-shadow: 0 0 14px rgba(52, 211, 153, 0.4) !important;
 }
 
 .rep-stat-warn {
   color: #fbbf24 !important;
-  text-shadow: 0 0 14px rgba(251, 191, 36, 0.4) !important;
 }
 
 .rep-stat-danger {
   color: #f87171 !important;
-  text-shadow: 0 0 14px rgba(248, 113, 113, 0.4) !important;
 }
 
 /* 3. Panels */
 .rep-panel {
   background: #051329;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 12px;
   padding: 20px 22px;
   margin-bottom: 24px;
@@ -185,7 +180,7 @@
   margin: 0;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .rep-panel-hint {
@@ -233,7 +228,7 @@
   gap: 4px;
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid rgba(0, 212, 229, 0.15);
+  border-top: 1px solid rgba(99, 102, 241, 0.15);
 }
 
 .rep-trend-cell {
@@ -247,7 +242,7 @@
 
 .rep-trend-count {
   font-weight: 700;
-  color: #00D4E5;
+  color: #6366F1;
 }
 
 .rep-trend-val {
@@ -296,7 +291,7 @@
 
 .rep-legend-value {
   font-weight: 700;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 /* Horizontal bars */
@@ -333,14 +328,14 @@
 
 .rep-hbar-value {
   font-weight: 700;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .rep-hbar-track {
   width: 100%;
   height: 10px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.15);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -355,7 +350,7 @@
   margin-top: 14px;
   padding: 10px 14px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.18);
+  border: 1px solid rgba(99, 102, 241, 0.18);
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
@@ -364,7 +359,7 @@
 }
 
 .rep-value-callout strong {
-  color: #00D4E5;
+  color: #6366F1;
 }
 
 /* Tabs */
@@ -372,7 +367,7 @@
   display: flex;
   gap: 6px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   padding: 4px;
   border-radius: 8px;
 }
@@ -391,16 +386,15 @@
 }
 
 .rep-tab.active {
-  background: linear-gradient(135deg, rgba(0, 212, 229, 0.25) 0%, rgba(18, 101, 255, 0.25) 100%);
-  color: #00D4E5;
-  border: 1px solid rgba(0, 212, 229, 0.4);
-  box-shadow: 0 0 10px rgba(0, 212, 229, 0.2);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(18, 101, 255, 0.25) 100%);
+  color: #6366F1;
+  border: 1px solid rgba(99, 102, 241, 0.4);
 }
 
 /* Table */
 .rep-table-wrapper {
   overflow-x: auto;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 12px;
   background: #051329;
 }
@@ -420,13 +414,13 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   padding: 13px 16px;
-  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.22);
   white-space: nowrap;
 }
 
 .rep-table tbody td {
   padding: 13px 16px;
-  border-bottom: 1px solid rgba(0, 212, 229, 0.1);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
   color: #cbd5e1;
   vertical-align: middle;
 }
@@ -436,12 +430,12 @@
 }
 
 .rep-table tbody tr:hover {
-  background: rgba(0, 212, 229, 0.04);
+  background: rgba(99, 102, 241, 0.04);
 }
 
 .rep-cell-name {
   font-weight: 600;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .rep-cell-sub {
@@ -476,7 +470,7 @@
   white-space: nowrap;
   background: #020B1A;
   color: #94a3b8;
-  border: 1px solid rgba(0, 212, 229, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 .rep-badge-active,

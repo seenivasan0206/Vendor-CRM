@@ -7,7 +7,7 @@ const features = [
     title: 'Vendor Lifecycle Management',
     desc: 'Automated vendor vetting, risk scoring, and compliance repository.',
     icon: Users2,
-    color: '#00D4E5',
+    color: '#6366F1',
     tag: '3,200+ Vendors',
   },
   {
@@ -68,8 +68,8 @@ export default function BrandingSection() {
                       padding: '2px 8px',
                       borderRadius: '12px',
                       background: 'rgba(2, 11, 26, 0.8)',
-                      border: '1px solid rgba(0, 212, 229, 0.25)',
-                      color: '#00D4E5',
+                      border: '1px solid rgba(99, 102, 241, 0.25)',
+                      color: '#6366F1',
                     }}
                   >
                     {f.tag}

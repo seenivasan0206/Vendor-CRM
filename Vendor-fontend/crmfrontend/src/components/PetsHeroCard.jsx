@@ -3,10 +3,10 @@ import { PawPrint } from 'lucide-react';
 import petsCutout from '../assets/pets-cutout.png';
 
 const floatingPaws = [
-  { id: 1, top: '6%', left: '4%', delay: 0, duration: 4.6, color: '#00D4E5', rotate: -18, size: 'w-4 h-4' },
+  { id: 1, top: '6%', left: '4%', delay: 0, duration: 4.6, color: '#6366F1', rotate: -18, size: 'w-4 h-4' },
   { id: 2, top: '12%', right: '4%', delay: 0.8, duration: 5.2, color: '#FF9500', rotate: 20, size: 'w-4 h-4' },
   { id: 3, bottom: '28%', left: '-4%', delay: 1.4, duration: 4.9, color: '#7B2CFF', rotate: -24, size: 'w-3.5 h-3.5' },
-  { id: 4, bottom: '18%', right: '-2%', delay: 0.5, duration: 5.4, color: '#00D4E5', rotate: 16, size: 'w-4 h-4' },
+  { id: 4, bottom: '18%', right: '-2%', delay: 0.5, duration: 5.4, color: '#6366F1', rotate: 16, size: 'w-4 h-4' },
 ];
 
 export default function PetsHeroCard() {
@@ -39,7 +39,7 @@ export default function PetsHeroCard() {
             bottom: paw.bottom,
             color: paw.color,
           }}
-          className="absolute z-20 pointer-events-none drop-shadow-[0_0_8px_rgba(0,212,229,0.55)]"
+          className="absolute z-20 pointer-events-none drop-shadow-[0_0_8px_rgba(99, 102, 241,0.55)]"
         >
           <PawPrint className={paw.size} />
         </motion.div>
@@ -55,7 +55,7 @@ export default function PetsHeroCard() {
         className="absolute inset-x-6 top-6 bottom-4 rounded-full blur-2xl pointer-events-none"
         style={{
           background:
-            'radial-gradient(circle at 50% 55%, rgba(0,212,229,0.22) 0%, rgba(18,101,255,0.16) 45%, transparent 75%)',
+            'radial-gradient(circle at 50% 55%, rgba(99, 102, 241,0.22) 0%, rgba(18,101,255,0.16) 45%, transparent 75%)',
         }}
       />
 
@@ -99,7 +99,7 @@ export default function PetsHeroCard() {
           className="w-3/4 h-[1.5px] -mt-1.5 rounded-full opacity-55"
           style={{
             background:
-              'linear-gradient(90deg, transparent 0%, rgba(0,212,229,0.75) 50%, transparent 100%)',
+              'linear-gradient(90deg, transparent 0%, rgba(99, 102, 241,0.75) 50%, transparent 100%)',
           }}
         />
       </div>

@@ -12,14 +12,14 @@
   --dk-surface: #07172B;
   --dk-surface-2: #051329;
   --dk-surface-3: #0a1f38;
-  --dk-border: rgba(0, 212, 229, 0.22);
-  --dk-border-soft: rgba(0, 212, 229, 0.12);
+  --dk-border: rgba(99, 102, 241, 0.22);
+  --dk-border-soft: rgba(99, 102, 241, 0.12);
   --dk-text: #e2e8f0;
   --dk-text-strong: #ffffff;
   --dk-text-muted: #94a3b8;
   --dk-text-dim: #64748b;
-  --dk-accent: #00D4E5;
-  --dk-accent-strong: #1265FF;
+  --dk-accent: #6366F1;
+  --dk-accent-strong: #4F46E5;
 }
 
 body {
@@ -89,32 +89,30 @@ body {
 }
 
 .nav-btn.active {
-  background: linear-gradient(90deg, rgba(0, 212, 229, 0.15) 0%, rgba(18, 101, 255, 0.15) 100%);
-  border: 1px solid rgba(0, 212, 229, 0.35);
-  color: #00D4E5;
-  box-shadow: 0 0 14px rgba(0, 212, 229, 0.2);
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.15) 0%, rgba(18, 101, 255, 0.15) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  color: #6366F1;
 }
 
 /* ---------- Header ---------- */
 .crm-header {
   background: rgba(7, 23, 43, 0.95);
-  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.22);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 .header-title {
-  color: #ffffff;
+  color: #E2E8F0;
 }
 
 .header-action-btn {
   background-color: rgba(2, 11, 26, 0.75);
-  border: 1px solid rgba(0, 212, 229, 0.25);
+  border: 1px solid rgba(99, 102, 241, 0.25);
 }
 
 .header-action-btn:hover {
-  background-color: rgba(0, 212, 229, 0.15);
-  border-color: #00D4E5;
-  box-shadow: 0 0 12px rgba(0, 212, 229, 0.3);
+  background-color: rgba(99, 102, 241, 0.15);
+  border-color: #6366F1;
 }
 
 .notification-badge {
@@ -123,25 +121,25 @@ body {
 
 .header-user-profile {
   background-color: rgba(2, 11, 26, 0.75);
-  border: 1px solid rgba(0, 212, 229, 0.25);
+  border: 1px solid rgba(99, 102, 241, 0.25);
 }
 
 .header-user-profile:hover {
-  background-color: rgba(0, 212, 229, 0.12);
-  border-color: #00D4E5;
+  background-color: rgba(99, 102, 241, 0.12);
+  border-color: #6366F1;
 }
 
 .user-avatar {
-  background: linear-gradient(135deg, #00D4E5 0%, #1265FF 100%);
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
   color: #020B1A;
 }
 
 .user-name {
-  color: #ffffff;
+  color: #E2E8F0;
 }
 
 .user-role {
-  color: #00D4E5;
+  color: #6366F1;
 }
 
 /* ---------- Dashboard containers ---------- */
@@ -156,7 +154,7 @@ body {
   background-color: var(--dk-surface) !important;
   border: 1px solid var(--dk-border) !important;
   color: var(--dk-text-strong) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 /* ---------- Dashboard headers ---------- */
@@ -619,7 +617,7 @@ body {
 .pay-btn-record,
 .pay-btn-primary {
   background: var(--dk-accent-strong);
-  color: #ffffff;
+  color: #E2E8F0;
 }
 
 .pay-btn-record:hover {
@@ -919,7 +917,7 @@ body {
 .notification-page-container {
   background: var(--dk-surface) !important;
   border: 1px solid var(--dk-border) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 .notif-header {
@@ -1002,7 +1000,7 @@ body {
 
 .filter-tab.active {
   background: var(--dk-accent-strong);
-  color: #ffffff;
+  color: #E2E8F0;
 }
 
 .notif-search-input {
@@ -1177,7 +1175,7 @@ body {
 
 .btn-submit {
   background: var(--dk-accent-strong);
-  color: #ffffff;
+  color: #E2E8F0;
 }
 
 .btn-submit:hover {
@@ -1190,7 +1188,7 @@ body {
 .settings-page-container {
   background: var(--dk-surface) !important;
   border: 1px solid var(--dk-border) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 .settings-header {
@@ -1435,7 +1433,7 @@ input:checked + .slider {
 
 .settings-btn-primary {
   background: var(--dk-accent-strong);
-  color: #ffffff;
+  color: #E2E8F0;
 }
 
 .settings-btn-primary:hover {

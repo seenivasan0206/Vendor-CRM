@@ -7,9 +7,9 @@ const features = [
     title: 'Manage Vendors with Ease',
     desc: 'Unified onboarding & compliance ratings.',
     icon: Users2,
-    iconColor: '#00D4E5',
+    iconColor: '#6366F1',
     badge: '3,200+ Vendors',
-    glow: 'from-[#00D4E5]/15 to-[#1265FF]/10',
+    glow: 'from-[#6366F1]/15 to-[#1265FF]/10',
   },
   {
     id: 'purchase-orders',
@@ -27,7 +27,7 @@ const features = [
     icon: ShieldCheck,
     iconColor: '#FF9500',
     badge: '256-Bit TLS',
-    glow: 'from-[#7B2CFF]/15 to-[#00D4E5]/10',
+    glow: 'from-[#7B2CFF]/15 to-[#6366F1]/10',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function FeatureHighlights() {
               ease: [0.16, 1, 0.3, 1],
             }}
             whileHover={{ x: 4, transition: { duration: 0.2 } }}
-            className="group relative rounded-[18px] p-2.5 sm:p-3 bg-[#07172B]/65 hover:bg-[#07172B]/85 border border-[#00D4E5]/18 hover:border-[#00D4E5]/45 backdrop-blur-xl transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.45)] hover:shadow-[0_0_24px_rgba(0,212,229,0.2)]"
+            className="group relative rounded-[18px] p-2.5 sm:p-3 bg-[#07172B]/65 hover:bg-[#07172B]/85 border border-[#6366F1]/18 hover:border-[#6366F1]/45 backdrop-blur-xl transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.45)] hover:shadow-[0_0_24px_rgba(99, 102, 241,0.2)]"
           >
             {/* Ambient Hover Glow */}
             <div
@@ -57,9 +57,9 @@ export default function FeatureHighlights() {
             <div className="relative flex items-center gap-3">
               {/* Icon Vessel */}
               <div className="relative flex-shrink-0">
-                <div className="w-9 h-9 xl:w-10 xl:h-10 rounded-full bg-[#020B1A]/85 border border-[#00D4E5]/30 flex items-center justify-center group-hover:scale-105 group-hover:border-[#00D4E5]/65 transition-transform duration-300 shadow-inner">
+                <div className="w-9 h-9 xl:w-10 xl:h-10 rounded-full bg-[#020B1A]/85 border border-[#6366F1]/30 flex items-center justify-center group-hover:scale-105 group-hover:border-[#6366F1]/65 transition-transform duration-300 shadow-inner">
                   <IconComponent
-                    className="w-4 h-4 xl:w-5 xl:h-5 drop-shadow-[0_0_8px_rgba(0,212,229,0.5)]"
+                    className="w-4 h-4 xl:w-5 xl:h-5 drop-shadow-[0_0_8px_rgba(99, 102, 241,0.5)]"
                     style={{ color: item.iconColor }}
                   />
                 </div>
@@ -67,14 +67,14 @@ export default function FeatureHighlights() {
 
               {/* Text Content */}
               <div className="flex-1 min-w-0">
-                <h4 className="text-xs sm:text-[13px] xl:text-sm font-semibold text-white tracking-tight leading-snug group-hover:text-[#00D4E5] transition-colors">
+                <h4 className="text-xs sm:text-[13px] xl:text-sm font-semibold text-white tracking-tight leading-snug group-hover:text-[#6366F1] transition-colors">
                   {item.title}
                 </h4>
                 <div className="hidden sm:flex items-center justify-between gap-2 mt-0.5">
                   <p className="text-[11px] text-slate-400 leading-tight font-normal truncate">
                     {item.desc}
                   </p>
-                  <span className="hidden xl:inline-block shrink-0 text-[9px] font-medium text-slate-300 bg-[#020B1A]/75 px-1.5 py-0.5 rounded-full border border-[#00D4E5]/20">
+                  <span className="hidden xl:inline-block shrink-0 text-[9px] font-medium text-slate-300 bg-[#020B1A]/75 px-1.5 py-0.5 rounded-full border border-[#6366F1]/20">
                     {item.badge}
                   </span>
                 </div>

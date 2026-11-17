@@ -1,4 +1,22 @@
 import { useState, useEffect } from 'react';
+import {
+  Bell,
+  AlertCircle,
+  AlertTriangle,
+  CheckCircle2,
+  Info,
+  Plus,
+  Mail,
+  MailOpen,
+  Settings,
+  Search,
+  CheckCheck,
+  Trash2,
+  Loader2,
+  CheckCircle,
+  Check,
+  X
+} from 'lucide-react';
 import '../Styles/Notification.css';
 import { authService } from '../services/authService';
 
@@ -75,14 +93,14 @@ function formatTimeAgo(isoString) {
 function getTypeIcon(type) {
   switch (type) {
     case 'ALERT':
-      return '🚨';
+      return <AlertCircle size={18} color="#ef4444" />;
     case 'WARNING':
-      return '⚠️';
+      return <AlertTriangle size={18} color="#f59e0b" />;
     case 'SUCCESS':
-      return '✅';
+      return <CheckCircle2 size={18} color="#10b981" />;
     case 'INFO':
     default:
-      return 'ℹ️';
+      return <Info size={18} color="#3b82f6" />;
   }
 }
 
@@ -314,8 +332,9 @@ function Notification() {
     <div className="notification-page-container">
       {/* Toast Alert */}
       {toastMessage && (
-        <div className="notif-toast">
-          <span>🔔</span> {toastMessage}
+        <div className="notif-toast" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+          <Bell size={16} />
+          <span>{toastMessage}</span>
         </div>
       )}
 
@@ -339,8 +358,10 @@ function Notification() {
             type="button"
             className="notif-btn-create"
             onClick={() => setShowCreateModal(true)}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            <span>➕</span> Broadcast Alert
+            <Plus size={15} />
+            <span>Broadcast Alert</span>
           </button>
         </div>
       </div>
@@ -348,7 +369,9 @@ function Notification() {
       {/* KPI Cards Row */}
       <div className="notif-kpi-grid">
         <div className="notif-kpi-card" onClick={() => setActiveFilter('ALL')}>
-          <div className="kpi-icon-box blue">📬</div>
+          <div className="kpi-icon-box blue" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Mail size={22} />
+          </div>
           <div className="kpi-content">
             <span className="kpi-label">Total Notifications</span>
             <span className="kpi-value">{totalCount}</span>
@@ -356,7 +379,9 @@ function Notification() {
         </div>
 
         <div className="notif-kpi-card" onClick={() => setActiveFilter('UNREAD')}>
-          <div className="kpi-icon-box orange">🔔</div>
+          <div className="kpi-icon-box orange" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Bell size={22} />
+          </div>
           <div className="kpi-content">
             <span className="kpi-label">Unread Alerts</span>
             <span className="kpi-value highlight-orange">{unreadCount}</span>
@@ -364,7 +389,9 @@ function Notification() {
         </div>
 
         <div className="notif-kpi-card" onClick={() => setActiveFilter('ALERT')}>
-          <div className="kpi-icon-box red">🚨</div>
+          <div className="kpi-icon-box red" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <AlertCircle size={22} />
+          </div>
           <div className="kpi-content">
             <span className="kpi-label">Critical Alerts</span>
             <span className="kpi-value highlight-red">{alertCount}</span>
@@ -372,7 +399,9 @@ function Notification() {
         </div>
 
         <div className="notif-kpi-card" onClick={() => setActiveFilter('SYSTEM')}>
-          <div className="kpi-icon-box purple">⚙️</div>
+          <div className="kpi-icon-box purple" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Settings size={22} />
+          </div>
           <div className="kpi-content">
             <span className="kpi-label">System Logs</span>
             <span className="kpi-value">{systemCount}</span>
@@ -431,7 +460,9 @@ function Notification() {
         {/* Right Search & Batch Buttons */}
         <div className="notif-actions-cluster">
           <div className="notif-search-wrapper">
-            <span className="search-icon">🔍</span>
+            <span className="search-icon" style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <Search size={16} />
+            </span>
             <input
               type="text"
               placeholder="Search notifications..."
@@ -447,8 +478,10 @@ function Notification() {
             onClick={handleMarkAllRead}
             disabled={unreadCount === 0}
             title="Mark all notifications as read"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            ✓ Mark All Read
+            <CheckCheck size={14} />
+            <span>Mark All Read</span>
           </button>
 
           <button
@@ -456,8 +489,10 @@ function Notification() {
             className="notif-btn-secondary text-danger"
             onClick={handleClearRead}
             title="Delete all read notifications"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            🗑️ Clear Read
+            <Trash2 size={14} />
+            <span>Clear Read</span>
           </button>
         </div>
       </div>
@@ -466,14 +501,18 @@ function Notification() {
       <div className="notif-list-container">
         {isLoading && (
           <div className="notif-empty-state">
-            <span className="spinner">⏳</span>
+            <span className="spinner" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Loader2 size={24} className="spin" />
+            </span>
             <p>Syncing notifications from server...</p>
           </div>
         )}
 
         {!isLoading && filteredNotifications.length === 0 && (
           <div className="notif-empty-state">
-            <span className="empty-icon">🎉</span>
+            <span className="empty-icon" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+              <CheckCircle size={36} color="#10b981" />
+            </span>
             <h3>All caught up!</h3>
             <p>No notifications match your current filter criteria.</p>
           </div>
@@ -525,16 +564,28 @@ function Notification() {
                   className="card-action-btn"
                   onClick={() => handleToggleRead(item.id, item.isRead)}
                   title={item.isRead ? 'Mark as unread' : 'Mark as read'}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
                 >
-                  {item.isRead ? '✉️ Unread' : '✔️ Read'}
+                  {item.isRead ? (
+                    <>
+                      <MailOpen size={12} />
+                      <span>Unread</span>
+                    </>
+                  ) : (
+                    <>
+                      <Check size={12} />
+                      <span>Read</span>
+                    </>
+                  )}
                 </button>
                 <button
                   type="button"
                   className="card-action-btn delete"
                   onClick={() => handleDelete(item.id)}
                   title="Delete notification"
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                 >
-                  ✕
+                  <X size={14} />
                 </button>
               </div>
             </div>
@@ -551,8 +602,9 @@ function Notification() {
                 type="button"
                 className="modal-close-btn"
                 onClick={() => setShowCreateModal(false)}
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                ✕
+                <X size={16} />
               </button>
             </div>
 
@@ -575,10 +627,10 @@ function Notification() {
                     value={newType}
                     onChange={(e) => setNewType(e.target.value)}
                   >
-                    <option value="ALERT">🚨 ALERT (Critical)</option>
-                    <option value="WARNING">⚠️ WARNING (Attention Needed)</option>
-                    <option value="INFO">ℹ️ INFO (Informational)</option>
-                    <option value="SUCCESS">✅ SUCCESS (Positive Update)</option>
+                    <option value="ALERT">ALERT (Critical)</option>
+                    <option value="WARNING">WARNING (Attention Needed)</option>
+                    <option value="INFO">INFO (Informational)</option>
+                    <option value="SUCCESS">SUCCESS (Positive Update)</option>
                   </select>
                 </div>
 

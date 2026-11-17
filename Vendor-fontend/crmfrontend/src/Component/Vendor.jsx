@@ -1,4 +1,24 @@
 import { useState, useEffect, useCallback } from 'react';
+import {
+  Building2,
+  Download,
+  CheckCircle,
+  Zap,
+  Star,
+  Search,
+  LayoutGrid,
+  List,
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  CreditCard,
+  Pencil,
+  Trash2,
+  Check,
+  AlertTriangle,
+  Eye
+} from 'lucide-react';
 import '../Styles/Vendor.css';
 
 // Realistic supplier dataset matching backend VendorResponse schema
@@ -441,7 +461,9 @@ export default function Vendor() {
         <div className="vendor-hero-left">
           <h2>
             <span>Vendor Management Directory</span>
-            <span role="img" aria-label="building">🏢</span>
+            <span className="vendor-hero-icon" style={{ display: 'inline-flex', verticalAlign: 'middle', marginLeft: '8px' }}>
+              <Building2 size={24} color="#6366F1" />
+            </span>
           </h2>
           <div className="vendor-hero-subtitle">
             <span>Supplier Lifecycle, Compliance, and Commercial Partnerships</span>
@@ -465,8 +487,10 @@ export default function Vendor() {
           <button
             className="vendor-btn vendor-btn-export"
             onClick={handleExportCSV}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            <span>📥 Export CSV</span>
+            <Download size={14} />
+            <span>Export CSV</span>
           </button>
 
           <button
@@ -481,54 +505,61 @@ export default function Vendor() {
       {/* 2. TOP KPI CARDS */}
       <section className="vendor-kpi-grid">
         <div className="vendor-kpi-card" onClick={() => setStatusFilter('ALL')} style={{ cursor: 'pointer' }}>
-          <div className="vendor-kpi-accent accent-blue" />
+          <div className="vendor-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Total Registered</span>
-            <div className="kpi-icon-pill pill-blue">🏢</div>
+            <div className="kpi-icon-pill">
+              <Building2 size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-blue">{stats.total}</div>
+          <div className="kpi-value">{stats.total}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-neutral">Active Ecosystem</span>
-            <span style={{ color: '#38bdf8', fontWeight: 600 }}>All Categories</span>
+            <span className="kpi-subtext">Active Ecosystem • All Categories</span>
           </div>
         </div>
 
         <div className="vendor-kpi-card" onClick={() => setStatusFilter('ACTIVE')} style={{ cursor: 'pointer' }}>
-          <div className="vendor-kpi-accent accent-green" />
+          <div className="vendor-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Active & Verified</span>
-            <div className="kpi-icon-pill pill-green">✓</div>
+            <div className="kpi-icon-pill">
+              <CheckCircle size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-green">{stats.active}</div>
+          <div className="kpi-value">{stats.active}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-success">SLA Compliant</span>
-            <span>{Math.round((stats.active / (stats.total || 1)) * 100)}% of Directory</span>
+            <span className="kpi-subtext">{Math.round((stats.active / (stats.total || 1)) * 100)}% of Directory • SLA Compliant</span>
           </div>
         </div>
 
         <div className="vendor-kpi-card" onClick={() => setStatusFilter('PENDING_APPROVAL')} style={{ cursor: 'pointer' }}>
-          <div className="vendor-kpi-accent accent-amber" />
+          <div className="vendor-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Pending Onboarding</span>
-            <div className="kpi-icon-pill pill-amber">⚡</div>
+            <div className="kpi-icon-pill">
+              <Zap size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-amber">{stats.pending}</div>
+          <div className="kpi-value">{stats.pending}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-warning">Action Needed</span>
-            <span style={{ color: '#fbbf24' }}>Requires Review</span>
+            <span className="kpi-subtext">{stats.pending} Pending • Requires Review</span>
           </div>
         </div>
 
         <div className="vendor-kpi-card">
-          <div className="vendor-kpi-accent accent-purple" />
+          <div className="vendor-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Avg Supplier Rating</span>
-            <div className="kpi-icon-pill pill-purple">★</div>
+            <div className="kpi-icon-pill">
+              <Star size={20} fill="currentColor" />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-purple">★ {stats.avgRating}</div>
+          <div className="kpi-value" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+            <Star size={18} fill="currentColor" />
+            <span>{stats.avgRating}</span>
+          </div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-neutral">Out of 5.0</span>
-            <span style={{ color: '#c084fc' }}>High Reliability</span>
+            <span className="kpi-subtext">Rated out of 5.0 • High Reliability</span>
           </div>
         </div>
       </section>
@@ -575,7 +606,9 @@ export default function Vendor() {
 
         <div className="vendor-search-group">
           <div className="vendor-search-box">
-            <span>🔍</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <Search size={16} />
+            </span>
             <input
               type="text"
               placeholder="Search by name, code, contact..."
@@ -589,16 +622,18 @@ export default function Vendor() {
               className={`view-toggle-btn ${viewMode === 'grid' ? 'active' : ''}`}
               onClick={() => setViewMode('grid')}
               title="Card Grid View"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}
             >
-              <span>🔲</span>
+              <LayoutGrid size={14} />
               <span>Cards</span>
             </button>
             <button
               className={`view-toggle-btn ${viewMode === 'table' ? 'active' : ''}`}
               onClick={() => setViewMode('table')}
               title="Table List View"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}
             >
-              <span>📋</span>
+              <List size={14} />
               <span>Table</span>
             </button>
           </div>
@@ -608,7 +643,9 @@ export default function Vendor() {
       {/* 4. MAIN CONTENT AREA: GRID OR TABLE */}
       {filteredVendors.length === 0 ? (
         <div className="vendor-empty-state">
-          <div className="empty-icon">🏢</div>
+          <div className="empty-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Building2 size={36} />
+          </div>
           <div className="empty-title">No vendors found</div>
           <p className="empty-desc">Try clearing the search query or changing your status filter.</p>
         </div>
@@ -617,76 +654,38 @@ export default function Vendor() {
         <div className="vendor-cards-grid">
           {filteredVendors.map((vendor) => (
             <div key={vendor.id} className="vendor-item-card">
-              <div>
-                <div className="card-top-header">
-                  <div className="company-avatar-box">
-                    <div className="vendor-avatar-circle">
-                      {vendor.companyName?.slice(0, 2).toUpperCase() || 'VN'}
-                    </div>
-                    <div className="company-title-wrap">
-                      <h3>{vendor.companyName}</h3>
-                      <span className="vendor-code-tag">{vendor.vendorCode}</span>
-                    </div>
+              <div className="card-top-header">
+                <div className="company-avatar-box">
+                  <div className="vendor-avatar-circle">
+                    {vendor.companyName?.slice(0, 2).toUpperCase() || 'VN'}
                   </div>
-                  {renderStatusBadge(vendor.status)}
+                  <div className="company-title-wrap">
+                    <h3>{vendor.companyName}</h3>
+                    <span className="vendor-code-tag">{vendor.vendorCode}</span>
+                  </div>
                 </div>
+                {renderStatusBadge(vendor.status)}
+              </div>
 
-                <div className="card-contact-details" style={{ marginTop: '14px' }}>
-                  <div className="contact-row">
-                    <span className="contact-icon">👤</span>
-                    <span>{vendor.contactPerson}</span>
-                  </div>
-                  <div className="contact-row">
-                    <span className="contact-icon">✉️</span>
-                    <span>{vendor.email}</span>
-                  </div>
-                  <div className="contact-row">
-                    <span className="contact-icon">📞</span>
-                    <span>{vendor.phone}</span>
-                  </div>
-                  {vendor.city && (
-                    <div className="contact-row">
-                      <span className="contact-icon">📍</span>
-                      <span>{vendor.city}{vendor.state ? `, ${vendor.state}` : ''}</span>
-                    </div>
-                  )}
+              <div className="card-summary-info">
+                <div className="summary-item">
+                  <span className="summary-lbl">Primary Contact</span>
+                  <span className="summary-val">{vendor.contactPerson}</span>
+                </div>
+                <div className="summary-item">
+                  <span className="summary-lbl">Location</span>
+                  <span className="summary-val">{vendor.city ? `${vendor.city}${vendor.state ? `, ${vendor.state}` : ''}` : 'Corporate Office'}</span>
                 </div>
               </div>
 
-              <div>
-                <div className="card-meta-pills" style={{ marginBottom: '12px' }}>
-                  <span className="vendor-terms-pill">💳 {vendor.paymentTerms || 'Net 30'}</span>
-                  <span className="rating-stars">
-                    <span className="star-icon">★</span>
-                    <span>{vendor.rating ? vendor.rating.toFixed(1) : 'N/A'}</span>
-                  </span>
-                </div>
-
-                <div className="card-actions-row">
-                  <button
-                    className="action-btn-sm"
-                    style={{ backgroundColor: '#0284c7', borderColor: '#0284c7', color: '#fff' }}
-                    onClick={() => setDetailVendor(vendor)}
-                  >
-                    View Details
-                  </button>
-
-                  <div style={{ display: 'flex', gap: '6px' }}>
-                    <button
-                      className="action-btn-sm"
-                      onClick={() => handleOpenEditModal(vendor)}
-                    >
-                      ✏️ Edit
-                    </button>
-                    <button
-                      className="action-btn-sm action-btn-delete"
-                      onClick={() => setDeleteModal({ isOpen: true, vendor })}
-                      title="Delete supplier"
-                    >
-                      🗑️
-                    </button>
-                  </div>
-                </div>
+              <div className="card-actions-row">
+                <button
+                  className="vendor-btn-view-details"
+                  onClick={() => setDetailVendor(vendor)}
+                >
+                  <Eye size={14} />
+                  <span>View Details</span>
+                </button>
               </div>
             </div>
           ))}
@@ -722,8 +721,10 @@ export default function Vendor() {
                     <td>{vendor.city ? `${vendor.city}, ${vendor.state || ''}` : 'N/A'}</td>
                     <td><span className="vendor-terms-pill">{vendor.paymentTerms || 'Net 30'}</span></td>
                     <td>
-                      <span className="rating-stars">
-                        <span className="star-icon">★</span>
+                      <span className="rating-stars" style={{ display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
+                        <span className="star-icon" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                          <Star size={12} fill="currentColor" />
+                        </span>
                         <span>{vendor.rating ? vendor.rating.toFixed(1) : 'N/A'}</span>
                       </span>
                     </td>
@@ -764,7 +765,9 @@ export default function Vendor() {
           <div className="vendor-modal-box" onClick={(e) => e.stopPropagation()}>
             <div className="vendor-modal-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ fontSize: '1.4rem' }}>🏢</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', color: '#6366F1' }}>
+                  <Building2 size={24} />
+                </span>
                 <div>
                   <h3 style={{ margin: 0 }}>{detailVendor.companyName}</h3>
                   <span style={{ fontFamily: 'monospace', color: '#38bdf8', fontSize: '0.82rem' }}>
@@ -782,8 +785,9 @@ export default function Vendor() {
               </div>
               <div className="vendor-detail-row">
                 <span className="detail-label">Rating Score</span>
-                <span className="detail-value" style={{ color: '#f59e0b', fontWeight: 700 }}>
-                  ★ {detailVendor.rating ? detailVendor.rating.toFixed(1) : 'N/A'} / 5.0
+                <span className="detail-value" style={{ color: '#f59e0b', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <Star size={13} fill="currentColor" />
+                  <span>{detailVendor.rating ? detailVendor.rating.toFixed(1) : 'N/A'} / 5.0</span>
                 </span>
               </div>
               <div className="vendor-detail-row">
@@ -836,10 +840,11 @@ export default function Vendor() {
                   {detailVendor.status !== 'ACTIVE' && (
                     <button
                       className="vendor-btn vendor-btn-export"
-                      style={{ padding: '6px 12px', fontSize: '0.8rem' }}
+                      style={{ padding: '6px 12px', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
                       onClick={() => handleUpdateStatus(detailVendor.id, 'ACTIVE')}
                     >
-                      ✓ Mark as Active
+                      <Check size={12} />
+                      <span>Mark as Active</span>
                     </button>
                   )}
                   {detailVendor.status !== 'INACTIVE' && (
@@ -864,20 +869,36 @@ export default function Vendor() {
               </div>
             </div>
 
-            <div className="vendor-modal-footer">
-              <button className="vendor-btn vendor-btn-secondary" onClick={() => setDetailVendor(null)}>
-                Close
-              </button>
+            <div className="vendor-modal-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <button
-                className="vendor-btn vendor-btn-primary"
+                className="vendor-btn action-btn-delete"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                 onClick={() => {
                   const target = detailVendor;
                   setDetailVendor(null);
-                  handleOpenEditModal(target);
+                  setDeleteModal({ isOpen: true, vendor: target });
                 }}
               >
-                ✏️ Edit Profile
+                <Trash2 size={14} />
+                <span>Delete Supplier</span>
               </button>
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <button className="vendor-btn vendor-btn-secondary" onClick={() => setDetailVendor(null)}>
+                  Close
+                </button>
+                <button
+                  className="vendor-btn vendor-btn-primary"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  onClick={() => {
+                    const target = detailVendor;
+                    setDetailVendor(null);
+                    handleOpenEditModal(target);
+                  }}
+                >
+                  <Pencil size={14} />
+                  <span>Edit Profile</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1094,10 +1115,11 @@ export default function Vendor() {
             </div>
             <div className="vendor-modal-body">
               <p style={{ margin: 0, color: '#cbd5e1', lineHeight: '1.5' }}>
-                Are you sure you want to remove <strong style={{ color: '#f8fafc' }}>{deleteModal.vendor.companyName}</strong> ({deleteModal.vendor.vendorCode}) from the directory?
+                Are you sure you want to remove <strong style={{ color: '#E2E8F0' }}>{deleteModal.vendor.companyName}</strong> ({deleteModal.vendor.vendorCode}) from the directory?
               </p>
-              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', color: '#f87171', fontSize: '0.82rem' }}>
-                ⚠️ Warning: This action permanently removes supplier details from the system.
+              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', color: '#f87171', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <AlertTriangle size={16} style={{ flexShrink: 0 }} />
+                <span>Warning: This action permanently removes supplier details from the system.</span>
               </div>
             </div>
             <div className="vendor-modal-footer">

@@ -22,7 +22,7 @@ export default function BackgroundDecoration() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#020B1A] via-transparent to-[#020B1A]/85" />
       </div>
 
-      {/* 2. Animated Multi-Tone Gradient Orbs (#00D4E5, #1265FF, #7B2CFF) */}
+      {/* 2. Animated Multi-Tone Gradient Orbs (#6366F1, #1265FF, #7B2CFF) */}
       <motion.div
         animate={{
           scale: [1, 1.16, 1],
@@ -34,7 +34,7 @@ export default function BackgroundDecoration() {
         className="absolute -top-36 -left-36 w-[620px] h-[620px] rounded-full blur-[130px]"
         style={{
           background:
-            'radial-gradient(circle, rgba(0,212,229,0.28) 0%, rgba(18,101,255,0.14) 45%, transparent 75%)',
+            'radial-gradient(circle, rgba(99, 102, 241,0.28) 0%, rgba(18,101,255,0.14) 45%, transparent 75%)',
         }}
       />
 
@@ -63,7 +63,7 @@ export default function BackgroundDecoration() {
         className="absolute -bottom-44 left-1/4 w-[680px] h-[520px] rounded-full blur-[145px]"
         style={{
           background:
-            'radial-gradient(circle, rgba(0,212,229,0.22) 0%, rgba(123,44,255,0.14) 50%, transparent 75%)',
+            'radial-gradient(circle, rgba(99, 102, 241,0.22) 0%, rgba(123,44,255,0.14) 50%, transparent 75%)',
         }}
       />
 
@@ -76,14 +76,14 @@ export default function BackgroundDecoration() {
       >
         <defs>
           <linearGradient id="curveGradPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00D4E5" stopOpacity="0.85" />
+            <stop offset="0%" stopColor="#6366F1" stopOpacity="0.85" />
             <stop offset="50%" stopColor="#1265FF" stopOpacity="0.5" />
             <stop offset="100%" stopColor="#7B2CFF" stopOpacity="0.0" />
           </linearGradient>
 
           <linearGradient id="curveGradSecondary" x1="0%" y1="100%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#7B2CFF" stopOpacity="0.25" />
-            <stop offset="55%" stopColor="#00D4E5" stopOpacity="0.65" />
+            <stop offset="55%" stopColor="#6366F1" stopOpacity="0.65" />
             <stop offset="100%" stopColor="#1265FF" stopOpacity="0.85" />
           </linearGradient>
 
@@ -141,14 +141,14 @@ export default function BackgroundDecoration() {
         <motion.path
           d="M 80 920 C 340 660, 650 740, 910 855 C 1130 950, 1360 810, 1560 910"
           fill="none"
-          stroke="rgba(0, 212, 229, 0.22)"
+          stroke="rgba(99, 102, 241, 0.22)"
           strokeWidth="1.4"
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
 
         {/* Subtle Glowing Node Accents */}
-        <circle cx="860" cy="390" r="3.5" fill="#00D4E5" filter="url(#cyanNeonGlow)" />
+        <circle cx="860" cy="390" r="3.5" fill="#6366F1" filter="url(#cyanNeonGlow)" />
         <circle cx="480" cy="560" r="2.5" fill="#1265FF" />
         <circle cx="1180" cy="250" r="3" fill="#7B2CFF" />
       </svg>
@@ -157,7 +157,7 @@ export default function BackgroundDecoration() {
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: 'radial-gradient(#00D4E5 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(#6366F1 1px, transparent 1px)',
           backgroundSize: '34px 34px',
         }}
       />

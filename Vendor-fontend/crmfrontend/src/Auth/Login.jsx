@@ -46,7 +46,7 @@ export default function Login({ onLoginSuccess }) {
       <footer className="login-footer">
         <div className="login-footer-inner">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <ShieldCheck style={{ width: '16px', height: '16px', color: '#00D4E5' }} />
+            <ShieldCheck style={{ width: '16px', height: '16px', color: '#6366F1' }} />
             <span>© 2026 Zenve Zippy Inc. Enterprise Vendor Relationship Management.</span>
           </div>
           <div className="login-footer-links">
@@ -80,9 +80,9 @@ export default function Login({ onLoginSuccess }) {
               padding: '14px 20px',
               borderRadius: '16px',
               background: 'rgba(7, 23, 43, 0.95)',
-              border: '1px solid rgba(0, 212, 229, 0.45)',
+              border: '1px solid rgba(99, 102, 241, 0.45)',
               backdropFilter: 'blur(16px)',
-              boxShadow: '0 12px 40px rgba(0, 212, 229, 0.3)',
+              boxShadow: '0 12px 40px rgba(99, 102, 241, 0.3)',
               display: 'flex',
               alignItems: 'center',
               gap: '12px',
@@ -94,19 +94,19 @@ export default function Login({ onLoginSuccess }) {
                 width: '36px',
                 height: '36px',
                 borderRadius: '10px',
-                background: 'rgba(0, 212, 229, 0.15)',
-                border: '1px solid rgba(0, 212, 229, 0.4)',
+                background: 'rgba(99, 102, 241, 0.15)',
+                border: '1px solid rgba(99, 102, 241, 0.4)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#00D4E5',
+                color: '#6366F1',
                 flexShrink: 0,
               }}
             >
               <ShieldCheck style={{ width: '20px', height: '20px' }} />
             </div>
             <div>
-              <p style={{ margin: '0 0 2px 0', fontSize: '0.88rem', fontWeight: '700', color: '#fff' }}>
+              <p style={{ margin: '0 0 2px 0', fontSize: '0.88rem', fontWeight: '700', color: '#E2E8F0' }}>
                 {toastNotification.title}
               </p>
               <p style={{ margin: 0, fontSize: '0.8rem', color: '#cbd5e1' }}>

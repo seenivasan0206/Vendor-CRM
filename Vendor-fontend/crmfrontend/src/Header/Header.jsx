@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Bell, LogOut } from 'lucide-react';
 import '../Styles/Header.css';
 
 const pageTitles = {
@@ -45,7 +46,9 @@ function Header({ activeTab, user, onLogout, onNotificationsClick, onSettingsCli
           title="View Notifications"
           onClick={onNotificationsClick}
         >
-          <span className="bell-icon">🔔</span>
+          <span className="bell-icon">
+            <Bell size={18} />
+          </span>
           <span className="notification-badge">3</span>
         </button>
 
@@ -70,7 +73,9 @@ function Header({ activeTab, user, onLogout, onNotificationsClick, onSettingsCli
             onClick={() => setShowLogoutConfirm(true)}
             title="Logout of Vendor CRM"
           >
-            <span className="signout-icon">⏻</span>
+            <span className="signout-icon">
+              <LogOut size={16} />
+            </span>
             <span className="signout-label">Logout</span>
           </button>
         )}
@@ -80,7 +85,9 @@ function Header({ activeTab, user, onLogout, onNotificationsClick, onSettingsCli
       {showLogoutConfirm && (
         <div className="logout-modal-overlay">
           <div className="logout-modal" role="dialog" aria-modal="true" aria-labelledby="logout-title">
-            <div className="logout-modal-icon">🚪</div>
+            <div className="logout-modal-icon">
+              <LogOut size={36} color="#ef4444" />
+            </div>
             <h3 id="logout-title" className="logout-modal-title">
               Do you want to sign out?
             </h3>

@@ -5,11 +5,11 @@
 
 .po-container {
   background: #07172B;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 14px;
   padding: 24px;
-  color: #f8fafc;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 212, 229, 0.08);
+  color: #E2E8F0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 .po-header {
@@ -18,14 +18,14 @@
   align-items: center;
   margin-bottom: 22px;
   padding-bottom: 18px;
-  border-bottom: 1px solid rgba(0, 212, 229, 0.15);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
 }
 
 .po-header h2 {
   margin: 0 0 4px 0;
   font-size: 1.45rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: #E2E8F0;
   letter-spacing: -0.01em;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .po-btn-primary {
-  background: linear-gradient(135deg, #00D4E5 0%, #1265FF 100%);
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
   color: #020B1A;
   border: none;
   border-radius: 8px;
@@ -44,12 +44,10 @@
   font-weight: 700;
   font-size: 0.9rem;
   cursor: pointer;
-  box-shadow: 0 0 16px rgba(0, 212, 229, 0.35);
   transition: all 0.25s ease;
 }
 
-.po-btn-primary:hover {
-  box-shadow: 0 0 24px rgba(0, 212, 229, 0.55), 0 0 40px rgba(18, 101, 255, 0.25);
+.po-btn-primary:hover {;
   transform: translateY(-1px);
 }
 
@@ -67,10 +65,10 @@
   max-width: 320px;
   padding: 9px 14px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 8px;
   font-size: 0.9rem;
-  color: #f8fafc;
+  color: #E2E8F0;
   outline: none;
   transition: all 0.2s ease;
 }
@@ -81,30 +79,30 @@
 
 .po-search-input:focus,
 .po-filter-select:focus {
-  border-color: #00D4E5;
-  box-shadow: 0 0 0 2px rgba(0, 212, 229, 0.2), 0 0 14px rgba(0, 212, 229, 0.18);
+  border-color: #6366F1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
 .po-filter-select {
   padding: 9px 14px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 8px;
   font-size: 0.9rem;
-  color: #f8fafc;
+  color: #E2E8F0;
   cursor: pointer;
   outline: none;
 }
 
 .po-filter-select option {
   background: #07172B;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .po-btn-refresh {
   background: #051329;
-  color: #00D4E5;
-  border: 1px solid rgba(0, 212, 229, 0.25);
+  color: #6366F1;
+  border: 1px solid rgba(99, 102, 241, 0.25);
   border-radius: 8px;
   padding: 9px 16px;
   font-size: 0.88rem;
@@ -114,9 +112,8 @@
 }
 
 .po-btn-refresh:hover:not(:disabled) {
-  background: rgba(0, 212, 229, 0.12);
-  border-color: #00D4E5;
-  box-shadow: 0 0 12px rgba(0, 212, 229, 0.2);
+  background: rgba(99, 102, 241, 0.12);
+  border-color: #6366F1;
 }
 
 .po-btn-refresh:disabled {
@@ -141,7 +138,7 @@
   text-align: left;
   font-size: 0.92rem;
   background: #051329;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -154,12 +151,12 @@
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   padding: 14px 16px;
-  border-bottom: 1px solid rgba(0, 212, 229, 0.22);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.22);
 }
 
 .po-table td {
   padding: 14px 16px;
-  border-bottom: 1px solid rgba(0, 212, 229, 0.1);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
   color: #cbd5e1;
 }
 
@@ -168,12 +165,12 @@
 }
 
 .po-table tbody tr:hover {
-  background: rgba(0, 212, 229, 0.04);
+  background: rgba(99, 102, 241, 0.04);
 }
 
 .po-order-num {
   font-weight: 700;
-  color: #00D4E5;
+  color: #6366F1;
 }
 
 .po-empty {
@@ -193,7 +190,7 @@
   padding: 6px 10px;
   background: #020B1A;
   color: #e2e8f0;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 6px;
   font-size: 0.82rem;
   cursor: pointer;
@@ -202,7 +199,7 @@
 
 .po-status-select option {
   background: #07172B;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
 .po-btn-delete {
@@ -237,20 +234,20 @@
 
 .po-modal {
   background: #07172B;
-  border: 1px solid rgba(0, 212, 229, 0.3);
+  border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 14px;
   padding: 26px;
   width: 100%;
   max-width: 540px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85), 0 0 35px -4px rgba(0, 212, 229, 0.2);
-  color: #f8fafc;
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85);
+  color: #E2E8F0;
 }
 
 .po-modal h3 {
   margin: 0 0 18px 0;
-  color: #f8fafc;
+  color: #E2E8F0;
   font-size: 1.25rem;
   font-weight: 700;
 }
@@ -271,23 +268,23 @@
 .po-form input {
   padding: 10px 14px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 8px;
   font-size: 0.92rem;
-  color: #f8fafc;
+  color: #E2E8F0;
   outline: none;
 }
 
 .po-form input:focus {
-  border-color: #00D4E5;
-  box-shadow: 0 0 0 2px rgba(0, 212, 229, 0.2);
+  border-color: #6366F1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
 .po-items-section {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border-top: 1px solid rgba(0, 212, 229, 0.15);
+  border-top: 1px solid rgba(99, 102, 241, 0.15);
   padding-top: 16px;
   margin-top: 4px;
 }
@@ -301,14 +298,14 @@
 .po-items-header h4 {
   margin: 0;
   font-size: 0.95rem;
-  color: #f8fafc;
+  color: #E2E8F0;
   font-weight: 600;
 }
 
 .po-btn-add-item {
-  background: rgba(0, 212, 229, 0.12);
-  color: #00D4E5;
-  border: 1px dashed rgba(0, 212, 229, 0.45);
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366F1;
+  border: 1px dashed rgba(99, 102, 241, 0.45);
   border-radius: 6px;
   padding: 5px 12px;
   font-size: 0.82rem;
@@ -318,8 +315,8 @@
 }
 
 .po-btn-add-item:hover {
-  background: rgba(0, 212, 229, 0.22);
-  border-color: #00D4E5;
+  background: rgba(99, 102, 241, 0.22);
+  border-color: #6366F1;
 }
 
 .po-item-row {
@@ -366,7 +363,7 @@
   align-items: center;
   padding: 12px 14px;
   background: #020B1A;
-  border: 1px solid rgba(0, 212, 229, 0.18);
+  border: 1px solid rgba(99, 102, 241, 0.18);
   border-radius: 8px;
   font-size: 0.95rem;
   color: #94a3b8;
@@ -387,7 +384,7 @@
 .po-btn-secondary {
   background: #051329;
   color: #cbd5e1;
-  border: 1px solid rgba(0, 212, 229, 0.22);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 8px;
   padding: 10px 18px;
   font-weight: 600;
@@ -396,8 +393,8 @@
 }
 
 .po-btn-secondary:hover {
-  background: rgba(0, 212, 229, 0.1);
-  color: #f8fafc;
+  background: rgba(99, 102, 241, 0.1);
+  color: #E2E8F0;
 }
 
 
@@ -411,7 +408,7 @@
 
 .po-stat-card {
   background: #051329;
-  border: 1px solid rgba(0, 212, 229, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 10px;
   padding: 16px 20px;
   display: flex;
@@ -430,10 +427,10 @@
 .po-stat-value {
   font-size: 1.45rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: #E2E8F0;
 }
 
-.po-stat-cyan { color: #00D4E5; }
+.po-stat-cyan { color: #6366F1; }
 .po-stat-amber { color: #fbbf24; }
 .po-stat-emerald { color: #34d399; }
 .po-stat-purple { color: #a78bfa; }

@@ -1,4 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
+import {
+  FileText,
+  Download,
+  Gem,
+  Clock,
+  FileSignature,
+  Search,
+  LayoutGrid,
+  List,
+  Building2,
+  ArrowRight,
+  AlertTriangle,
+  Check,
+  RefreshCw,
+  Pencil,
+  Trash2,
+  Eye
+} from 'lucide-react';
 import '../Styles/Contractmanage.css';
 
 // Realistic initial contracts matching backend ContractResponse schema
@@ -499,7 +517,9 @@ export default function Contractmanage() {
         <div className="contracts-hero-left">
           <h2>
             <span>Contract Management & SLA Portfolio</span>
-            <span role="img" aria-label="scroll">📜</span>
+            <span className="contracts-hero-icon" style={{ display: 'inline-flex', verticalAlign: 'middle', marginLeft: '8px' }}>
+              <FileText size={24} color="#6366F1" />
+            </span>
           </h2>
           <div className="contracts-hero-subtitle">
             <span>Supplier Agreements, Automated Expiration Tracking & Renewals</span>
@@ -523,8 +543,10 @@ export default function Contractmanage() {
           <button
             className="contracts-btn contracts-btn-export"
             onClick={handleExportCSV}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            <span>📥 Export CSV</span>
+            <Download size={14} />
+            <span>Export CSV</span>
           </button>
 
           <button
@@ -539,54 +561,58 @@ export default function Contractmanage() {
       {/* 2. TOP 4 CONTRACT KPI CARDS */}
       <section className="contracts-kpi-grid">
         <div className="contracts-kpi-card" onClick={() => setStatusFilter('ACTIVE')} style={{ cursor: 'pointer' }}>
-          <div className="contracts-kpi-accent accent-blue" />
+          <div className="contracts-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Active Contracts</span>
-            <div className="kpi-icon-pill pill-blue">📜</div>
+            <div className="kpi-icon-pill">
+              <FileText size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-blue">{stats.active}</div>
+          <div className="kpi-value">{stats.active}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-success">{Math.round((stats.active / (stats.total || 1)) * 100)}% Active</span>
-            <span style={{ color: '#38bdf8', fontWeight: 600 }}>{stats.total} Total Portfolio</span>
+            <span className="kpi-subtext">{Math.round((stats.active / (stats.total || 1)) * 100)}% Active • {stats.total} Total Portfolio</span>
           </div>
         </div>
 
         <div className="contracts-kpi-card">
-          <div className="contracts-kpi-accent accent-purple" />
+          <div className="contracts-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Total Portfolio Value</span>
-            <div className="kpi-icon-pill pill-purple">💎</div>
+            <div className="kpi-icon-pill">
+              <Gem size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-purple">{formatAbbreviatedCurrency(stats.totalValue)}</div>
+          <div className="kpi-value">{formatAbbreviatedCurrency(stats.totalValue)}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-neutral">{formatAbbreviatedCurrency(stats.activeValue)} Active</span>
-            <span style={{ color: '#c084fc' }}>Commercial Valuation</span>
+            <span className="kpi-subtext">{formatAbbreviatedCurrency(stats.activeValue)} Active Value • Commercial Valuation</span>
           </div>
         </div>
 
         <div className="contracts-kpi-card" onClick={() => setStatusFilter('EXPIRING_SOON')} style={{ cursor: 'pointer' }}>
-          <div className="contracts-kpi-accent accent-amber" />
+          <div className="contracts-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Expiring Soon (30 Days)</span>
-            <div className="kpi-icon-pill pill-amber">⏳</div>
+            <div className="kpi-icon-pill">
+              <Clock size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-amber">{stats.expiringSoon}</div>
+          <div className="kpi-value">{stats.expiringSoon}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-warning">Attention Needed</span>
-            <span style={{ color: '#fbbf24' }}>Upcoming Renewals</span>
+            <span className="kpi-subtext">{stats.expiringSoon} Agreements • Upcoming Renewals</span>
           </div>
         </div>
 
         <div className="contracts-kpi-card" onClick={() => setStatusFilter('DRAFT')} style={{ cursor: 'pointer' }}>
-          <div className="contracts-kpi-accent accent-green" />
+          <div className="contracts-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Draft & Review</span>
-            <div className="kpi-icon-pill pill-green">✍️</div>
+            <div className="kpi-icon-pill">
+              <FileSignature size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-green">{stats.draft}</div>
+          <div className="kpi-value">{stats.draft}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-neutral">{stats.expired} Expired</span>
-            <span style={{ color: '#34d399' }}>Pipeline Agreements</span>
+            <span className="kpi-subtext">{stats.expired} Expired • Pipeline Agreements</span>
           </div>
         </div>
       </section>
@@ -633,7 +659,9 @@ export default function Contractmanage() {
 
         <div className="contracts-search-group">
           <div className="contracts-search-box">
-            <span>🔍</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <Search size={16} />
+            </span>
             <input
               type="text"
               placeholder="Search by contract #, title, supplier..."
@@ -647,16 +675,18 @@ export default function Contractmanage() {
               className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
               onClick={() => setViewMode('grid')}
               title="Card View"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}
             >
-              <span>🔲</span>
+              <LayoutGrid size={15} />
               <span>Cards</span>
             </button>
             <button
               className={`view-btn ${viewMode === 'table' ? 'active' : ''}`}
               onClick={() => setViewMode('table')}
               title="Table View"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}
             >
-              <span>📋</span>
+              <List size={15} />
               <span>Table</span>
             </button>
           </div>
@@ -666,7 +696,9 @@ export default function Contractmanage() {
       {/* 4. MAIN CONTENT AREA: GRID OR TABLE */}
       {filteredContracts.length === 0 ? (
         <div className="contracts-empty-state">
-          <div className="empty-icon">📜</div>
+          <div className="empty-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <FileText size={36} />
+          </div>
           <div className="empty-title">No contracts found</div>
           <p className="empty-desc">Try clearing the search query or changing your status filter.</p>
         </div>
@@ -678,87 +710,40 @@ export default function Contractmanage() {
             const isUrgent = daysLeft !== null && daysLeft <= 15 && daysLeft >= 0;
             return (
               <div key={contract.id} className="contract-card">
-                <div>
-                  <div className="contract-card-header">
-                    <span className="contract-code-tag">{contract.contractNumber}</span>
-                    {renderStatusBadge(contract.status)}
-                  </div>
+                <div className="contract-card-header">
+                  <span className="contract-code-tag">{contract.contractNumber}</span>
+                  {renderStatusBadge(contract.status)}
+                </div>
 
-                  <div className="contract-title-wrap">
-                    <h3>{contract.title}</h3>
-                    <div className="contract-vendor-link">
-                      <span>🏢</span>
-                      <span>{contract.vendorCompanyName || 'Supplier Partner'}</span>
-                    </div>
-                  </div>
-
-                  <div className="contract-dates-box" style={{ marginTop: '14px' }}>
-                    <div className="dates-row">
-                      <span className="dates-label">Validity Period:</span>
-                      <span>{contract.startDate} ➔ {contract.endDate}</span>
-                    </div>
-                    <div className="dates-row" style={{ alignItems: 'center' }}>
-                      <span className="dates-label">Expiration Status:</span>
-                      {daysLeft !== null && daysLeft > 0 ? (
-                        <span className={`contract-countdown-badge ${isUrgent ? 'urgent' : ''}`}>
-                          ⏳ {daysLeft} days remaining
-                        </span>
-                      ) : daysLeft !== null && daysLeft <= 0 ? (
-                        <span className="contract-countdown-badge urgent">
-                          ⚠️ Expired
-                        </span>
-                      ) : (
-                        <span>N/A</span>
-                      )}
-                    </div>
-                    <div className="dates-row" style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
-                      <span>Auto-Renew: {contract.autoRenew ? '✓ Enabled' : 'Disabled'}</span>
-                      <span>Notice: {contract.renewalNoticeDays || 30} days</span>
-                    </div>
+                <div className="contract-title-wrap">
+                  <h3>{contract.title}</h3>
+                  <div className="contract-vendor-link">
+                    <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+                      <Building2 size={15} />
+                    </span>
+                    <span>{contract.vendorCompanyName || 'Supplier Partner'}</span>
                   </div>
                 </div>
 
-                <div>
-                  <div className="contract-value-footer">
-                    <div className="contract-val-display">
-                      <span className="val-label">Contract Value</span>
-                      <span className="val-amount">{formatCurrency(contract.contractValue)}</span>
-                    </div>
-
-                    <div className="contract-actions-cluster">
-                      <button
-                        className="action-btn-sm"
-                        style={{ backgroundColor: '#0284c7', borderColor: '#0284c7', color: '#fff' }}
-                        onClick={() => setDetailContract(contract)}
-                      >
-                        Details
-                      </button>
-
-                      <button
-                        className="action-btn-sm action-btn-renew"
-                        onClick={() => handleOpenRenewModal(contract)}
-                        title="Renew agreement"
-                      >
-                        🔄 Renew
-                      </button>
-
-                      <button
-                        className="action-btn-sm"
-                        onClick={() => handleOpenEditModal(contract)}
-                        title="Edit contract"
-                      >
-                        ✏️
-                      </button>
-
-                      <button
-                        className="action-btn-sm action-btn-delete"
-                        onClick={() => setDeleteModal({ isOpen: true, contract })}
-                        title="Delete contract"
-                      >
-                        🗑️
-                      </button>
-                    </div>
+                <div className="contract-summary-info">
+                  <div className="summary-item">
+                    <span className="summary-lbl">Contract Value</span>
+                    <span className="summary-val highlight">{formatCurrency(contract.contractValue)}</span>
                   </div>
+                  <div className="summary-item">
+                    <span className="summary-lbl">Validity End</span>
+                    <span className="summary-val">{contract.endDate} {isUrgent ? '• Expiring' : ''}</span>
+                  </div>
+                </div>
+
+                <div className="contract-actions-cluster">
+                  <button
+                    className="contracts-btn-view-details"
+                    onClick={() => setDetailContract(contract)}
+                  >
+                    <Eye size={14} />
+                    <span>View Details</span>
+                  </button>
                 </div>
               </div>
             );
@@ -794,8 +779,9 @@ export default function Contractmanage() {
                       <td>{contract.startDate} to {contract.endDate}</td>
                       <td>
                         {daysLeft !== null && daysLeft > 0 ? (
-                          <span className={`contract-countdown-badge ${isUrgent ? 'urgent' : ''}`}>
-                            ⏳ {daysLeft}d left
+                          <span className={`contract-countdown-badge ${isUrgent ? 'urgent' : ''}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                            <Clock size={11} />
+                            <span>{daysLeft}d left</span>
                           </span>
                         ) : daysLeft !== null && daysLeft <= 0 ? (
                           <span className="contract-countdown-badge urgent">Expired</span>
@@ -804,7 +790,15 @@ export default function Contractmanage() {
                         )}
                       </td>
                       <td className="cell-val">{formatCurrency(contract.contractValue)}</td>
-                      <td>{contract.autoRenew ? '✓ Yes' : 'No'}</td>
+                      <td>
+                        {contract.autoRenew ? (
+                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '3px', color: '#34d399' }}>
+                            <Check size={12} /> Yes
+                          </span>
+                        ) : (
+                          'No'
+                        )}
+                      </td>
                       <td>{renderStatusBadge(contract.status)}</td>
                       <td>
                         <div style={{ display: 'flex', gap: '6px' }}>
@@ -849,7 +843,9 @@ export default function Contractmanage() {
           <div className="contracts-modal-box" onClick={(e) => e.stopPropagation()}>
             <div className="contracts-modal-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ fontSize: '1.4rem' }}>📜</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', color: '#6366F1' }}>
+                  <FileText size={24} />
+                </span>
                 <div>
                   <h3 style={{ margin: 0 }}>{detailContract.title}</h3>
                   <span style={{ fontFamily: 'monospace', color: '#38bdf8', fontSize: '0.82rem' }}>
@@ -894,7 +890,13 @@ export default function Contractmanage() {
               <div className="detail-row">
                 <span className="detail-lbl">Auto-Renewal Clause</span>
                 <span className="detail-val">
-                  {detailContract.autoRenew ? `✓ Enabled (${detailContract.renewalNoticeDays || 30} days notice)` : 'Manual Renewal Only'}
+                  {detailContract.autoRenew ? (
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: '#34d399' }}>
+                      <Check size={13} /> Enabled ({detailContract.renewalNoticeDays || 30} days notice)
+                    </span>
+                  ) : (
+                    'Manual Renewal Only'
+                  )}
                 </span>
               </div>
 
@@ -910,20 +912,49 @@ export default function Contractmanage() {
               )}
             </div>
 
-            <div className="contracts-modal-footer">
-              <button className="contracts-btn contracts-btn-secondary" onClick={() => setDetailContract(null)}>
-                Close
-              </button>
+            <div className="contracts-modal-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <button
-                className="contracts-btn action-btn-renew"
+                className="contracts-btn action-btn-delete"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                 onClick={() => {
                   const target = detailContract;
                   setDetailContract(null);
-                  handleOpenRenewModal(target);
+                  setDeleteModal({ isOpen: true, contract: target });
                 }}
               >
-                🔄 Extend / Renew Contract
+                <Trash2 size={14} />
+                <span>Delete Contract</span>
               </button>
+
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <button className="contracts-btn contracts-btn-secondary" onClick={() => setDetailContract(null)}>
+                  Close
+                </button>
+                <button
+                  className="contracts-btn action-btn-renew"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  onClick={() => {
+                    const target = detailContract;
+                    setDetailContract(null);
+                    handleOpenRenewModal(target);
+                  }}
+                >
+                  <RefreshCw size={14} />
+                  <span>Renew Contract</span>
+                </button>
+                <button
+                  className="contracts-btn contracts-btn-primary"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                  onClick={() => {
+                    const target = detailContract;
+                    setDetailContract(null);
+                    handleOpenEditModal(target);
+                  }}
+                >
+                  <Pencil size={14} />
+                  <span>Edit Contract</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -935,7 +966,10 @@ export default function Contractmanage() {
           <div className="contracts-modal-box" style={{ maxWidth: '520px' }} onClick={(e) => e.stopPropagation()}>
             <form onSubmit={handleConfirmRenew}>
               <div className="contracts-modal-header">
-                <h3>🔄 Renew Contract: {renewModal.contract.contractNumber}</h3>
+                <h3 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', margin: 0 }}>
+                  <RefreshCw size={18} color="#6366F1" />
+                  <span>Renew Contract: {renewModal.contract.contractNumber}</span>
+                </h3>
                 <button
                   type="button"
                   className="contracts-modal-close"
@@ -991,9 +1025,10 @@ export default function Contractmanage() {
                 <button
                   type="submit"
                   className="contracts-btn action-btn-renew"
-                  style={{ padding: '9px 18px', fontWeight: 700 }}
+                  style={{ padding: '9px 18px', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                 >
-                  ✓ Confirm & Renew
+                  <Check size={14} />
+                  <span>Confirm & Renew</span>
                 </button>
               </div>
             </form>
@@ -1203,10 +1238,11 @@ export default function Contractmanage() {
             </div>
             <div className="contracts-modal-body">
               <p style={{ margin: 0, color: '#cbd5e1', lineHeight: '1.5' }}>
-                Are you sure you want to delete <strong style={{ color: '#f8fafc' }}>{deleteModal.contract.title}</strong> ({deleteModal.contract.contractNumber})?
+                Are you sure you want to delete <strong style={{ color: '#E2E8F0' }}>{deleteModal.contract.title}</strong> ({deleteModal.contract.contractNumber})?
               </p>
-              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', color: '#f87171', fontSize: '0.82rem' }}>
-                ⚠️ Warning: Terminating or removing contract records will permanently impact audit tracking.
+              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '8px', color: '#f87171', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <AlertTriangle size={16} style={{ flexShrink: 0 }} />
+                <span>Warning: Terminating or removing contract records will permanently impact audit tracking.</span>
               </div>
             </div>
             <div className="contracts-modal-footer">

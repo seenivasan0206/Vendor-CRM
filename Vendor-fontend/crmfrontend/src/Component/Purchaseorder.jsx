@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { ShoppingCart, Clock, CheckCircle, IndianRupee, RefreshCw, X, Plus } from 'lucide-react';
 import '../Styles/Purchaseorder.css';
 import { authService } from '../services/authService';
 
@@ -362,8 +363,9 @@ function Purchaseorder() {
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <h2>Purchase Orders</h2>
-            <span className={`po-connection-badge ${isLiveBackend ? 'live' : 'demo'}`}>
-              {isLiveBackend ? '● Live Backend' : '● Demo State'}
+            <span className={`po-connection-badge ${isLiveBackend ? 'live' : 'demo'}`} style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'currentColor', marginRight: '6px' }} />
+              <span>{isLiveBackend ? 'Live Backend' : 'Demo State'}</span>
             </span>
           </div>
           <p>Create, track, and manage vendor purchase orders with approval workflows.</p>
@@ -372,27 +374,41 @@ function Purchaseorder() {
           className="po-btn-primary"
           type="button"
           onClick={openCreateModal}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
         >
-          + Create Purchase Order
+          <Plus size={15} />
+          <span>Create Purchase Order</span>
         </button>
       </div>
 
       {/* 2. KPI Summary Metric Cards */}
       <div className="po-stats-grid">
         <div className="po-stat-card">
-          <span className="po-stat-label">Total Orders</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span className="po-stat-label">Total Orders</span>
+            <ShoppingCart size={18} color="#6366F1" />
+          </div>
           <strong className="po-stat-value po-stat-cyan">{totalOrdersCount}</strong>
         </div>
         <div className="po-stat-card">
-          <span className="po-stat-label">Pending Approval</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span className="po-stat-label">Pending Approval</span>
+            <Clock size={18} color="#f59e0b" />
+          </div>
           <strong className="po-stat-value po-stat-amber">{pendingOrdersCount}</strong>
         </div>
         <div className="po-stat-card">
-          <span className="po-stat-label">Approved & Issued</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span className="po-stat-label">Approved & Issued</span>
+            <CheckCircle size={18} color="#10b981" />
+          </div>
           <strong className="po-stat-value po-stat-emerald">{approvedOrdersCount}</strong>
         </div>
         <div className="po-stat-card">
-          <span className="po-stat-label">Total Value</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span className="po-stat-label">Total Value</span>
+            <IndianRupee size={18} color="#c084fc" />
+          </div>
           <strong className="po-stat-value po-stat-purple">₹{totalSpend.toLocaleString('en-IN')}</strong>
         </div>
       </div>
@@ -425,8 +441,10 @@ function Purchaseorder() {
           onClick={() => fetchOrders(true)}
           disabled={isLoading}
           title="Refresh orders from backend"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
         >
-          {isLoading ? '⟳ Refreshing...' : '⟳ Refresh'}
+          <RefreshCw size={14} className={isLoading ? 'spinning' : ''} />
+          <span>{isLoading ? 'Refreshing...' : 'Refresh'}</span>
         </button>
       </div>
 
@@ -527,10 +545,10 @@ function Purchaseorder() {
                     width: '100%',
                     padding: '10px 14px',
                     background: '#020B1A',
-                    border: '1px solid rgba(0, 212, 229, 0.22)',
+                    border: '1px solid rgba(99, 102, 241, 0.22)',
                     borderRadius: '8px',
                     fontSize: '0.92rem',
-                    color: '#f8fafc',
+                    color: '#E2E8F0',
                     outline: 'none',
                   }}
                 >
@@ -627,8 +645,9 @@ function Purchaseorder() {
                         className="po-btn-remove-item"
                         onClick={() => handleRemoveItem(idx)}
                         title="Remove item"
+                        style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                       >
-                        ×
+                        <X size={14} />
                       </button>
                     )}
                   </div>

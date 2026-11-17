@@ -1,4 +1,21 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
+import {
+  Package,
+  Download,
+  Building2,
+  Wrench,
+  AlertTriangle,
+  Search,
+  LayoutGrid,
+  List,
+  Eye,
+  Pencil,
+  Trash2,
+  Star,
+  CheckCircle,
+  Sparkles,
+  X
+} from 'lucide-react';
 import '../Styles/ProductService.css';
 
 // ============================================================================
@@ -556,7 +573,9 @@ export default function ProductService() {
         <div className="product-hero-left">
           <h2>
             <span>Products &amp; Services Catalog</span>
-            <span role="img" aria-label="package">📦</span>
+            <span className="product-hero-icon" style={{ display: 'inline-flex', verticalAlign: 'middle', marginLeft: '8px' }}>
+              <Package size={24} color="#6366F1" />
+            </span>
           </h2>
           <div className="product-hero-subtitle">
             <span>Master Enterprise Repository for Procured Goods, Software Licenses &amp; Contracted Services</span>
@@ -577,8 +596,9 @@ export default function ProductService() {
             <span>{refreshing ? 'Syncing...' : 'Refresh'}</span>
           </button>
 
-          <button className="product-btn product-btn-export" onClick={handleExportCSV}>
-            <span>📥 Export CSV</span>
+          <button className="product-btn product-btn-export" onClick={handleExportCSV} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <Download size={14} />
+            <span>Export CSV</span>
           </button>
 
           <button className="product-btn product-btn-primary" onClick={handleOpenCreateModal}>
@@ -587,61 +607,65 @@ export default function ProductService() {
         </div>
       </section>
 
-      {/* 2. TOP 4 KPI CARDS (HIGH-CONTRAST VIBRANT NUMBERS) */}
+      {/* 2. TOP 4 KPI CARDS */}
       <section className="product-kpi-grid">
         {/* KPI 1: Total Catalog Items */}
         <div className="product-kpi-card" onClick={() => setTypeFilter('ALL')} style={{ cursor: 'pointer' }}>
-          <div className="product-kpi-accent accent-blue" />
+          <div className="product-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Total Catalog Portfolio</span>
-            <div className="kpi-icon-pill pill-blue">📦</div>
+            <div className="kpi-icon-pill">
+              <Package size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-blue">{stats.total}</div>
+          <div className="kpi-value">{stats.total}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-neutral">{stats.products} Goods • {stats.services} Services</span>
-            <span style={{ color: '#38bdf8', fontWeight: 600 }}>100% Monitored</span>
+            <span className="kpi-subtext">{stats.products} Goods • {stats.services} Services</span>
           </div>
         </div>
 
         {/* KPI 2: Physical Products */}
         <div className="product-kpi-card" onClick={() => setTypeFilter('PRODUCT')} style={{ cursor: 'pointer' }}>
-          <div className="product-kpi-accent accent-green" />
+          <div className="product-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Physical Goods &amp; Hardware</span>
-            <div className="kpi-icon-pill pill-green">🏭</div>
+            <div className="kpi-icon-pill">
+              <Building2 size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-green">{stats.products}</div>
+          <div className="kpi-value">{stats.products}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-success">{formatCurrency(stats.totalProductValuation)} In-Stock</span>
-            <span style={{ color: '#34d399', fontWeight: 600 }}>Active Warehouse</span>
+            <span className="kpi-subtext">{formatCurrency(stats.totalProductValuation)} In-Stock • Active Warehouse</span>
           </div>
         </div>
 
         {/* KPI 3: Contracted Services */}
         <div className="product-kpi-card" onClick={() => setTypeFilter('SERVICE')} style={{ cursor: 'pointer' }}>
-          <div className="product-kpi-accent accent-purple" />
+          <div className="product-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Enterprise Services &amp; Cloud</span>
-            <div className="kpi-icon-pill pill-purple">⚙️</div>
+            <div className="kpi-icon-pill">
+              <Wrench size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-purple">{stats.services}</div>
+          <div className="kpi-value">{stats.services}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-neutral">Active SLA Retainers</span>
-            <span style={{ color: '#c084fc', fontWeight: 600 }}>High Reliability</span>
+            <span className="kpi-subtext">Active SLA Retainers • High Reliability</span>
           </div>
         </div>
 
         {/* KPI 4: Stock & Reorder Alerts */}
         <div className="product-kpi-card" onClick={() => setTypeFilter('LOW_STOCK')} style={{ cursor: 'pointer' }}>
-          <div className="product-kpi-accent accent-amber" />
+          <div className="product-kpi-accent" />
           <div className="kpi-top-row">
             <span className="kpi-title">Critical &amp; Low Stock Alerts</span>
-            <div className="kpi-icon-pill pill-amber">⚠️</div>
+            <div className="kpi-icon-pill">
+              <AlertTriangle size={20} />
+            </div>
           </div>
-          <div className="kpi-value kpi-val-amber">{stats.lowStock}</div>
+          <div className="kpi-value">{stats.lowStock}</div>
           <div className="kpi-footer">
-            <span className="kpi-tag tag-warning">Attention Required</span>
-            <span style={{ color: '#fbbf24', fontWeight: 600 }}>Reorder Priority</span>
+            <span className="kpi-subtext">{stats.lowStock} Items • Reorder Priority</span>
           </div>
         </div>
       </section>
@@ -661,24 +685,30 @@ export default function ProductService() {
           <button
             className={`product-tab-btn ${typeFilter === 'PRODUCT' ? 'active' : ''}`}
             onClick={() => setTypeFilter('PRODUCT')}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            <span>📦 Products</span>
+            <Package size={14} />
+            <span>Products</span>
             <span className="tab-counter">{stats.products}</span>
           </button>
 
           <button
             className={`product-tab-btn ${typeFilter === 'SERVICE' ? 'active' : ''}`}
             onClick={() => setTypeFilter('SERVICE')}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            <span>⚙️ Services</span>
+            <Wrench size={14} />
+            <span>Services</span>
             <span className="tab-counter">{stats.services}</span>
           </button>
 
           <button
             className={`product-tab-btn ${typeFilter === 'LOW_STOCK' ? 'active' : ''}`}
             onClick={() => setTypeFilter('LOW_STOCK')}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            <span>⚠️ Low Stock Alerts</span>
+            <AlertTriangle size={14} />
+            <span>Low Stock Alerts</span>
             <span className={`tab-counter ${stats.lowStock > 0 ? 'urgent' : ''}`}>{stats.lowStock}</span>
           </button>
         </div>
@@ -686,7 +716,9 @@ export default function ProductService() {
         {/* Search, Categories, Status, & View Mode */}
         <div className="product-filter-right">
           <div className="product-search-box">
-            <span role="img" aria-label="search">🔍</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <Search size={16} />
+            </span>
             <input
               type="text"
               placeholder="Search by SKU, item, category, supplier..."
@@ -697,9 +729,9 @@ export default function ProductService() {
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
+                style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', display: 'inline-flex', alignItems: 'center' }}
               >
-                ✕
+                <X size={14} />
               </button>
             )}
           </div>
@@ -731,15 +763,19 @@ export default function ProductService() {
               className={`view-toggle-btn ${viewMode === 'grid' ? 'active' : ''}`}
               onClick={() => setViewMode('grid')}
               title="Card Grid View"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
             >
-              <span>🔲 Cards</span>
+              <LayoutGrid size={14} />
+              <span>Cards</span>
             </button>
             <button
               className={`view-toggle-btn ${viewMode === 'table' ? 'active' : ''}`}
               onClick={() => setViewMode('table')}
               title="Detailed Table View"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
             >
-              <span>📋 Table</span>
+              <List size={14} />
+              <span>Table</span>
             </button>
           </div>
         </div>
@@ -748,8 +784,10 @@ export default function ProductService() {
       {/* 4. CONTENT AREA: CARDS GRID OR TABLE VIEW */}
       {filteredItems.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '60px 20px', background: '#1e293b', borderRadius: '14px', border: '1px solid #334155' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '14px' }}>🔍</div>
-          <h3 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', color: '#f8fafc' }}>No matching products or services found</h3>
+          <div style={{ fontSize: '3rem', marginBottom: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Search size={40} color="#64748b" />
+          </div>
+          <h3 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', color: '#E2E8F0' }}>No matching products or services found</h3>
           <p style={{ color: '#94a3b8', margin: '0 0 20px 0', fontSize: '0.9rem' }}>
             Try adjusting your search terms, type tab, or category filters.
           </p>
@@ -763,95 +801,43 @@ export default function ProductService() {
       ) : viewMode === 'grid' ? (
         <div className="product-grid">
           {filteredItems.map(item => (
-            <div key={item.id} className="product-card">
+            <div
+              key={item.id}
+              className="product-card"
+              onClick={() => setDetailItem(item)}
+              title="Click anywhere to view full specifications"
+            >
               <div>
                 <div className="product-card-header">
-                  <span className="product-code-tag">{item.sku}</span>
-                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                    <span className={`product-type-badge ${item.type.toLowerCase()}`}>
-                      {item.type === 'PRODUCT' ? '📦 PRODUCT' : '⚙️ SERVICE'}
-                    </span>
-                    {renderStatusBadge(item.status)}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span className="product-code-tag">{item.sku}</span>
+                    <span className="product-category-pill">{item.category}</span>
                   </div>
+                  {renderStatusBadge(item.status)}
                 </div>
 
                 <h3 className="product-card-title">{item.name}</h3>
-                <p className="product-card-desc">{item.description}</p>
 
-                {/* Vendor Partner Row */}
-                <div className="product-vendor-row">
-                  <span className="vendor-icon">🏢</span>
-                  <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-                    <span className="vendor-name" title={item.vendorCompanyName}>{item.vendorCompanyName}</span>
-                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>{item.category}</span>
-                  </div>
-                </div>
-
-                {/* Technical / Commercial Specs Grid */}
-                <div className="product-specs-grid">
-                  <div className="product-spec-item">
-                    <span className="spec-label">Contracted Rate</span>
-                    <span className="spec-val price">
-                      {formatCurrency(item.unitPrice)} <span style={{ fontSize: '0.72rem', color: '#94a3b8', fontWeight: 500 }}>{item.unitOfMeasure}</span>
-                    </span>
-                  </div>
-
-                  <div className="product-spec-item">
-                    <span className="spec-label">{item.type === 'PRODUCT' ? 'Current Stock' : 'Capacity / SLA'}</span>
-                    <span className="spec-val">
-                      {item.type === 'PRODUCT' ? `${item.stockQuantity} units` : item.warranty || 'Active Retainer'}
-                    </span>
-                  </div>
-
-                  <div className="product-spec-item">
-                    <span className="spec-label">Lead Time</span>
-                    <span className="spec-val" style={{ fontSize: '0.84rem' }}>{item.leadTime || 'Standard'}</span>
-                  </div>
-
-                  <div className="product-spec-item">
-                    <span className="spec-label">Quality Score</span>
-                    <span className="spec-val" style={{ color: '#fbbf24', fontSize: '0.86rem' }}>
-                      ★ {item.rating || '4.8'} / 5.0
-                    </span>
-                  </div>
+                <div className="product-card-essential-data">
+                  <span className="essential-rate-label">Rate</span>
+                  <span className="essential-rate-value">{formatCurrency(item.unitPrice)}</span>
+                  <span className="essential-rate-unit">/ {item.unitOfMeasure}</span>
                 </div>
               </div>
 
-              {/* Card Footer Actions */}
               <div className="product-card-footer">
                 <button
-                  className="btn-card-action"
-                  onClick={() => setDetailItem(item)}
+                  type="button"
+                  className="product-btn-view-details"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setDetailItem(item);
+                  }}
                   title="View complete specifications and supplier details"
                 >
-                  👁️ View Details
+                  <Eye size={14} />
+                  <span>View Details</span>
                 </button>
-
-                <div className="product-card-actions">
-                  {item.type === 'PRODUCT' && (
-                    <button
-                      className="btn-card-action"
-                      onClick={() => setStockModal({ open: true, item, newQuantity: item.stockQuantity })}
-                      title="Adjust Inventory Stock"
-                    >
-                      📦 Stock
-                    </button>
-                  )}
-                  <button
-                    className="btn-card-action"
-                    onClick={() => handleOpenEditModal(item)}
-                    title="Edit Item Details"
-                  >
-                    ✏️ Edit
-                  </button>
-                  <button
-                    className="btn-card-action btn-danger"
-                    onClick={() => setDeleteConfirm({ open: true, item })}
-                    title="Delete Item"
-                  >
-                    🗑️
-                  </button>
-                </div>
               </div>
             </div>
           ))}
@@ -887,13 +873,23 @@ export default function ProductService() {
                       </div>
                     </td>
                     <td>
-                      <span className={`product-type-badge ${item.type.toLowerCase()}`}>
-                        {item.type === 'PRODUCT' ? '📦 Good' : '⚙️ Service'}
+                      <span className={`product-type-badge ${item.type.toLowerCase()}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        {item.type === 'PRODUCT' ? (
+                          <>
+                            <Package size={12} />
+                            <span>Good</span>
+                          </>
+                        ) : (
+                          <>
+                            <Wrench size={12} />
+                            <span>Service</span>
+                          </>
+                        )}
                       </span>
                     </td>
                     <td>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <span>🏢</span>
+                        <Building2 size={14} color="#64748b" />
                         <span style={{ fontWeight: 600 }}>{item.vendorCompanyName}</span>
                       </div>
                     </td>
@@ -927,31 +923,35 @@ export default function ProductService() {
                           className="btn-card-action"
                           onClick={() => setDetailItem(item)}
                           title="View Details"
+                          style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                         >
-                          👁️
+                          <Eye size={13} />
                         </button>
                         {item.type === 'PRODUCT' && (
                           <button
                             className="btn-card-action"
                             onClick={() => setStockModal({ open: true, item, newQuantity: item.stockQuantity })}
                             title="Adjust Stock"
+                            style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                           >
-                            📦
+                            <Package size={13} />
                           </button>
                         )}
                         <button
                           className="btn-card-action"
                           onClick={() => handleOpenEditModal(item)}
                           title="Edit"
+                          style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                         >
-                          ✏️
+                          <Pencil size={13} />
                         </button>
                         <button
                           className="btn-card-action btn-danger"
                           onClick={() => setDeleteConfirm({ open: true, item })}
                           title="Delete"
+                          style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                         >
-                          🗑️
+                          <Trash2 size={13} />
                         </button>
                       </div>
                     </td>
@@ -976,12 +976,24 @@ export default function ProductService() {
                 <span className="product-code-tag">{detailItem.sku}</span>
                 <h3>{detailItem.name}</h3>
               </div>
-              <button className="modal-close-btn" onClick={() => setDetailItem(null)}>✕</button>
+              <button className="modal-close-btn" onClick={() => setDetailItem(null)} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                <X size={16} />
+              </button>
             </div>
 
             <div style={{ display: 'flex', gap: '10px', marginBottom: '14px' }}>
-              <span className={`product-type-badge ${detailItem.type.toLowerCase()}`}>
-                {detailItem.type === 'PRODUCT' ? '📦 Physical Product' : '⚙️ Enterprise Service'}
+              <span className={`product-type-badge ${detailItem.type.toLowerCase()}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                {detailItem.type === 'PRODUCT' ? (
+                  <>
+                    <Package size={12} />
+                    <span>Physical Product</span>
+                  </>
+                ) : (
+                  <>
+                    <Wrench size={12} />
+                    <span>Enterprise Service</span>
+                  </>
+                )}
               </span>
               {renderStatusBadge(detailItem.status)}
               <span className="kpi-tag tag-neutral">{detailItem.category}</span>
@@ -994,7 +1006,10 @@ export default function ProductService() {
             <div className="detail-spec-grid">
               <div className="detail-spec-item">
                 <span className="label">Contracted Supplier</span>
-                <span className="value">🏢 {detailItem.vendorCompanyName} ({detailItem.vendorCode || 'VND-001'})</span>
+                <span className="value" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <Building2 size={14} color="#64748b" />
+                  <span>{detailItem.vendorCompanyName} ({detailItem.vendorCode || 'VND-001'})</span>
+                </span>
               </div>
 
               <div className="detail-spec-item">
@@ -1031,27 +1046,61 @@ export default function ProductService() {
 
               <div className="detail-spec-item">
                 <span className="label">Supplier Quality Score</span>
-                <span className="value" style={{ color: '#fbbf24' }}>★ {detailItem.rating || '4.8'} / 5.0 Rating</span>
+                <span className="value" style={{ color: '#fbbf24', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <Star size={12} fill="currentColor" />
+                  <span>{detailItem.rating || '4.8'} / 5.0 Rating</span>
+                </span>
               </div>
             </div>
 
-            <div className="product-modal-actions">
+            <div className="product-modal-actions" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px' }}>
               <button
-                className="product-btn product-btn-secondary"
-                onClick={() => setDetailItem(null)}
-              >
-                Close Spec Sheet
-              </button>
-              <button
-                className="product-btn product-btn-primary"
+                className="product-btn action-btn-delete"
                 onClick={() => {
                   const itm = detailItem;
                   setDetailItem(null);
-                  handleOpenEditModal(itm);
+                  setDeleteConfirm({ open: true, item: itm });
                 }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
               >
-                ✏️ Edit Item
+                <Trash2 size={14} />
+                <span>Delete Item</span>
               </button>
+
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <button
+                  className="product-btn product-btn-secondary"
+                  onClick={() => setDetailItem(null)}
+                >
+                  Close
+                </button>
+                {detailItem.type === 'PRODUCT' && (
+                  <button
+                    className="product-btn product-btn-secondary"
+                    onClick={() => {
+                      const itm = detailItem;
+                      setDetailItem(null);
+                      setStockModal({ open: true, item: itm, newQuantity: itm.stockQuantity });
+                    }}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}
+                  >
+                    <Package size={14} />
+                    <span>Adjust Stock</span>
+                  </button>
+                )}
+                <button
+                  className="product-btn product-btn-primary"
+                  onClick={() => {
+                    const itm = detailItem;
+                    setDetailItem(null);
+                    handleOpenEditModal(itm);
+                  }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                >
+                  <Pencil size={14} />
+                  <span>Edit Item</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1068,8 +1117,9 @@ export default function ProductService() {
                   type="button"
                   className="modal-close-btn"
                   onClick={() => setModalForm(prev => ({ ...prev, open: false }))}
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                 >
-                  ✕
+                  <X size={16} />
                 </button>
               </div>
 
@@ -1091,8 +1141,8 @@ export default function ProductService() {
                     value={modalForm.data.type}
                     onChange={(e) => setModalForm(prev => ({ ...prev, data: { ...prev.data, type: e.target.value } }))}
                   >
-                    <option value="PRODUCT">📦 Physical Product / Hardware / Supplies</option>
-                    <option value="SERVICE">⚙️ Enterprise Service / Cloud / Consulting</option>
+                    <option value="PRODUCT">Physical Product / Hardware / Supplies</option>
+                    <option value="SERVICE">Enterprise Service / Cloud / Consulting</option>
                   </select>
                 </div>
               </div>
@@ -1253,8 +1303,9 @@ export default function ProductService() {
                 type="button"
                 className="modal-close-btn"
                 onClick={() => setStockModal({ open: false, item: null, newQuantity: 0 })}
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                ✕
+                <X size={16} />
               </button>
             </div>
 
@@ -1337,8 +1388,9 @@ export default function ProductService() {
                 type="button"
                 className="modal-close-btn"
                 onClick={() => setDeleteConfirm({ open: false, item: null })}
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                ✕
+                <X size={16} />
               </button>
             </div>
 
@@ -1369,8 +1421,8 @@ export default function ProductService() {
 
       {/* 6. FLOATING TOAST NOTIFICATION */}
       {toastMessage && (
-        <div className="product-toast">
-          <span>✨</span>
+        <div className="product-toast" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+          <Sparkles size={16} />
           <span>{toastMessage}</span>
         </div>
       )}

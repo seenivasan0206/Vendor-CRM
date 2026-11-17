@@ -1,4 +1,15 @@
 import { useState, useEffect } from 'react';
+import {
+  AlertTriangle,
+  CheckCircle2,
+  Building2,
+  User,
+  Lock,
+  Users,
+  Save,
+  Monitor,
+  Laptop
+} from 'lucide-react';
 import '../Styles/Settings.css';
 import { authService } from '../services/authService';
 
@@ -216,8 +227,8 @@ function Settings() {
     <div className="settings-page-container">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className={`settings-toast ${toastType}`}>
-          <span>{toastType === 'error' ? '⚠️' : '✅'}</span>
+        <div className={`settings-toast ${toastType}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+          <span>{toastType === 'error' ? <AlertTriangle size={16} /> : <CheckCircle2 size={16} />}</span>
           <span>{toastMessage}</span>
         </div>
       )}
@@ -239,7 +250,9 @@ function Settings() {
             className={`settings-nav-btn ${activeTab === 'system' ? 'active' : ''}`}
             onClick={() => setActiveTab('system')}
           >
-            <span className="nav-icon">🏢</span>
+            <span className="nav-icon" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Building2 size={18} />
+            </span>
             <div className="nav-text">
               <span className="title">System & Company</span>
               <span className="desc">Company info, currency & limits</span>
@@ -251,7 +264,9 @@ function Settings() {
             className={`settings-nav-btn ${activeTab === 'profile' ? 'active' : ''}`}
             onClick={() => setActiveTab('profile')}
           >
-            <span className="nav-icon">👤</span>
+            <span className="nav-icon" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+              <User size={18} />
+            </span>
             <div className="nav-text">
               <span className="title">My Profile</span>
               <span className="desc">Personal information & contact</span>
@@ -263,7 +278,9 @@ function Settings() {
             className={`settings-nav-btn ${activeTab === 'security' ? 'active' : ''}`}
             onClick={() => setActiveTab('security')}
           >
-            <span className="nav-icon">🔐</span>
+            <span className="nav-icon" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Lock size={18} />
+            </span>
             <div className="nav-text">
               <span className="title">Security & Password</span>
               <span className="desc">Password, 2FA & active sessions</span>
@@ -275,7 +292,9 @@ function Settings() {
             className={`settings-nav-btn ${activeTab === 'users' ? 'active' : ''}`}
             onClick={() => setActiveTab('users')}
           >
-            <span className="nav-icon">👥</span>
+            <span className="nav-icon" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Users size={18} />
+            </span>
             <div className="nav-text">
               <span className="title">User Management</span>
               <span className="desc">Team members, roles & permissions</span>
@@ -393,8 +412,9 @@ function Settings() {
                 </div>
 
                 <div className="form-actions">
-                  <button type="submit" className="settings-btn-primary">
-                    💾 Save System Configuration
+                  <button type="submit" className="settings-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <Save size={14} />
+                    <span>Save System Configuration</span>
                   </button>
                 </div>
               </form>
@@ -478,8 +498,9 @@ function Settings() {
                 </div>
 
                 <div className="form-actions">
-                  <button type="submit" className="settings-btn-primary">
-                    💾 Update Profile
+                  <button type="submit" className="settings-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <Save size={14} />
+                    <span>Update Profile</span>
                   </button>
                 </div>
               </form>
@@ -546,9 +567,14 @@ function Settings() {
                 </div>
 
                 <div className="security-session-card">
-                  <h4>🖥️ Active Sessions</h4>
+                  <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Monitor size={18} />
+                    <span>Active Sessions</span>
+                  </h4>
                   <div className="session-item">
-                    <div className="session-icon">💻</div>
+                    <div className="session-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Laptop size={20} />
+                    </div>
                     <div className="session-details">
                       <strong>Windows 11 • Chrome 130 (Current Session)</strong>
                       <span>IP: 127.0.0.1 • Location: Localhost • Active now</span>
@@ -558,8 +584,9 @@ function Settings() {
                 </div>
 
                 <div className="form-actions">
-                  <button type="submit" className="settings-btn-primary">
-                    🔒 Update Password
+                  <button type="submit" className="settings-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <Lock size={14} />
+                    <span>Update Password</span>
                   </button>
                 </div>
               </form>

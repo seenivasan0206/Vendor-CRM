@@ -1,4 +1,18 @@
   import { useState, useEffect, useMemo, useCallback } from 'react';
+import {
+  LayoutDashboard,
+  Building2,
+  DollarSign,
+  FileText,
+  Zap,
+  ShieldCheck,
+  Search,
+  CheckCircle,
+  Check,
+  Clock,
+  Package,
+  Star
+} from 'lucide-react';
 import '../Styles/Dashboard.css';
 
 // Fallback / Initial realistic dataset matching backend DTO schemas exactly
@@ -342,7 +356,9 @@ export default function Dashboard({ setActiveTab }) {
         <div className="dash-hero-left">
           <h2>
             <span>Executive Procurement Dashboard</span>
-            <span role="img" aria-label="wave">📊</span>
+            <span className="dash-hero-title-icon" style={{ display: 'inline-flex', verticalAlign: 'middle', marginLeft: '8px' }}>
+              <LayoutDashboard size={24} color="#6366F1" />
+            </span>
           </h2>
           <div className="dash-hero-subtitle">
             <span>Enterprise Overview & Supplier Lifecycle Monitoring</span>
@@ -383,68 +399,61 @@ export default function Dashboard({ setActiveTab }) {
       <section className="dash-kpi-grid">
         {/* KPI 1: Vendors */}
         <div className="dash-kpi-card" onClick={() => handleNavigate('vendors')} style={{ cursor: 'pointer' }}>
-          <div className="kpi-accent-bar kpi-accent-blue" />
+          <div className="kpi-accent-bar" />
           <div className="kpi-top-row">
             <span className="kpi-title">Active Suppliers</span>
-            <div className="kpi-icon-pill pill-blue">🏢</div>
-          </div>
-          <div className="kpi-value kpi-val-blue">{stats.vendorStats.totalVendors}</div>
-          <div className="kpi-footer">
-            <div className="kpi-sub-badges">
-              <span className="kpi-tag tag-success">{stats.vendorStats.activeVendors} Active</span>
-              <span className="kpi-tag tag-warning">{stats.vendorStats.pendingApprovalVendors} Pending</span>
+            <div className="kpi-icon-pill">
+              <Building2 size={20} />
             </div>
-            <span className="rating-pill">★ {stats.vendorStats.averageRating?.toFixed(1) || '4.5'}</span>
+          </div>
+          <div className="kpi-value">{stats.vendorStats.totalVendors}</div>
+          <div className="kpi-footer">
+            <span className="kpi-subtext">{stats.vendorStats.activeVendors} Active • {stats.vendorStats.pendingApprovalVendors} Pending Approval</span>
           </div>
         </div>
 
         {/* KPI 2: Purchase Orders */}
         <div className="dash-kpi-card" onClick={() => handleNavigate('purchaseorders')} style={{ cursor: 'pointer' }}>
-          <div className="kpi-accent-bar kpi-accent-green" />
+          <div className="kpi-accent-bar" />
           <div className="kpi-top-row">
             <span className="kpi-title">Total PO Spend</span>
-            <div className="kpi-icon-pill pill-green">💰</div>
-          </div>
-          <div className="kpi-value kpi-val-green">{formatAbbreviatedCurrency(stats.purchaseOrderStats.totalOrderValue)}</div>
-          <div className="kpi-footer">
-            <div className="kpi-sub-badges">
-              <span className="kpi-tag tag-neutral">{stats.purchaseOrderStats.totalOrders} Orders</span>
-              <span className="kpi-tag tag-success">{stats.purchaseOrderStats.deliveredOrders} Delivered</span>
+            <div className="kpi-icon-pill">
+              <DollarSign size={20} />
             </div>
-            <span className="kpi-tag tag-warning">{stats.purchaseOrderStats.pendingOrders} Pending</span>
+          </div>
+          <div className="kpi-value">{formatAbbreviatedCurrency(stats.purchaseOrderStats.totalOrderValue)}</div>
+          <div className="kpi-footer">
+            <span className="kpi-subtext">{stats.purchaseOrderStats.totalOrders} Orders • {stats.purchaseOrderStats.deliveredOrders} Delivered</span>
           </div>
         </div>
 
         {/* KPI 3: Contracts */}
         <div className="dash-kpi-card" onClick={() => handleNavigate('contracts')} style={{ cursor: 'pointer' }}>
-          <div className="kpi-accent-bar kpi-accent-purple" />
+          <div className="kpi-accent-bar" />
           <div className="kpi-top-row">
             <span className="kpi-title">Contract Portfolio</span>
-            <div className="kpi-icon-pill pill-purple">📜</div>
-          </div>
-          <div className="kpi-value kpi-val-purple">{stats.contractStats.activeContracts} Active</div>
-          <div className="kpi-footer">
-            <div className="kpi-sub-badges">
-              <span className="kpi-tag tag-neutral">{formatAbbreviatedCurrency(stats.contractStats.activeContractValue)} Val</span>
+            <div className="kpi-icon-pill">
+              <FileText size={20} />
             </div>
-            <span className="kpi-tag tag-danger">{stats.contractStats.expiringSoon} Expiring Soon</span>
+          </div>
+          <div className="kpi-value">{stats.contractStats.activeContracts} Active</div>
+          <div className="kpi-footer">
+            <span className="kpi-subtext">{formatAbbreviatedCurrency(stats.contractStats.activeContractValue)} Active Val • {stats.contractStats.expiringSoon} Expiring Soon</span>
           </div>
         </div>
 
         {/* KPI 4: Pending Approvals / Operational Queue */}
         <div className="dash-kpi-card" onClick={() => setTableTab('pending')} style={{ cursor: 'pointer' }}>
-          <div className="kpi-accent-bar kpi-accent-amber" />
+          <div className="kpi-accent-bar" />
           <div className="kpi-top-row">
             <span className="kpi-title">Pending Approvals</span>
-            <div className="kpi-icon-pill pill-amber">⚡</div>
-          </div>
-          <div className="kpi-value kpi-val-amber">{stats.purchaseOrderStats.pendingOrders + stats.vendorStats.pendingApprovalVendors}</div>
-          <div className="kpi-footer">
-            <div className="kpi-sub-badges">
-              <span className="kpi-tag tag-warning">{stats.purchaseOrderStats.pendingOrders} Purchase Orders</span>
-              <span className="kpi-tag tag-neutral">{stats.vendorStats.pendingApprovalVendors} Vendors</span>
+            <div className="kpi-icon-pill">
+              <Zap size={20} />
             </div>
-            <span className="kpi-tag tag-danger">Requires Action</span>
+          </div>
+          <div className="kpi-value">{stats.purchaseOrderStats.pendingOrders + stats.vendorStats.pendingApprovalVendors}</div>
+          <div className="kpi-footer">
+            <span className="kpi-subtext">{stats.purchaseOrderStats.pendingOrders} Orders • {stats.vendorStats.pendingApprovalVendors} Vendors Pending</span>
           </div>
         </div>
       </section>
@@ -503,12 +512,12 @@ export default function Dashboard({ setActiveTab }) {
             >
               <defs>
                 <linearGradient id="barGradientBlue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#00D4E5" stopOpacity="0.95" />
-                  <stop offset="100%" stopColor="#1265FF" stopOpacity="0.4" />
+                  <stop offset="0%" stopColor="#6366F1" stopOpacity="0.95" />
+                  <stop offset="100%" stopColor="#4F46E5" stopOpacity="0.4" />
                 </linearGradient>
                 <linearGradient id="barGradientGreen" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#00F0A8" stopOpacity="0.95" />
-                  <stop offset="100%" stopColor="#10b981" stopOpacity="0.4" />
+                  <stop offset="0%" stopColor="#818CF8" stopOpacity="0.95" />
+                  <stop offset="100%" stopColor="#6366F1" stopOpacity="0.4" />
                 </linearGradient>
               </defs>
 
@@ -574,7 +583,7 @@ export default function Dashboard({ setActiveTab }) {
                       y="200"
                       textAnchor="middle"
                       className="chart-axis-text"
-                      style={{ fontWeight: isHovered ? 700 : 500, fill: isHovered ? '#38bdf8' : '#94a3b8' }}
+                      style={{ fontWeight: isHovered ? 700 : 500, fill: isHovered ? '#818CF8' : '#94a3b8' }}
                     >
                       {d.monthName}
                     </text>
@@ -694,7 +703,9 @@ export default function Dashboard({ setActiveTab }) {
 
           {/* Quick Highlight Alert Pill */}
           <div className="breakdown-highlight-box">
-            <span className="highlight-box-icon">🛡️</span>
+            <span className="highlight-box-icon" style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <ShieldCheck size={28} color="#34d399" />
+            </span>
             <div>
               <div className="highlight-box-title">Supplier SLA Compliance: 96.4%</div>
               <p className="highlight-box-desc">
@@ -743,7 +754,9 @@ export default function Dashboard({ setActiveTab }) {
           </nav>
 
           <div className="dash-tables-search">
-            <span>🔍</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <Search size={16} />
+            </span>
             <input
               type="text"
               placeholder={`Search ${tableTab.replace('_', ' ')}...`}
@@ -773,7 +786,9 @@ export default function Dashboard({ setActiveTab }) {
                   <tr>
                     <td colSpan="7">
                       <div className="dash-empty-state">
-                        <div className="empty-icon">✓</div>
+                        <div className="empty-icon">
+                          <CheckCircle size={36} color="#10b981" />
+                        </div>
                         <div className="empty-title">No pending orders matching filter</div>
                         <p className="empty-desc">All purchase orders have been processed.</p>
                       </div>
@@ -792,10 +807,10 @@ export default function Dashboard({ setActiveTab }) {
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <button
                             className="dash-action-btn"
-                            style={{ backgroundColor: '#0284c7', color: '#fff', borderColor: '#0284c7' }}
+                            style={{ backgroundColor: '#0284c7', color: '#E2E8F0', borderColor: '#0284c7', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
                             onClick={() => handleApprovePO(po.id, po.orderNumber)}
                           >
-                            ✓ Approve
+                            <Check size={14} /> Approve
                           </button>
                           <button
                             className="dash-action-btn"
@@ -831,7 +846,9 @@ export default function Dashboard({ setActiveTab }) {
                   <tr>
                     <td colSpan="8">
                       <div className="dash-empty-state">
-                        <div className="empty-icon">📜</div>
+                        <div className="empty-icon">
+                          <FileText size={36} />
+                        </div>
                         <div className="empty-title">No upcoming expiring contracts</div>
                         <p className="empty-desc">All active contracts have 30+ days remaining.</p>
                       </div>
@@ -845,8 +862,9 @@ export default function Dashboard({ setActiveTab }) {
                       <td>{c.vendorName}</td>
                       <td>{c.endDate}</td>
                       <td>
-                        <span className={`expiry-countdown ${c.daysLeft && c.daysLeft <= 10 ? 'urgent' : ''}`}>
-                          ⏳ {c.daysLeft ? `${c.daysLeft} days` : 'Expiring soon'}
+                        <span className={`expiry-countdown ${c.daysLeft && c.daysLeft <= 10 ? 'urgent' : ''}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          <Clock size={12} />
+                          <span>{c.daysLeft ? `${c.daysLeft} days` : 'Expiring soon'}</span>
                         </span>
                       </td>
                       <td className="table-cell-bold">{formatCurrency(c.contractValue)}</td>
@@ -883,7 +901,9 @@ export default function Dashboard({ setActiveTab }) {
                   <tr>
                     <td colSpan="6">
                       <div className="dash-empty-state">
-                        <div className="empty-icon">📦</div>
+                        <div className="empty-icon">
+                          <Package size={36} />
+                        </div>
                         <div className="empty-title">No recent orders found</div>
                       </div>
                     </td>
@@ -930,7 +950,9 @@ export default function Dashboard({ setActiveTab }) {
                   <tr>
                     <td colSpan="8">
                       <div className="dash-empty-state">
-                        <div className="empty-icon">🏢</div>
+                        <div className="empty-icon">
+                          <Building2 size={36} />
+                        </div>
                         <div className="empty-title">No vendors found</div>
                       </div>
                     </td>
@@ -945,7 +967,9 @@ export default function Dashboard({ setActiveTab }) {
                       <td>{v.phone}</td>
                       <td>
                         <span className="rating-pill">
-                          <span className="star-icon">★</span>
+                          <span className="star-icon">
+                            <Star size={13} fill="currentColor" />
+                          </span>
                           <span>{v.rating ? v.rating.toFixed(1) : 'N/A'}</span>
                         </span>
                       </td>
@@ -1058,7 +1082,9 @@ export default function Dashboard({ setActiveTab }) {
                   </div>
                   <div className="modal-detail-row">
                     <span className="detail-label">Rating</span>
-                    <span className="detail-value">★ {modalItem.data.rating} / 5.0</span>
+                    <span className="detail-value" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      <Star size={13} fill="currentColor" className="star-icon" /> {modalItem.data.rating} / 5.0
+                    </span>
                   </div>
                 </>
               )}

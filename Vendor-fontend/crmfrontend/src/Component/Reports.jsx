@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import { Star } from 'lucide-react';
 import '../Styles/Reports.css';
 
 const DASH_API = 'http://localhost:8080/api/dashboard';
@@ -117,10 +118,10 @@ function BarChart({ data, labelKey = 'monthName' }) {
       style={{
         marginTop: '16px',
         background: '#07172B',
-        border: '1px solid rgba(0, 212, 229, 0.25)',
+        border: '1px solid rgba(99, 102, 241, 0.25)',
         borderRadius: '16px',
         padding: '20px 24px',
-        boxShadow: '0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 212, 229, 0.08)'
+        boxShadow: '0 8px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.08)'
       }}
     >
       <div
@@ -134,7 +135,7 @@ function BarChart({ data, labelKey = 'monthName' }) {
         }}
       >
         <div>
-          <h4 style={{ margin: 0, color: '#f8fafc', fontSize: '1.05rem', fontWeight: 800, letterSpacing: '-0.01em' }}>
+          <h4 style={{ margin: 0, color: '#E2E8F0', fontSize: '1.05rem', fontWeight: 800, letterSpacing: '-0.01em' }}>
             Monthly Procurement Trend Analytics
           </h4>
           <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
@@ -147,7 +148,7 @@ function BarChart({ data, labelKey = 'monthName' }) {
             background: '#020B1A',
             padding: '3px',
             borderRadius: '8px',
-            border: '1px solid rgba(0, 212, 229, 0.2)'
+            border: '1px solid rgba(99, 102, 241, 0.2)'
           }}
         >
           <button
@@ -160,9 +161,9 @@ function BarChart({ data, labelKey = 'monthName' }) {
               fontSize: '0.78rem',
               fontWeight: 700,
               cursor: 'pointer',
-              background: activeMetric === 'orders' ? 'linear-gradient(90deg, #00D4E5 0%, #1265FF 100%)' : 'transparent',
+              background: activeMetric === 'orders' ? 'linear-gradient(90deg, #6366F1 0%, #1265FF 100%)' : 'transparent',
               color: activeMetric === 'orders' ? '#ffffff' : '#94a3b8',
-              boxShadow: activeMetric === 'orders' ? '0 0 10px rgba(0, 212, 229, 0.4)' : 'none',
+              boxShadow: activeMetric === 'orders' ? '0 0 10px rgba(99, 102, 241, 0.4)' : 'none',
               transition: 'all 0.2s ease'
             }}
           >
@@ -178,9 +179,9 @@ function BarChart({ data, labelKey = 'monthName' }) {
               fontSize: '0.78rem',
               fontWeight: 700,
               cursor: 'pointer',
-              background: activeMetric === 'spend' ? 'linear-gradient(90deg, #00D4E5 0%, #1265FF 100%)' : 'transparent',
+              background: activeMetric === 'spend' ? 'linear-gradient(90deg, #6366F1 0%, #1265FF 100%)' : 'transparent',
               color: activeMetric === 'spend' ? '#ffffff' : '#94a3b8',
-              boxShadow: activeMetric === 'spend' ? '0 0 10px rgba(0, 212, 229, 0.4)' : 'none',
+              boxShadow: activeMetric === 'spend' ? '0 0 10px rgba(99, 102, 241, 0.4)' : 'none',
               transition: 'all 0.2s ease'
             }}
           >
@@ -197,18 +198,18 @@ function BarChart({ data, labelKey = 'monthName' }) {
               top: '10px',
               right: '20px',
               background: '#020B1A',
-              color: '#ffffff',
+              color: '#E2E8F0',
               padding: '10px 16px',
               borderRadius: '12px',
               fontSize: '0.82rem',
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(0, 212, 229, 0.25)',
-              border: '1px solid #00D4E5',
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(99, 102, 241, 0.25)',
+              border: '1px solid #6366F1',
               pointerEvents: 'none',
               zIndex: 10,
               animation: 'fadeIn 0.15s ease'
             }}
           >
-            <div style={{ fontWeight: 800, color: '#00D4E5', marginBottom: '2px', fontSize: '0.88rem' }}>
+            <div style={{ fontWeight: 800, color: '#6366F1', marginBottom: '2px', fontSize: '0.88rem' }}>
               {data[hoveredIdx].monthName}
             </div>
             <div>Orders: <strong>{data[hoveredIdx].orderCount || 0}</strong></div>
@@ -224,7 +225,7 @@ function BarChart({ data, labelKey = 'monthName' }) {
         >
           <defs>
             <linearGradient id="repBarGradCyan" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#00D4E5" stopOpacity="0.95" />
+              <stop offset="0%" stopColor="#6366F1" stopOpacity="0.95" />
               <stop offset="100%" stopColor="#1265FF" stopOpacity="0.4" />
             </linearGradient>
             <linearGradient id="repBarGradGreen" x1="0" y1="0" x2="0" y2="1">
@@ -242,7 +243,7 @@ function BarChart({ data, labelKey = 'monthName' }) {
                 : Math.round(maxOrders * ratio);
             return (
               <g key={idx}>
-                <line x1="45" y1={y} x2="705" y2={y} stroke="rgba(0, 212, 229, 0.15)" strokeDasharray="4 4" />
+                <line x1="45" y1={y} x2="705" y2={y} stroke="rgba(99, 102, 241, 0.15)" strokeDasharray="4 4" />
                 <text x="38" y={y + 4} textAnchor="end" fill="#94a3b8" fontSize="11px" fontWeight="500">
                   {label}
                 </text>
@@ -277,14 +278,14 @@ function BarChart({ data, labelKey = 'monthName' }) {
                   ry="4"
                   fill={activeMetric === 'spend' ? 'url(#repBarGradGreen)' : 'url(#repBarGradCyan)'}
                   opacity={hoveredIdx !== null && !isHovered ? 0.45 : 1}
-                  filter={isHovered ? 'drop-shadow(0 0 10px rgba(0, 212, 229, 0.8))' : 'none'}
+                  filter={isHovered ? 'drop-shadow(0 0 10px rgba(99, 102, 241, 0.8))' : 'none'}
                   style={{ transition: 'all 0.2s ease' }}
                 />
                 <text
                   x={x + barWidth / 2}
                   y="200"
                   textAnchor="middle"
-                  fill={isHovered ? '#00D4E5' : '#94a3b8'}
+                  fill={isHovered ? '#6366F1' : '#94a3b8'}
                   fontSize="11px"
                   fontWeight={isHovered ? 700 : 500}
                 >
@@ -722,8 +723,9 @@ function Reports() {
                         </span>
                       </td>
                       <td>
-                        <span className="rep-rating">
-                          ★ {Number(v.rating || 0).toFixed(1)}
+                        <span className="rep-rating" style={{ display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
+                          <Star size={12} fill="currentColor" />
+                          <span>{Number(v.rating || 0).toFixed(1)}</span>
                         </span>
                       </td>
                     </tr>
