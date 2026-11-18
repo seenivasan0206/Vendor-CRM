@@ -1,49 +1,56 @@
-import { useState } from 'react';
-import { Star, Plus, X } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Star, Plus, X, RefreshCw, CheckCircle, Trash2, RotateCw } from 'lucide-react';
 import '../Styles/Vendorperformance.css';
+import { authService } from '../services/authService';
+
+const PERF_API_BASE = 'http://localhost:8080/api/vendor-performance';
+const VENDOR_API_BASE = 'http://localhost:8080/api/vendors';
 
 const SAMPLE_REVIEWS = [
   {
     id: 1,
-    vendorCompanyName: 'Global Apex Logistics',
-    vendorCode: 'VEND-GLOBAL-01',
-    reviewPeriod: 'Q3 2026',
-    reviewDate: '2026-11-05',
+    vendorId: 1,
+    vendorCompanyName: 'Acme Industrial Supplies',
+    vendorCode: 'VEN-001',
+    reviewPeriod: 'Q4 2026',
+    reviewDate: '2026-11-15',
     qualityScore: 4.8,
-    deliveryScore: 4.5,
-    pricingScore: 4.2,
+    deliveryScore: 4.6,
+    pricingScore: 4.5,
     communicationScore: 4.7,
-    complianceScore: 4.8,
-    overallScore: 4.6,
-    comments: 'Consistently delivers high-grade IoT sensors with zero defect return rate.',
+    complianceScore: 4.9,
+    overallScore: 4.7,
+    comments: 'Outstanding turnaround speed on mechanical fasteners and heavy machinery.',
   },
   {
     id: 2,
-    vendorCompanyName: 'Tech Supplies Global Pvt Ltd',
-    vendorCode: 'VEND-001',
+    vendorId: 2,
+    vendorCompanyName: 'Apex Cloud Solutions',
+    vendorCode: 'VEN-002',
     reviewPeriod: 'Q3 2026',
     reviewDate: '2026-10-28',
-    qualityScore: 4.6,
+    qualityScore: 4.9,
     deliveryScore: 4.8,
-    pricingScore: 4.5,
-    communicationScore: 4.3,
-    complianceScore: 4.6,
-    overallScore: 4.6,
-    comments: 'Superb on-time shipping for hardware batches. Very dependable.',
+    pricingScore: 4.6,
+    communicationScore: 4.9,
+    complianceScore: 4.8,
+    overallScore: 4.8,
+    comments: 'High reliability on cloud firewall throughput and 24/7 technical support.',
   },
   {
     id: 3,
-    vendorCompanyName: 'Apex Packaging Corp',
-    vendorCode: 'VEND-003',
-    reviewPeriod: 'Q2 2026',
-    reviewDate: '2026-07-15',
-    qualityScore: 3.5,
-    deliveryScore: 3.2,
-    pricingScore: 3.8,
-    communicationScore: 3.5,
-    complianceScore: 4.0,
-    overallScore: 3.6,
-    comments: 'Minor delays observed during monsoon shipment cycles. Action plan requested.',
+    vendorId: 3,
+    vendorCompanyName: 'Global Logistics Corp',
+    vendorCode: 'VEN-003',
+    reviewPeriod: 'Q3 2026',
+    reviewDate: '2026-09-15',
+    qualityScore: 4.3,
+    deliveryScore: 4.4,
+    pricingScore: 4.2,
+    communicationScore: 4.5,
+    complianceScore: 4.6,
+    overallScore: 4.4,
+    comments: 'Dependable container shipping and warehouse material handling operations.',
   },
 ];
 
@@ -56,10 +63,17 @@ function getRatingBadge(score) {
 
 function Vendorperformance() {
   const [reviews, setReviews] = useState(SAMPLE_REVIEWS);
+  const [vendors, setVendors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLiveBackend, setIsLiveBackend] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [formData, setFormData] = useState({
-    vendorCompanyName: '',
-    vendorCode: '',
+    vendorId: '1',
+    vendorCompanyName: 'Acme Industrial Supplies',
+    vendorCode: 'VEN-001',
     reviewPeriod: 'Q4 2026',
     reviewDate: new Date().toISOString().split('T')[0],
     qualityScore: 4.5,
@@ -70,22 +84,91 @@ function Vendorperformance() {
     comments: '',
   });
 
+  const showToast = (msg) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 3500);
+  };
+
+  const fetchReviews = useCallback(async (isManual = false) => {
+    try {
+      setIsLoading(true);
+      const headers = authService.getAuthHeaders();
+      const res = await fetch(`${PERF_API_BASE}?size=50`, { headers });
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+
+      const body = await res.json();
+      const list = body?.data?.content || body?.data || [];
+
+      if (Array.isArray(list) && list.length > 0) {
+        setReviews(list);
+        setIsLiveBackend(true);
+        if (isManual) showToast('Performance reviews synced with live database.');
+      } else {
+        setReviews(SAMPLE_REVIEWS);
+        setIsLiveBackend(true);
+        if (isManual) showToast('Live backend connected (no reviews found, showing defaults).');
+      }
+    } catch (err) {
+      console.warn('Performance API offline or unreachable:', err.message);
+      setIsLiveBackend(false);
+      if (isManual) showToast('Backend API unreachable. Running in offline fallback mode.');
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  const fetchVendors = useCallback(async () => {
+    try {
+      const headers = authService.getAuthHeaders();
+      const res = await fetch(`${VENDOR_API_BASE}?size=100`, { headers });
+      if (res.ok) {
+        const body = await res.json();
+        const list = body?.data?.content || body?.data || [];
+        if (Array.isArray(list) && list.length > 0) {
+          setVendors(list);
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchReviews(false);
+    fetchVendors();
+  }, [fetchReviews, fetchVendors]);
+
   // Summary Metrics
   const totalReviews = reviews.length;
   const avgOverallScore = (
-    reviews.reduce((sum, r) => sum + r.overallScore, 0) / (totalReviews || 1)
+    reviews.reduce((sum, r) => sum + (Number(r.overallScore) || 0), 0) / (totalReviews || 1)
   ).toFixed(1);
-  const topTierCount = reviews.filter((r) => r.overallScore >= 4.5).length;
+  const topTierCount = reviews.filter((r) => (Number(r.overallScore) || 0) >= 4.5).length;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === 'vendorId') {
+      const selected = vendors.find((v) => String(v.id) === String(value));
+      setFormData((prev) => ({
+        ...prev,
+        vendorId: value,
+        vendorCompanyName: selected ? selected.companyName : prev.vendorCompanyName,
+        vendorCode: selected ? selected.vendorCode : prev.vendorCode,
+      }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleOpenModal = () => {
+    const firstVendor = vendors[0] || { id: 1, companyName: 'Acme Industrial Supplies', vendorCode: 'VEN-001' };
     setFormData({
-      vendorCompanyName: '',
-      vendorCode: '',
+      vendorId: String(firstVendor.id),
+      vendorCompanyName: firstVendor.companyName,
+      vendorCode: firstVendor.vendorCode,
       reviewPeriod: 'Q4 2026',
       reviewDate: new Date().toISOString().split('T')[0],
       qualityScore: 4.5,
@@ -98,7 +181,7 @@ function Vendorperformance() {
     setIsModalOpen(true);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const q = Number(formData.qualityScore);
@@ -108,42 +191,166 @@ function Vendorperformance() {
     const comp = Number(formData.complianceScore);
     const overall = Number(((q + d + p + c + comp) / 5).toFixed(1));
 
-    const newReview = {
-      id: Date.now(),
-      vendorCompanyName: formData.vendorCompanyName.trim(),
-      vendorCode: formData.vendorCode.trim() || 'VEND-NEW',
-      reviewPeriod: formData.reviewPeriod,
+    const payload = {
+      vendorId: Number(formData.vendorId),
       reviewDate: formData.reviewDate,
+      reviewPeriod: formData.reviewPeriod,
       qualityScore: q,
       deliveryScore: d,
       pricingScore: p,
       communicationScore: c,
       complianceScore: comp,
-      overallScore: overall,
       comments: formData.comments.trim(),
     };
 
-    setReviews((prev) => [newReview, ...prev]);
-    setIsModalOpen(false);
+    try {
+      setIsSubmitting(true);
+      const headers = authService.getAuthHeaders();
+      const res = await fetch(PERF_API_BASE, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        showToast('Performance review recorded successfully in live database!');
+        setIsModalOpen(false);
+        fetchReviews(false);
+
+        // Also sync vendor rating
+        fetch(`${PERF_API_BASE}/vendor/${formData.vendorId}/sync-rating`, {
+          method: 'POST',
+          headers,
+        }).catch(() => null);
+        return;
+      }
+      throw new Error(`HTTP ${res.status}`);
+    } catch {
+      // Local fallback
+      const newReview = {
+        id: Date.now(),
+        vendorId: Number(formData.vendorId),
+        vendorCompanyName: formData.vendorCompanyName.trim(),
+        vendorCode: formData.vendorCode.trim() || 'VEN-NEW',
+        reviewPeriod: formData.reviewPeriod,
+        reviewDate: formData.reviewDate,
+        qualityScore: q,
+        deliveryScore: d,
+        pricingScore: p,
+        communicationScore: c,
+        complianceScore: comp,
+        overallScore: overall,
+        comments: formData.comments.trim(),
+      };
+      setReviews((prev) => [newReview, ...prev]);
+      showToast('Performance review saved locally.');
+      setIsModalOpen(false);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this performance review?')) return;
+    try {
+      const headers = authService.getAuthHeaders();
+      const res = await fetch(`${PERF_API_BASE}/${id}`, {
+        method: 'DELETE',
+        headers,
+      });
+      if (res.ok) {
+        showToast('Review deleted successfully.');
+        fetchReviews(false);
+        return;
+      }
+    } catch {
+      // local removal
+    }
+    setReviews((prev) => prev.filter((r) => r.id !== id));
+    showToast('Review removed locally.');
   };
 
   return (
     <div className="perf-container">
+      {/* Toast Notification */}
+      {toastMessage && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '24px',
+            backgroundColor: '#07172B',
+            border: '1px solid #6366F1',
+            color: '#E2E8F0',
+            padding: '12px 20px',
+            borderRadius: '10px',
+            boxShadow: '0 8px 30px rgba(0,0,0,0.6)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            fontSize: '0.9rem',
+          }}
+        >
+          <CheckCircle size={18} color="#34d399" />
+          <span>{toastMessage}</span>
+        </div>
+      )}
+
       {/* 1. Page Header */}
       <div className="perf-header">
         <div>
-          <h2>Vendor Performance & Ratings</h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <h2>Vendor Performance & Ratings</h2>
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                fontSize: '0.72rem',
+                fontWeight: 600,
+                padding: '3px 8px',
+                borderRadius: '9999px',
+                backgroundColor: isLiveBackend ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)',
+                color: isLiveBackend ? '#34d399' : '#fbbf24',
+                border: isLiveBackend ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(245, 158, 11, 0.3)',
+              }}
+            >
+              <span
+                style={{
+                  width: '6px',
+                  height: '6px',
+                  borderRadius: '50%',
+                  backgroundColor: isLiveBackend ? '#34d399' : '#fbbf24',
+                }}
+              />
+              {isLiveBackend ? 'Live Backend Connected' : 'Demo Fallback'}
+            </span>
+          </div>
           <p>Scorecards, delivery SLA benchmarks, and compliance reviews.</p>
         </div>
-        <button
-          type="button"
-          className="perf-btn-primary"
-          onClick={handleOpenModal}
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-        >
-          <Plus size={15} />
-          <span>Record Review</span>
-        </button>
+
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+          <button
+            type="button"
+            className="perf-btn-secondary"
+            onClick={() => fetchReviews(true)}
+            disabled={isLoading}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+          >
+            <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
+            <span>{isLoading ? 'Syncing...' : 'Sync'}</span>
+          </button>
+          <button
+            type="button"
+            className="perf-btn-primary"
+            onClick={handleOpenModal}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+          >
+            <Plus size={15} />
+            <span>Record Review</span>
+          </button>
+        </div>
       </div>
 
       {/* 2. KPI Summary Cards */}
@@ -176,11 +383,12 @@ function Vendorperformance() {
               <th>Compliance</th>
               <th>Overall Score</th>
               <th>Rating Tier</th>
+              <th style={{ textAlign: 'right' }}>Action</th>
             </tr>
           </thead>
           <tbody>
             {reviews.map((r) => {
-              const badge = getRatingBadge(r.overallScore);
+              const badge = getRatingBadge(Number(r.overallScore) || 0);
               return (
                 <tr key={r.id}>
                   <td>
@@ -188,19 +396,38 @@ function Vendorperformance() {
                     <div className="perf-vendor-code">{r.vendorCode}</div>
                   </td>
                   <td>{r.reviewPeriod}</td>
-                  <td>{r.qualityScore.toFixed(1)}</td>
-                  <td>{r.deliveryScore.toFixed(1)}</td>
-                  <td>{r.pricingScore.toFixed(1)}</td>
-                  <td>{r.communicationScore.toFixed(1)}</td>
-                  <td>{r.complianceScore.toFixed(1)}</td>
+                  <td>{(Number(r.qualityScore) || 0).toFixed(1)}</td>
+                  <td>{(Number(r.deliveryScore) || 0).toFixed(1)}</td>
+                  <td>{(Number(r.pricingScore) || 0).toFixed(1)}</td>
+                  <td>{(Number(r.communicationScore) || 0).toFixed(1)}</td>
+                  <td>{(Number(r.complianceScore) || 0).toFixed(1)}</td>
                   <td className="perf-overall-score">
-                    <strong>{r.overallScore.toFixed(1)}</strong> / 5.0
+                    <strong>{(Number(r.overallScore) || 0).toFixed(1)}</strong> / 5.0
                   </td>
                   <td>
                     <span className={`perf-badge ${badge.className}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                       <Star size={11} fill="currentColor" />
                       <span>{badge.label}</span>
                     </span>
+                  </td>
+                  <td style={{ textAlign: 'right' }}>
+                    <button
+                      type="button"
+                      onClick={() => handleDelete(r.id)}
+                      style={{
+                        background: 'transparent',
+                        border: 'none',
+                        color: '#94a3b8',
+                        cursor: 'pointer',
+                        padding: '4px',
+                        borderRadius: '4px',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                      }}
+                      title="Delete review"
+                    >
+                      <Trash2 size={15} />
+                    </button>
                   </td>
                 </tr>
               );
@@ -228,28 +455,28 @@ function Vendorperformance() {
             <form onSubmit={handleSubmit} className="perf-form">
               <div className="perf-form-grid">
                 <div className="perf-form-group">
-                  <label htmlFor="vendorCompanyName">Vendor Company Name *</label>
-                  <input
-                    id="vendorCompanyName"
-                    name="vendorCompanyName"
-                    type="text"
-                    placeholder="e.g. Acme Tech Solutions"
-                    value={formData.vendorCompanyName}
+                  <label htmlFor="vendorId">Select Vendor *</label>
+                  <select
+                    id="vendorId"
+                    name="vendorId"
+                    value={formData.vendorId}
                     onChange={handleChange}
                     required
-                  />
-                </div>
-
-                <div className="perf-form-group">
-                  <label htmlFor="vendorCode">Vendor Code</label>
-                  <input
-                    id="vendorCode"
-                    name="vendorCode"
-                    type="text"
-                    placeholder="e.g. VEND-004"
-                    value={formData.vendorCode}
-                    onChange={handleChange}
-                  />
+                  >
+                    {vendors.length > 0 ? (
+                      vendors.map((v) => (
+                        <option key={v.id} value={v.id}>
+                          {v.companyName} ({v.vendorCode})
+                        </option>
+                      ))
+                    ) : (
+                      <>
+                        <option value="1">Acme Industrial Supplies (VEN-001)</option>
+                        <option value="2">Apex Cloud Solutions (VEN-002)</option>
+                        <option value="3">Global Logistics Corp (VEN-003)</option>
+                      </>
+                    )}
+                  </select>
                 </div>
 
                 <div className="perf-form-group">
@@ -369,11 +596,12 @@ function Vendorperformance() {
                   type="button"
                   className="perf-btn-secondary"
                   onClick={() => setIsModalOpen(false)}
+                  disabled={isSubmitting}
                 >
                   Cancel
                 </button>
-                <button type="submit" className="perf-btn-primary">
-                  Save Review
+                <button type="submit" className="perf-btn-primary" disabled={isSubmitting}>
+                  {isSubmitting ? 'Saving...' : 'Save Review'}
                 </button>
               </div>
             </form>
